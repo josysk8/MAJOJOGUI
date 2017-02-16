@@ -14,7 +14,7 @@ public partial class Accueil : System.Web.UI.Page
 
     protected void btnCreerDevis_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("NouveauDevis.aspx");
     }
 
     protected void btnBrouillonDevis_Click(object sender, EventArgs e)
