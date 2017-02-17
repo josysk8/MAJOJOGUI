@@ -27,3 +27,8 @@ textarea {
         padding: 0;
     }
 }
+
+.Modal 
+{
+    border : 2px solid black;
+}
