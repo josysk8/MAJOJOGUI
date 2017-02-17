@@ -2,17 +2,17 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
-        <asp:Label ID="lblNomProjet" runat="server" Text="Nom du projet"></asp:Label>
-        <asp:TextBox ID="txtNomProjet" runat="server"></asp:TextBox>
+        <asp:Label ID="LblNomProjet" runat="server" Text="Nom du projet"></asp:Label>
+        <asp:TextBox ID="TxtNomProjet" runat="server"></asp:TextBox>
         <br />
-        <asp:Label ID="lblClient" runat="server" Text="Nom du client"></asp:Label>
-        <asp:DropDownList ID="selectClient" runat="server">
+        <asp:Label ID="LblClient" runat="server" Text="Nom du client"></asp:Label>
+        <asp:DropDownList ID="SelectClient" runat="server">
         </asp:DropDownList>
         <br />
-        <asp:HyperLink ID="lienNouveauClient" runat="server">Nouveau Client</asp:HyperLink>
+        <asp:HyperLink ID="LienNouveauClient" runat="server">Nouveau Client</asp:HyperLink>
         <br />
         <br />
-        <asp:Button ID="btnRetour" runat="server" Text="Retour" OnClick="btnRetour_Click" />
-        <asp:Button ID="btnConfirmer" runat="server" Text="Confirmer" OnClick="btnConfirmer_Click" />
+        <asp:Button ID="BtnRetour" runat="server" Text="Retour" OnClick="btnRetour_Click" />
+        <asp:Button ID="BtnConfirmer" runat="server" Text="Confirmer" OnClick="btnConfirmer_Click" />
     </div>
 </asp:Content>
