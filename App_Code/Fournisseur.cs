@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+/// <summary>
+/// Description résumée de Fournisseur
+/// </summary>
+public class Fournisseur
+{
+    private int id;
+    private String siret;
+    private String siren;
+
+    protected int Id
+    {
+        get
+        {
+            return id;
+        }
+
+        set
+        {
+            id = value;
+        }
+    }
+
+    protected string Siret
+    {
+        get
+        {
+            return siret;
+        }
+
+        set
+        {
+            siret = value;
+        }
+    }
+
+    protected string Siren
+    {
+        get
+        {
+            return siren;
+        }
+
+        set
+        {
+            siren = value;
+        }
+    }
+
+    public Fournisseur()
+    {
+        //
+        // TODO: Add constructor logic here
+        //
+    }
+}

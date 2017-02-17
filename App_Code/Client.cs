@@ -8,51 +8,7 @@ using System.Web;
 /// </summary>
 public class Client
 {
-    private String nomProjet;
-    private String nomClient;
-    private double prixDevisPrevision;
-
-    #region accesseur
-    public string NomProjet
-    {
-        get
-        {
-            return nomProjet;
-        }
-
-        set
-        {
-            nomProjet = value;
-        }
-    }
-
-    public string NomClient
-    {
-        get
-        {
-            return nomClient;
-        }
-
-        set
-        {
-            nomClient = value;
-        }
-    }
-
-    public double PrixDevisPrevision
-    {
-        get
-        {
-            return prixDevisPrevision;
-        }
-
-        set
-        {
-            prixDevisPrevision = value;
-        }
-    }
-
-    #endregion
+    private int id;
 
     #region constructer
     public Client()
@@ -74,6 +30,19 @@ public class Client
         this.nomProjet = nomProjet;
         this.nomClient = nomClient;
         this.prixDevisPrevision = prixDevisPrevision;
+    }
+
+    protected int Id
+    {
+        get
+        {
+            return id;
+        }
+
+        set
+        {
+            id = value;
+        }
     }
 
 
