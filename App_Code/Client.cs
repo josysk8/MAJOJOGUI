@@ -8,43 +8,10 @@ using System.Web;
 /// </summary>
 public class Client
 {
-    private int id;
+    private int id { get; set; }
+    public virtual ICollection<ContactClient> listeContactClient { get; set; }
 
-    #region constructer
     public Client()
     {
-    //
-    // TODO: Add constructor logic here
-    //
-}
-
-    public Client(string nomProjet, string nomClient)
-    {
-        this.nomProjet = nomProjet;
-        this.nomClient = nomClient;
-        this.prixDevisPrevision = 0;
     }
-
-    public Client(string nomProjet, string nomClient, double prixDevisPrevision)
-    {
-        this.nomProjet = nomProjet;
-        this.nomClient = nomClient;
-        this.prixDevisPrevision = prixDevisPrevision;
-    }
-
-    protected int Id
-    {
-        get
-        {
-            return id;
-        }
-
-        set
-        {
-            id = value;
-        }
-    }
-
-
-    #endregion
 }

@@ -14,7 +14,9 @@ public class Devis
     private string nomProjet;
     private String reference;
     private short etat;
+    private Client client;
 
+    #region accesseur
     protected int Id
     {
         get
@@ -93,10 +95,31 @@ public class Devis
         }
     }
 
+    public Client Client
+    {
+        get
+        {
+            return client;
+        }
+
+        set
+        {
+            client = value;
+        }
+    }
+    #endregion
+    #region constructeur
     public Devis()
     {
         //
         // TODO: Add constructor logic here
         //
     }
+
+    public Devis(string nomProjet, Client SelectedClient)
+    {
+        this.NomProjet = nomProjet;
+        this.Client = SelectedClient;
+    }
+    #endregion
 }

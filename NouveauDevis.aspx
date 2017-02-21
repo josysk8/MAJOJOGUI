@@ -9,7 +9,7 @@
         <asp:DropDownList ID="SelectClient" runat="server">
         </asp:DropDownList>
         <br />
-        <asp:HyperLink ID="LienNouveauClient" runat="server">Nouveau Client</asp:HyperLink>
+        <asp:HyperLink ID="LienNouveauClient" NavigateUrl="/nouveauClient" runat="server">Nouveau Client</asp:HyperLink>
         <br />
         <br />
         <asp:Button ID="BtnRetour" runat="server" Text="Retour" OnClick="btnRetour_Click" />

@@ -25,8 +25,12 @@ public partial class NouveauDevis : System.Web.UI.Page
 
     protected void btnConfirmer_Click(object sender, EventArgs e)
     {
-        Client recordedClient = new Client(TxtNomProjet.Text, "Jean Pierre Papin");
+        //Envoi d'un type client
+        /*
+        Client clientFromSelect = 
+        Devis recordedClient = new Devis(TxtNomProjet.Text, clientFromSelect);
         Session["currentDevis"] = recordedClient;
         Response.Redirect("ListeProduit.aspx");
+        */
     }
 }

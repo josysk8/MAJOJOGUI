@@ -13,10 +13,12 @@ public partial class ListeProduit : System.Web.UI.Page
     {
         if (null != Session["currentDevis"])
         {
-            Client recordedDevis = (Client)Session["currentDevis"];
-            LblNomClient.Text = recordedDevis.NomClient;
+            Devis recordedDevis = (Devis)Session["currentDevis"];
+            /*
+            LblNomClient.Text = recordedDevis.Client;
             LblNomProjet.Text = recordedDevis.NomProjet;
             LblPrix.Text = recordedDevis.PrixDevisPrevision.ToString();
+            */
         }
     }
 
@@ -27,6 +29,7 @@ public partial class ListeProduit : System.Web.UI.Page
 
     protected void BtnModalConfirmer_Click(object sender, EventArgs e)
     {
+        // Utiliser la session pour repasser la liste à chaque refresh
         Label myLabel = new Label();
         myLabel.Text = TxtModalNomProduit.Text;
         String nextKey = "produit" + produits.Count.ToString();

@@ -127,4 +127,15 @@ public class Contact
         // TODO: Add constructor logic here
         //
     }
+
+    public Contact(string nom, string telephone, string email, string adresse, string adresse2, string cp, string ville)
+    {
+        this.nom = nom;
+        this.telephone = telephone;
+        this.email = email;
+        this.adresse = adresse;
+        this.adresse2 = adresse2;
+        this.cp = cp;
+        this.ville = ville;
+    }
 }
