@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using Madera.DAL;
 
 namespace Madera.DAL
 {
-    public class MaderaInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<MaderaContext>
+    public class MaderaInitializer : DropCreateDatabaseAlways<MaderaContext> //DropCreateDatabaseIfModelChanges<MaderaContext>
     {
         protected override void Seed(MaderaContext context)
         {

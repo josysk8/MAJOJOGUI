@@ -8,6 +8,7 @@ namespace Madera.DAL
 
         public MaderaContext() : base("MaderaContext")
         {
+            Database.SetInitializer(new NullDatabaseInitializer<MaderaContext>());
         }
 
         public DbSet<ContactClient> ContactClient { get; set; }
@@ -16,6 +17,7 @@ namespace Madera.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }

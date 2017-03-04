@@ -9,6 +9,7 @@
         <asp:Label ID="LblPrixLabel" runat="server" Text="Prix : "></asp:Label>
         <asp:Label ID="LblPrix" runat="server" Text="prix"></asp:Label>
         <asp:Panel ID="PnlListeProduit" runat="server" Height="176px">
+            <asp:ImageButton ID="BtnClearProduit" runat="server" OnClick="BtnClearProduit_Click" ImageUrl="~/Images/cancel-icon.png"  Height="10px" Width="10px"/>
             <br />
             <asp:ImageButton ID="ImgBtnNouveauProduit" runat="server" ImageUrl="~/Images/add-icon.png" Height="10px" Width="10px" OnClick="ImgBtnNouveauProduit_Click" />
             <asp:Label ID="LblAjouterNouveauProduitLabel" runat="server" Text="Ajouter un nouveau produit"></asp:Label>
