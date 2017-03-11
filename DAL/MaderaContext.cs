@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Madera.DAL
 {
-    public class MaderaContext : DbContext
+    public class MaderaContext : System.Data.Entity.DbContext
     {
 
         public MaderaContext() : base("MaderaContext")
