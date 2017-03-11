@@ -8,8 +8,25 @@ using System.Web;
 /// </summary>
 public class Client
 {
-    private int id { get; set; }
+    public int id { get; set; }
     public virtual ICollection<ContactClient> listeContactClient { get; set; }
+
+    public string Reference
+    {
+        get
+        {
+            return reference;
+        }
+
+        set
+        {
+            reference = value;
+        }
+    }
+
+    private string reference;
+
+
 
     public Client()
     {
