@@ -134,11 +134,11 @@ public partial class CONTENIR
 
 public partial class DEVIS
 {
-    public decimal DEVIS_ID { get; set; }
-    public decimal CLIENT_ID { get; set; }
-    public decimal PERSONNEL_ID { get; set; }
-    public decimal BUR_PERSONNEL_ID { get; set; }
-    public decimal COM_PERSONNEL_ID { get; set; }
+    public int DEVIS_ID { get; set; }
+    public int CLIENT_ID { get; set; }
+    public int PERSONNEL_ID { get; set; }
+    public int BUR_PERSONNEL_ID { get; set; }
+    public int COM_PERSONNEL_ID { get; set; }
     public Nullable<decimal> DEVIS_ESTIMATION_PRIX { get; set; }
     public Nullable<System.DateTime> DEVIS_DATE { get; set; }
     public string DEVIS_NOM_PROJET { get; set; }
@@ -296,9 +296,9 @@ public partial class PEUT_APPLIQUER
 
 public partial class PRODUIT
 {
-    public decimal PRODUIT_ID { get; set; }
-    public decimal DEVIS_ID { get; set; }
-    public decimal GAMME_ID { get; set; }
+    public int PRODUIT_ID { get; set; }
+    public int DEVIS_ID { get; set; }
+    public int GAMME_ID { get; set; }
     public string PRODUIT_NOM { get; set; }
     public string PRODUIT_DESCRIPTION { get; set; }
 }
