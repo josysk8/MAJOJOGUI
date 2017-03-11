@@ -4,446 +4,446 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="maderaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ACCEDER_APPLICATION">
-          <Key>
-            <PropertyRef Name="PERSONNEL_ID" />
-            <PropertyRef Name="APPLICATION_ID" />
-          </Key>
-          <Property Name="PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="APPLICATION_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACCEDER_APPLICATION2">
-          <Key>
-            <PropertyRef Name="PERSONNEL_ID" />
-            <PropertyRef Name="APPLICATION_ID" />
-          </Key>
-          <Property Name="PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="APPLICATION_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACCEDER_APPLICATION3">
-          <Key>
-            <PropertyRef Name="PERSONNEL_ID" />
-            <PropertyRef Name="APPLICATION_ID" />
-          </Key>
-          <Property Name="PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="APPLICATION_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACCES_APPLICATION">
-          <Key>
-            <PropertyRef Name="APPLICATION_ID" />
-          </Key>
-          <Property Name="APPLICATION_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="APPLICATION_NOM" Type="varchar" MaxLength="80" />
-        </EntityType>
-        <EntityType Name="BUREAU_ETUDE">
-          <Key>
-            <PropertyRef Name="PERSONNEL_ID" />
-          </Key>
-          <Property Name="PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SPECIALISATION" Type="varchar" MaxLength="60" />
-          <Property Name="PERSONNEL_LOGIN" Type="varchar" MaxLength="80" />
-          <Property Name="PERSONNEL_MDP" Type="varchar" MaxLength="80" />
-          <Property Name="PERSONNEL_TOKEN" Type="varchar" MaxLength="80" />
-          <Property Name="PERSONNEL_NOM" Type="varchar" MaxLength="40" />
-          <Property Name="PERSONNEL_PRENOM" Type="varchar" MaxLength="40" />
-        </EntityType>
-        <EntityType Name="CLIENT">
-          <Key>
-            <PropertyRef Name="CLIENT_ID" />
-          </Key>
-          <Property Name="CLIENT_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CLIENT_REFERENCE" Type="char" MaxLength="10" />
-        </EntityType>
-        <EntityType Name="COMMANDE">
-          <Key>
-            <PropertyRef Name="COMMANDE_ID" />
-          </Key>
-          <Property Name="COMMANDE_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="COMMANDE_DATE" Type="datetime" />
-          <Property Name="COMMANDE_STATUT" Type="smallint" />
-        </EntityType>
-        <EntityType Name="COMMERCIAL">
-          <Key>
-            <PropertyRef Name="PERSONNEL_ID" />
-          </Key>
-          <Property Name="PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SECTEUR" Type="varchar" MaxLength="10" />
-          <Property Name="NUMERO_MOBILE" Type="varchar" MaxLength="16" />
-          <Property Name="PERSONNEL_LOGIN" Type="varchar" MaxLength="80" />
-          <Property Name="PERSONNEL_MDP" Type="varchar" MaxLength="80" />
-          <Property Name="PERSONNEL_TOKEN" Type="varchar" MaxLength="80" />
-          <Property Name="PERSONNEL_NOM" Type="varchar" MaxLength="40" />
-          <Property Name="PERSONNEL_PRENOM" Type="varchar" MaxLength="40" />
-        </EntityType>
-        <EntityType Name="COMPOSANT">
-          <Key>
-            <PropertyRef Name="COMPOSANT_ID" />
-          </Key>
-          <Property Name="COMPOSANT_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TYPE_COMPOSANT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FOURNISSEUR_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COMPOSANT_NOM" Type="varchar" MaxLength="1" />
-          <Property Name="COMPOSANT_STOCK" Type="int" />
-          <Property Name="COMPOSANT_VALEUR_CARACTERISTIQUE_1" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="COMPOSANT_VALEUR_CARACTERISTIQUE_2" Type="decimal" Precision="18" Scale="0" />
-        </EntityType>
-        <EntityType Name="COMPOSANT_IMAGE">
-          <Key>
-            <PropertyRef Name="FICHIER_ID" />
-            <PropertyRef Name="COMPOSANT_ID" />
-          </Key>
-          <Property Name="FICHIER_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COMPOSANT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="COMPTABLE">
-          <Key>
-            <PropertyRef Name="PERSONNEL_ID" />
-          </Key>
-          <Property Name="PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NUMERO_POSTE" Type="varchar" MaxLength="16" />
-          <Property Name="PERSONNEL_LOGIN" Type="varchar" MaxLength="80" />
-          <Property Name="PERSONNEL_MDP" Type="varchar" MaxLength="80" />
-          <Property Name="PERSONNEL_TOKEN" Type="varchar" MaxLength="80" />
-          <Property Name="PERSONNEL_NOM" Type="varchar" MaxLength="40" />
-          <Property Name="PERSONNEL_PRENOM" Type="varchar" MaxLength="40" />
-        </EntityType>
-        <EntityType Name="CONTACT_CLIENT">
-          <Key>
-            <PropertyRef Name="CONTACT_ID" />
-          </Key>
-          <Property Name="CONTACT_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="CONTACT_NOM" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_TELEPHONE" Type="char" MaxLength="10" />
-          <Property Name="CONTACT_MAIL" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_ADRESSE" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_ADRESSE2" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_CP" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_VILLE" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_CLIENT_SITUATION_MATRIMONIALE" Type="varchar" MaxLength="1" />
-        </EntityType>
-        <EntityType Name="CONTACT_FOURNISSEUR">
-          <Key>
-            <PropertyRef Name="CONTACT_ID" />
-          </Key>
-          <Property Name="CONTACT_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FOURNISSEUR_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="CONTACT_NOM" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_TELEPHONE" Type="char" MaxLength="10" />
-          <Property Name="CONTACT_MAIL" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_ADRESSE" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_ADRESSE2" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_CP" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_VILLE" Type="varchar" MaxLength="1" />
-          <Property Name="CONTACT_FOURNISSEUR_POSTE" Type="varchar" MaxLength="1" />
-        </EntityType>
-        <EntityType Name="CONTENIR">
-          <Key>
-            <PropertyRef Name="PRODUIT_ID" />
-            <PropertyRef Name="MODELE_GAMME_ID" />
-          </Key>
-          <Property Name="PRODUIT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MODELE_GAMME_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="DEVIS">
-          <Key>
-            <PropertyRef Name="DEVIS_ID" />
-          </Key>
-          <Property Name="DEVIS_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="BUR_PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COM_PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="DEVIS_ESTIMATION_PRIX" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="DEVIS_DATE" Type="datetime" />
-          <Property Name="DEVIS_NOM_PROJET" Type="varchar" MaxLength="60" />
-          <Property Name="DEVIS_REFERENCE" Type="char" MaxLength="10" />
-          <Property Name="DEVIS_ETAT" Type="smallint" />
-        </EntityType>
-        <EntityType Name="EST_COUPE_DE_PRINCIPE">
-          <Key>
-            <PropertyRef Name="FICHIER_ID" />
-            <PropertyRef Name="MODULE_ID" />
-          </Key>
-          <Property Name="FICHIER_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MODULE_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="EST_DISPONIBLE">
-          <Key>
-            <PropertyRef Name="MODULE_ID" />
-            <PropertyRef Name="GAMME_ID" />
-          </Key>
-          <Property Name="MODULE_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="GAMME_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="EST_FICHIER_DEVIS">
-          <Key>
-            <PropertyRef Name="FICHIER_ID" />
-            <PropertyRef Name="DEVIS_ID" />
-            <PropertyRef Name="TYPE_FICHIER_ID" />
-          </Key>
-          <Property Name="FICHIER_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="DEVIS_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="TYPE_FICHIER_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="EST_RESPONSABLE">
-          <Key>
-            <PropertyRef Name="PERSONNEL_ID" />
-            <PropertyRef Name="COMPOSANT_ID" />
-          </Key>
-          <Property Name="PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COMPOSANT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ETAPE_ECHELONNEMENT">
-          <Key>
-            <PropertyRef Name="ETAPE_ECHELONNEMENT_ID" />
-          </Key>
-          <Property Name="ETAPE_ECHELONNEMENT_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ETAPE_ECHELONNEMENT_NOM" Type="varchar" MaxLength="1" />
-          <Property Name="ETAPE_ECHELONNEMENT_ORDRE" Type="int" />
-        </EntityType>
-        <EntityType Name="FAIRE_PARTIE">
-          <Key>
-            <PropertyRef Name="GAMME_ID" />
-            <PropertyRef Name="FINITION_ID" />
-          </Key>
-          <Property Name="GAMME_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FINITION_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="FICHIER">
-          <Key>
-            <PropertyRef Name="FICHIER_ID" />
-          </Key>
-          <Property Name="FICHIER_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TYPE_FICHIER_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FICHIER_NOM" Type="varchar" MaxLength="60" />
-          <Property Name="FICHIER_CHEMIN" Type="varchar" MaxLength="255" />
-          <Property Name="FICHIER_POIDS" Type="int" />
-        </EntityType>
-        <EntityType Name="FINITION">
-          <Key>
-            <PropertyRef Name="FINITION_ID" />
-          </Key>
-          <Property Name="FINITION_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TYPE_FINITION_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FINITION_NOM" Type="varchar" MaxLength="50" />
-          <Property Name="FINITION_DESCRIPTION" Type="text" />
-        </EntityType>
-        <EntityType Name="FINITION_IMAGE">
-          <Key>
-            <PropertyRef Name="FINITION_ID" />
-            <PropertyRef Name="FICHIER_ID" />
-          </Key>
-          <Property Name="FINITION_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FICHIER_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="FOURNISSEUR">
-          <Key>
-            <PropertyRef Name="FOURNISSEUR_ID" />
-          </Key>
-          <Property Name="FOURNISSEUR_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FOURNISSEUR_SIRET" Type="char" MaxLength="14" />
-          <Property Name="FOURNISSEUR_SIREN" Type="char" MaxLength="9" />
-        </EntityType>
-        <EntityType Name="GAMME">
-          <Key>
-            <PropertyRef Name="GAMME_ID" />
-          </Key>
-          <Property Name="GAMME_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GAMME_NOM" Type="varchar" MaxLength="1" />
-          <Property Name="GAMME_DESCRIPTION" Type="text" />
-        </EntityType>
-        <EntityType Name="LIER_FINITION">
-          <Key>
-            <PropertyRef Name="FINITION_ID" />
-            <PropertyRef Name="MODELE_GAMME_ID" />
-          </Key>
-          <Property Name="FINITION_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MODELE_GAMME_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="LIER_MODULE">
-          <Key>
-            <PropertyRef Name="MODULE_ID" />
-            <PropertyRef Name="MODELE_GAMME_ID" />
-          </Key>
-          <Property Name="MODULE_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MODELE_GAMME_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="IDENTIFICATION" Type="varchar" MaxLength="60" />
-          <Property Name="SECTION" Type="varchar" MaxLength="80" />
-          <Property Name="LONGUEUR" Type="int" />
-          <Property Name="HAUTEUR" Type="int" />
-        </EntityType>
-        <EntityType Name="LIGNE_COMMANDE">
-          <Key>
-            <PropertyRef Name="COMMANDE_ID" />
-            <PropertyRef Name="COMPOSANT_ID" />
-            <PropertyRef Name="FOURNISSEUR_ID" />
-          </Key>
-          <Property Name="COMMANDE_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COMPOSANT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FOURNISSEUR_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="PRIX_ACHAT" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="QUANTITE_LIGNE_COMMANDE" Type="int" />
-        </EntityType>
-        <EntityType Name="MODELE_DE_GAMME">
-          <Key>
-            <PropertyRef Name="MODELE_GAMME_ID" />
-          </Key>
-          <Property Name="MODELE_GAMME_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GAMME_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="TYPE_MODELE_GAMME_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="EST_PAR_DEFAUT" Type="bit" />
-          <Property Name="MODELE_GAMME_NOM" Type="varchar" MaxLength="40" />
-          <Property Name="MODELE_GAMME_DESCRIPTION" Type="text" />
-          <Property Name="MODELE_GAMME_NB_PIECES" Type="int" />
-          <Property Name="MODELE_GAMME_SURFACE" Type="varchar" MaxLength="1" />
-        </EntityType>
-        <EntityType Name="MODELE_GAMME_IMAGE">
-          <Key>
-            <PropertyRef Name="MODELE_GAMME_ID" />
-            <PropertyRef Name="FICHIER_ID" />
-          </Key>
-          <Property Name="MODELE_GAMME_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FICHIER_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="MODULE">
-          <Key>
-            <PropertyRef Name="MODULE_ID" />
-          </Key>
-          <Property Name="MODULE_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MOD_MODULE_ID" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="TYPE_MODULE_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="PERSONNEL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MODULE_NOM" Type="varchar" MaxLength="1" />
-          <Property Name="MODULE_TYPE" Type="varchar" MaxLength="1" />
-          <Property Name="MODULE_MARGE_COMMERCIAL" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="MODULE_MARGE_ENTREPRISE" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="QUANTITE_PARENT" Type="decimal" Precision="18" Scale="0" />
-        </EntityType>
-        <EntityType Name="PAYER">
-          <Key>
-            <PropertyRef Name="ETAPE_ECHELONNEMENT_ID" />
-            <PropertyRef Name="DEVIS_ID" />
-          </Key>
-          <Property Name="ETAPE_ECHELONNEMENT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="DEVIS_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="POURCENTAGE_ETAPE" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="STATUT_PAIEMENT" Type="bit" />
-          <Property Name="DATE_ECHEANCE" Type="datetime" />
-          <Property Name="DATE_PAIEMENT" Type="datetime" />
-          <Property Name="MONTANT_PAYER" Type="decimal" Precision="18" Scale="0" />
-        </EntityType>
-        <EntityType Name="PEUT_APPLIQUER">
-          <Key>
-            <PropertyRef Name="MODULE_ID" />
-            <PropertyRef Name="FINITION_ID" />
-          </Key>
-          <Property Name="MODULE_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FINITION_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PRODUIT">
-          <Key>
-            <PropertyRef Name="PRODUIT_ID" />
-          </Key>
-          <Property Name="PRODUIT_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DEVIS_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="GAMME_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="PRODUIT_NOM" Type="varchar" MaxLength="1" />
-          <Property Name="PRODUIT_DESCRIPTION" Type="text" />
-        </EntityType>
-        <EntityType Name="TYPE_COMPOSANT">
-          <Key>
-            <PropertyRef Name="TYPE_COMPOSANT" />
-          </Key>
-          <Property Name="TYPE_COMPOSANT" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TYPE_COMPOSANT_NOM" Type="varchar" MaxLength="40" />
-          <Property Name="TYPE_COMPOSANT_CARACTERISTIQUE" Type="varchar" MaxLength="40" />
-          <Property Name="TYPE_COMPOSANT_UNITE_USAGE" Type="varchar" MaxLength="40" />
-        </EntityType>
-        <EntityType Name="TYPE_FICHIER">
-          <Key>
-            <PropertyRef Name="TYPE_FICHIER_ID" />
-          </Key>
-          <Property Name="TYPE_FICHIER_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TYPE_FICHIER_NOM" Type="varchar" MaxLength="1" />
-        </EntityType>
-        <EntityType Name="TYPE_FINITION">
-          <Key>
-            <PropertyRef Name="TYPE_FINITION_ID" />
-          </Key>
-          <Property Name="TYPE_FINITION_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TYPE_FINITION_NOM" Type="varchar" MaxLength="40" />
-        </EntityType>
-        <EntityType Name="TYPE_MODELE_GAMME">
-          <Key>
-            <PropertyRef Name="TYPE_MODELE_GAMME_ID" />
-          </Key>
-          <Property Name="TYPE_MODELE_GAMME_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TYPE_MODELE_GAMME_NOM" Type="varchar" MaxLength="1" />
-        </EntityType>
-        <EntityType Name="TYPE_MODULE">
-          <Key>
-            <PropertyRef Name="TYPE_MODULE_ID" />
-          </Key>
-          <Property Name="TYPE_MODULE_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TYPE_MODULE_NOM" Type="varchar" MaxLength="60" />
-          <Property Name="TYPE_MODULE_UNITE_USAGE" Type="varchar" MaxLength="20" />
-          <Property Name="TYPE_MODULE_CARACTERISTIQUE" Type="varchar" MaxLength="30" />
-        </EntityType>
-        <EntityType Name="UTILISER___COUPE_DE_PRINCIPE">
-          <Key>
-            <PropertyRef Name="MODULE_ID" />
-            <PropertyRef Name="COMPOSANT_ID" />
-          </Key>
-          <Property Name="MODULE_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COMPOSANT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="QUANTITE_COUPE" Type="int" />
-        </EntityType>
-        <EntityContainer Name="maderaModelStoreContainer">
-          <EntitySet Name="ACCEDER_APPLICATION" EntityType="Self.ACCEDER_APPLICATION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ACCEDER_APPLICATION2" EntityType="Self.ACCEDER_APPLICATION2" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ACCEDER_APPLICATION3" EntityType="Self.ACCEDER_APPLICATION3" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ACCES_APPLICATION" EntityType="Self.ACCES_APPLICATION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BUREAU_ETUDE" EntityType="Self.BUREAU_ETUDE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CLIENT" EntityType="Self.CLIENT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="COMMANDE" EntityType="Self.COMMANDE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="COMMERCIAL" EntityType="Self.COMMERCIAL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="COMPOSANT" EntityType="Self.COMPOSANT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="COMPOSANT_IMAGE" EntityType="Self.COMPOSANT_IMAGE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="COMPTABLE" EntityType="Self.COMPTABLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CONTACT_CLIENT" EntityType="Self.CONTACT_CLIENT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CONTACT_FOURNISSEUR" EntityType="Self.CONTACT_FOURNISSEUR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CONTENIR" EntityType="Self.CONTENIR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DEVIS" EntityType="Self.DEVIS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EST_COUPE_DE_PRINCIPE" EntityType="Self.EST_COUPE_DE_PRINCIPE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EST_DISPONIBLE" EntityType="Self.EST_DISPONIBLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EST_FICHIER_DEVIS" EntityType="Self.EST_FICHIER_DEVIS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EST_RESPONSABLE" EntityType="Self.EST_RESPONSABLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ETAPE_ECHELONNEMENT" EntityType="Self.ETAPE_ECHELONNEMENT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FAIRE_PARTIE" EntityType="Self.FAIRE_PARTIE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FICHIER" EntityType="Self.FICHIER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FINITION" EntityType="Self.FINITION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FINITION_IMAGE" EntityType="Self.FINITION_IMAGE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FOURNISSEUR" EntityType="Self.FOURNISSEUR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GAMME" EntityType="Self.GAMME" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LIER_FINITION" EntityType="Self.LIER_FINITION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LIER_MODULE" EntityType="Self.LIER_MODULE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LIGNE_COMMANDE" EntityType="Self.LIGNE_COMMANDE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MODELE_DE_GAMME" EntityType="Self.MODELE_DE_GAMME" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MODELE_GAMME_IMAGE" EntityType="Self.MODELE_GAMME_IMAGE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MODULE" EntityType="Self.MODULE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PAYER" EntityType="Self.PAYER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PEUT_APPLIQUER" EntityType="Self.PEUT_APPLIQUER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PRODUIT" EntityType="Self.PRODUIT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TYPE_COMPOSANT" EntityType="Self.TYPE_COMPOSANT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TYPE_FICHIER" EntityType="Self.TYPE_FICHIER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TYPE_FINITION" EntityType="Self.TYPE_FINITION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TYPE_MODELE_GAMME" EntityType="Self.TYPE_MODELE_GAMME" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TYPE_MODULE" EntityType="Self.TYPE_MODULE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UTILISER___COUPE_DE_PRINCIPE" EntityType="Self.UTILISER___COUPE_DE_PRINCIPE" Schema="dbo" store:Type="Tables" />
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="maderaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="maderaModelStoreContainer">
+    <EntitySet Name="ACCEDER_APPLICATION" EntityType="maderaModel.Store.ACCEDER_APPLICATION" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ACCEDER_APPLICATION2" EntityType="maderaModel.Store.ACCEDER_APPLICATION2" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ACCEDER_APPLICATION3" EntityType="maderaModel.Store.ACCEDER_APPLICATION3" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ACCES_APPLICATION" EntityType="maderaModel.Store.ACCES_APPLICATION" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BUREAU_ETUDE" EntityType="maderaModel.Store.BUREAU_ETUDE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CLIENT" EntityType="maderaModel.Store.CLIENT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="COMMANDE" EntityType="maderaModel.Store.COMMANDE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="COMMERCIAL" EntityType="maderaModel.Store.COMMERCIAL" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="COMPOSANT" EntityType="maderaModel.Store.COMPOSANT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="COMPOSANT_IMAGE" EntityType="maderaModel.Store.COMPOSANT_IMAGE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="COMPTABLE" EntityType="maderaModel.Store.COMPTABLE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CONTACT_CLIENT" EntityType="maderaModel.Store.CONTACT_CLIENT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CONTACT_FOURNISSEUR" EntityType="maderaModel.Store.CONTACT_FOURNISSEUR" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CONTENIR" EntityType="maderaModel.Store.CONTENIR" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEVIS" EntityType="maderaModel.Store.DEVIS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EST_COUPE_DE_PRINCIPE" EntityType="maderaModel.Store.EST_COUPE_DE_PRINCIPE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EST_DISPONIBLE" EntityType="maderaModel.Store.EST_DISPONIBLE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EST_FICHIER_DEVIS" EntityType="maderaModel.Store.EST_FICHIER_DEVIS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EST_RESPONSABLE" EntityType="maderaModel.Store.EST_RESPONSABLE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ETAPE_ECHELONNEMENT" EntityType="maderaModel.Store.ETAPE_ECHELONNEMENT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FAIRE_PARTIE" EntityType="maderaModel.Store.FAIRE_PARTIE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FICHIER" EntityType="maderaModel.Store.FICHIER" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FINITION" EntityType="maderaModel.Store.FINITION" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FINITION_IMAGE" EntityType="maderaModel.Store.FINITION_IMAGE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FOURNISSEUR" EntityType="maderaModel.Store.FOURNISSEUR" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GAMME" EntityType="maderaModel.Store.GAMME" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LIER_FINITION" EntityType="maderaModel.Store.LIER_FINITION" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LIER_MODULE" EntityType="maderaModel.Store.LIER_MODULE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LIGNE_COMMANDE" EntityType="maderaModel.Store.LIGNE_COMMANDE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MODELE_DE_GAMME" EntityType="maderaModel.Store.MODELE_DE_GAMME" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MODELE_GAMME_IMAGE" EntityType="maderaModel.Store.MODELE_GAMME_IMAGE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MODULE" EntityType="maderaModel.Store.MODULE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PAYER" EntityType="maderaModel.Store.PAYER" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PEUT_APPLIQUER" EntityType="maderaModel.Store.PEUT_APPLIQUER" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PRODUIT" EntityType="maderaModel.Store.PRODUIT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TYPE_COMPOSANT" EntityType="maderaModel.Store.TYPE_COMPOSANT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TYPE_FICHIER" EntityType="maderaModel.Store.TYPE_FICHIER" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TYPE_FINITION" EntityType="maderaModel.Store.TYPE_FINITION" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TYPE_MODELE_GAMME" EntityType="maderaModel.Store.TYPE_MODELE_GAMME" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TYPE_MODULE" EntityType="maderaModel.Store.TYPE_MODULE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UTILISER___COUPE_DE_PRINCIPE" EntityType="maderaModel.Store.UTILISER___COUPE_DE_PRINCIPE" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ACCEDER_APPLICATION">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+      <PropertyRef Name="APPLICATION_ID" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="APPLICATION_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ACCEDER_APPLICATION2">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+      <PropertyRef Name="APPLICATION_ID" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="APPLICATION_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ACCEDER_APPLICATION3">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+      <PropertyRef Name="APPLICATION_ID" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="APPLICATION_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ACCES_APPLICATION">
+    <Key>
+      <PropertyRef Name="APPLICATION_ID" />
+    </Key>
+    <Property Name="APPLICATION_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="APPLICATION_NOM" Type="varchar" Nullable="true" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="BUREAU_ETUDE">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="SPECIALISATION" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="PERSONNEL_LOGIN" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="PERSONNEL_MDP" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="PERSONNEL_TOKEN" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="PERSONNEL_NOM" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="PERSONNEL_PRENOM" Type="varchar" Nullable="true" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="CLIENT">
+    <Key>
+      <PropertyRef Name="CLIENT_ID" />
+    </Key>
+    <Property Name="CLIENT_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="CLIENT_REFERENCE" Type="char" Nullable="true" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="COMMANDE">
+    <Key>
+      <PropertyRef Name="COMMANDE_ID" />
+    </Key>
+    <Property Name="COMMANDE_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="COMMANDE_DATE" Type="datetime" Nullable="true" />
+    <Property Name="COMMANDE_STATUT" Type="smallint" Nullable="true" />
+  </EntityType>
+  <EntityType Name="COMMERCIAL">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="SECTEUR" Type="varchar" Nullable="true" MaxLength="10" />
+    <Property Name="NUMERO_MOBILE" Type="varchar" Nullable="true" MaxLength="16" />
+    <Property Name="PERSONNEL_LOGIN" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="PERSONNEL_MDP" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="PERSONNEL_TOKEN" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="PERSONNEL_NOM" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="PERSONNEL_PRENOM" Type="varchar" Nullable="true" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="COMPOSANT">
+    <Key>
+      <PropertyRef Name="COMPOSANT_ID" />
+    </Key>
+    <Property Name="COMPOSANT_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_COMPOSANT" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FOURNISSEUR_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="COMPOSANT_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="COMPOSANT_STOCK" Type="int" Nullable="true" />
+    <Property Name="COMPOSANT_VALEUR_CARACTERISTIQUE_1" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="COMPOSANT_VALEUR_CARACTERISTIQUE_2" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="COMPOSANT_IMAGE">
+    <Key>
+      <PropertyRef Name="FICHIER_ID" />
+      <PropertyRef Name="COMPOSANT_ID" />
+    </Key>
+    <Property Name="FICHIER_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="COMPOSANT_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="COMPTABLE">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="NUMERO_POSTE" Type="varchar" Nullable="true" MaxLength="16" />
+    <Property Name="PERSONNEL_LOGIN" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="PERSONNEL_MDP" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="PERSONNEL_TOKEN" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="PERSONNEL_NOM" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="PERSONNEL_PRENOM" Type="varchar" Nullable="true" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="CONTACT_CLIENT">
+    <Key>
+      <PropertyRef Name="CONTACT_ID" />
+    </Key>
+    <Property Name="CONTACT_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="CLIENT_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="CONTACT_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_TELEPHONE" Type="char" Nullable="true" MaxLength="10" />
+    <Property Name="CONTACT_MAIL" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_ADRESSE" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_ADRESSE2" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_CP" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_VILLE" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_CLIENT_SITUATION_MATRIMONIALE" Type="varchar" Nullable="true" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="CONTACT_FOURNISSEUR">
+    <Key>
+      <PropertyRef Name="CONTACT_ID" />
+    </Key>
+    <Property Name="CONTACT_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FOURNISSEUR_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="CONTACT_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_TELEPHONE" Type="char" Nullable="true" MaxLength="10" />
+    <Property Name="CONTACT_MAIL" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_ADRESSE" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_ADRESSE2" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_CP" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_VILLE" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="CONTACT_FOURNISSEUR_POSTE" Type="varchar" Nullable="true" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="CONTENIR">
+    <Key>
+      <PropertyRef Name="PRODUIT_ID" />
+      <PropertyRef Name="MODELE_GAMME_ID" />
+    </Key>
+    <Property Name="PRODUIT_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MODELE_GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="DEVIS">
+    <Key>
+      <PropertyRef Name="DEVIS_ID" />
+    </Key>
+    <Property Name="DEVIS_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="CLIENT_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="BUR_PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="COM_PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="DEVIS_ESTIMATION_PRIX" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="DEVIS_DATE" Type="datetime" Nullable="true" />
+    <Property Name="DEVIS_NOM_PROJET" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="DEVIS_REFERENCE" Type="char" Nullable="true" MaxLength="10" />
+    <Property Name="DEVIS_ETAT" Type="smallint" Nullable="true" />
+  </EntityType>
+  <EntityType Name="EST_COUPE_DE_PRINCIPE">
+    <Key>
+      <PropertyRef Name="FICHIER_ID" />
+      <PropertyRef Name="MODULE_ID" />
+    </Key>
+    <Property Name="FICHIER_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MODULE_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="EST_DISPONIBLE">
+    <Key>
+      <PropertyRef Name="MODULE_ID" />
+      <PropertyRef Name="GAMME_ID" />
+    </Key>
+    <Property Name="MODULE_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="EST_FICHIER_DEVIS">
+    <Key>
+      <PropertyRef Name="FICHIER_ID" />
+      <PropertyRef Name="DEVIS_ID" />
+      <PropertyRef Name="TYPE_FICHIER_ID" />
+    </Key>
+    <Property Name="FICHIER_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="DEVIS_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_FICHIER_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="EST_RESPONSABLE">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+      <PropertyRef Name="COMPOSANT_ID" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="COMPOSANT_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ETAPE_ECHELONNEMENT">
+    <Key>
+      <PropertyRef Name="ETAPE_ECHELONNEMENT_ID" />
+    </Key>
+    <Property Name="ETAPE_ECHELONNEMENT_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="ETAPE_ECHELONNEMENT_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="ETAPE_ECHELONNEMENT_ORDRE" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="FAIRE_PARTIE">
+    <Key>
+      <PropertyRef Name="GAMME_ID" />
+      <PropertyRef Name="FINITION_ID" />
+    </Key>
+    <Property Name="GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FINITION_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="FICHIER">
+    <Key>
+      <PropertyRef Name="FICHIER_ID" />
+    </Key>
+    <Property Name="FICHIER_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_FICHIER_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FICHIER_NOM" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="FICHIER_CHEMIN" Type="varchar" Nullable="true" MaxLength="255" />
+    <Property Name="FICHIER_POIDS" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="FINITION">
+    <Key>
+      <PropertyRef Name="FINITION_ID" />
+    </Key>
+    <Property Name="FINITION_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_FINITION_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FINITION_NOM" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="FINITION_DESCRIPTION" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="FINITION_IMAGE">
+    <Key>
+      <PropertyRef Name="FINITION_ID" />
+      <PropertyRef Name="FICHIER_ID" />
+    </Key>
+    <Property Name="FINITION_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FICHIER_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="FOURNISSEUR">
+    <Key>
+      <PropertyRef Name="FOURNISSEUR_ID" />
+    </Key>
+    <Property Name="FOURNISSEUR_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FOURNISSEUR_SIRET" Type="char" Nullable="true" MaxLength="14" />
+    <Property Name="FOURNISSEUR_SIREN" Type="char" Nullable="true" MaxLength="9" />
+  </EntityType>
+  <EntityType Name="GAMME">
+    <Key>
+      <PropertyRef Name="GAMME_ID" />
+    </Key>
+    <Property Name="GAMME_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="GAMME_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="GAMME_DESCRIPTION" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="LIER_FINITION">
+    <Key>
+      <PropertyRef Name="FINITION_ID" />
+      <PropertyRef Name="MODELE_GAMME_ID" />
+    </Key>
+    <Property Name="FINITION_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MODELE_GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="LIER_MODULE">
+    <Key>
+      <PropertyRef Name="MODULE_ID" />
+      <PropertyRef Name="MODELE_GAMME_ID" />
+    </Key>
+    <Property Name="MODULE_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MODELE_GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="IDENTIFICATION" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="SECTION" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="LONGUEUR" Type="int" Nullable="true" />
+    <Property Name="HAUTEUR" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="LIGNE_COMMANDE">
+    <Key>
+      <PropertyRef Name="COMMANDE_ID" />
+      <PropertyRef Name="COMPOSANT_ID" />
+      <PropertyRef Name="FOURNISSEUR_ID" />
+    </Key>
+    <Property Name="COMMANDE_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="COMPOSANT_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FOURNISSEUR_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PRIX_ACHAT" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="QUANTITE_LIGNE_COMMANDE" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="MODELE_DE_GAMME">
+    <Key>
+      <PropertyRef Name="MODELE_GAMME_ID" />
+    </Key>
+    <Property Name="MODELE_GAMME_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_MODELE_GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="EST_PAR_DEFAUT" Type="bit" Nullable="true" />
+    <Property Name="MODELE_GAMME_NOM" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="MODELE_GAMME_DESCRIPTION" Type="varchar(max)" Nullable="true" />
+    <Property Name="MODELE_GAMME_NB_PIECES" Type="int" Nullable="true" />
+    <Property Name="MODELE_GAMME_SURFACE" Type="varchar" Nullable="true" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="MODELE_GAMME_IMAGE">
+    <Key>
+      <PropertyRef Name="MODELE_GAMME_ID" />
+      <PropertyRef Name="FICHIER_ID" />
+    </Key>
+    <Property Name="MODELE_GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FICHIER_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="MODULE">
+    <Key>
+      <PropertyRef Name="MODULE_ID" />
+    </Key>
+    <Property Name="MODULE_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MOD_MODULE_ID" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="TYPE_MODULE_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MODULE_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="MODULE_TYPE" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="MODULE_MARGE_COMMERCIAL" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="MODULE_MARGE_ENTREPRISE" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="QUANTITE_PARENT" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PAYER">
+    <Key>
+      <PropertyRef Name="ETAPE_ECHELONNEMENT_ID" />
+      <PropertyRef Name="DEVIS_ID" />
+    </Key>
+    <Property Name="ETAPE_ECHELONNEMENT_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="DEVIS_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="POURCENTAGE_ETAPE" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="STATUT_PAIEMENT" Type="bit" Nullable="true" />
+    <Property Name="DATE_ECHEANCE" Type="datetime" Nullable="true" />
+    <Property Name="DATE_PAIEMENT" Type="datetime" Nullable="true" />
+    <Property Name="MONTANT_PAYER" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PEUT_APPLIQUER">
+    <Key>
+      <PropertyRef Name="MODULE_ID" />
+      <PropertyRef Name="FINITION_ID" />
+    </Key>
+    <Property Name="MODULE_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FINITION_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PRODUIT">
+    <Key>
+      <PropertyRef Name="PRODUIT_ID" />
+    </Key>
+    <Property Name="PRODUIT_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="DEVIS_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PRODUIT_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="PRODUIT_DESCRIPTION" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TYPE_COMPOSANT">
+    <Key>
+      <PropertyRef Name="TYPE_COMPOSANT1" />
+    </Key>
+    <Property Name="TYPE_COMPOSANT1" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_COMPOSANT_NOM" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="TYPE_COMPOSANT_CARACTERISTIQUE" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="TYPE_COMPOSANT_UNITE_USAGE" Type="varchar" Nullable="true" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="TYPE_FICHIER">
+    <Key>
+      <PropertyRef Name="TYPE_FICHIER_ID" />
+    </Key>
+    <Property Name="TYPE_FICHIER_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_FICHIER_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="TYPE_FINITION">
+    <Key>
+      <PropertyRef Name="TYPE_FINITION_ID" />
+    </Key>
+    <Property Name="TYPE_FINITION_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_FINITION_NOM" Type="varchar" Nullable="true" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="TYPE_MODELE_GAMME">
+    <Key>
+      <PropertyRef Name="TYPE_MODELE_GAMME_ID" />
+    </Key>
+    <Property Name="TYPE_MODELE_GAMME_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_MODELE_GAMME_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="TYPE_MODULE">
+    <Key>
+      <PropertyRef Name="TYPE_MODULE_ID" />
+    </Key>
+    <Property Name="TYPE_MODULE_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_MODULE_NOM" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="TYPE_MODULE_UNITE_USAGE" Type="varchar" Nullable="true" MaxLength="20" />
+    <Property Name="TYPE_MODULE_CARACTERISTIQUE" Type="varchar" Nullable="true" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="UTILISER___COUPE_DE_PRINCIPE">
+    <Key>
+      <PropertyRef Name="MODULE_ID" />
+      <PropertyRef Name="COMPOSANT_ID" />
+    </Key>
+    <Property Name="MODULE_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="COMPOSANT_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="QUANTITE_COUPE" Type="int" Nullable="true" />
+  </EntityType>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="maderaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -889,427 +889,426 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="maderaModelStoreContainer" CdmEntityContainer="maderaEntities">
-          <EntitySetMapping Name="ACCEDER_APPLICATION">
-            <EntityTypeMapping TypeName="maderaModel.ACCEDER_APPLICATION">
-              <MappingFragment StoreEntitySet="ACCEDER_APPLICATION">
-                <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
-                <ScalarProperty Name="APPLICATION_ID" ColumnName="APPLICATION_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ACCEDER_APPLICATION2">
-            <EntityTypeMapping TypeName="maderaModel.ACCEDER_APPLICATION2">
-              <MappingFragment StoreEntitySet="ACCEDER_APPLICATION2">
-                <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
-                <ScalarProperty Name="APPLICATION_ID" ColumnName="APPLICATION_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ACCEDER_APPLICATION3">
-            <EntityTypeMapping TypeName="maderaModel.ACCEDER_APPLICATION3">
-              <MappingFragment StoreEntitySet="ACCEDER_APPLICATION3">
-                <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
-                <ScalarProperty Name="APPLICATION_ID" ColumnName="APPLICATION_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ACCES_APPLICATION">
-            <EntityTypeMapping TypeName="maderaModel.ACCES_APPLICATION">
-              <MappingFragment StoreEntitySet="ACCES_APPLICATION">
-                <ScalarProperty Name="APPLICATION_ID" ColumnName="APPLICATION_ID" />
-                <ScalarProperty Name="APPLICATION_NOM" ColumnName="APPLICATION_NOM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BUREAU_ETUDE">
-            <EntityTypeMapping TypeName="maderaModel.BUREAU_ETUDE">
-              <MappingFragment StoreEntitySet="BUREAU_ETUDE">
-                <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
-                <ScalarProperty Name="SPECIALISATION" ColumnName="SPECIALISATION" />
-                <ScalarProperty Name="PERSONNEL_LOGIN" ColumnName="PERSONNEL_LOGIN" />
-                <ScalarProperty Name="PERSONNEL_MDP" ColumnName="PERSONNEL_MDP" />
-                <ScalarProperty Name="PERSONNEL_TOKEN" ColumnName="PERSONNEL_TOKEN" />
-                <ScalarProperty Name="PERSONNEL_NOM" ColumnName="PERSONNEL_NOM" />
-                <ScalarProperty Name="PERSONNEL_PRENOM" ColumnName="PERSONNEL_PRENOM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CLIENT">
-            <EntityTypeMapping TypeName="maderaModel.CLIENT">
-              <MappingFragment StoreEntitySet="CLIENT">
-                <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
-                <ScalarProperty Name="CLIENT_REFERENCE" ColumnName="CLIENT_REFERENCE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="COMMANDE">
-            <EntityTypeMapping TypeName="maderaModel.COMMANDE">
-              <MappingFragment StoreEntitySet="COMMANDE">
-                <ScalarProperty Name="COMMANDE_ID" ColumnName="COMMANDE_ID" />
-                <ScalarProperty Name="COMMANDE_DATE" ColumnName="COMMANDE_DATE" />
-                <ScalarProperty Name="COMMANDE_STATUT" ColumnName="COMMANDE_STATUT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="COMMERCIAL">
-            <EntityTypeMapping TypeName="maderaModel.COMMERCIAL">
-              <MappingFragment StoreEntitySet="COMMERCIAL">
-                <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
-                <ScalarProperty Name="SECTEUR" ColumnName="SECTEUR" />
-                <ScalarProperty Name="NUMERO_MOBILE" ColumnName="NUMERO_MOBILE" />
-                <ScalarProperty Name="PERSONNEL_LOGIN" ColumnName="PERSONNEL_LOGIN" />
-                <ScalarProperty Name="PERSONNEL_MDP" ColumnName="PERSONNEL_MDP" />
-                <ScalarProperty Name="PERSONNEL_TOKEN" ColumnName="PERSONNEL_TOKEN" />
-                <ScalarProperty Name="PERSONNEL_NOM" ColumnName="PERSONNEL_NOM" />
-                <ScalarProperty Name="PERSONNEL_PRENOM" ColumnName="PERSONNEL_PRENOM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="COMPOSANT">
-            <EntityTypeMapping TypeName="maderaModel.COMPOSANT">
-              <MappingFragment StoreEntitySet="COMPOSANT">
-                <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
-                <ScalarProperty Name="TYPE_COMPOSANT" ColumnName="TYPE_COMPOSANT" />
-                <ScalarProperty Name="FOURNISSEUR_ID" ColumnName="FOURNISSEUR_ID" />
-                <ScalarProperty Name="COMPOSANT_NOM" ColumnName="COMPOSANT_NOM" />
-                <ScalarProperty Name="COMPOSANT_STOCK" ColumnName="COMPOSANT_STOCK" />
-                <ScalarProperty Name="COMPOSANT_VALEUR_CARACTERISTIQUE_1" ColumnName="COMPOSANT_VALEUR_CARACTERISTIQUE_1" />
-                <ScalarProperty Name="COMPOSANT_VALEUR_CARACTERISTIQUE_2" ColumnName="COMPOSANT_VALEUR_CARACTERISTIQUE_2" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="COMPOSANT_IMAGE">
-            <EntityTypeMapping TypeName="maderaModel.COMPOSANT_IMAGE">
-              <MappingFragment StoreEntitySet="COMPOSANT_IMAGE">
-                <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
-                <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="COMPTABLE">
-            <EntityTypeMapping TypeName="maderaModel.COMPTABLE">
-              <MappingFragment StoreEntitySet="COMPTABLE">
-                <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
-                <ScalarProperty Name="NUMERO_POSTE" ColumnName="NUMERO_POSTE" />
-                <ScalarProperty Name="PERSONNEL_LOGIN" ColumnName="PERSONNEL_LOGIN" />
-                <ScalarProperty Name="PERSONNEL_MDP" ColumnName="PERSONNEL_MDP" />
-                <ScalarProperty Name="PERSONNEL_TOKEN" ColumnName="PERSONNEL_TOKEN" />
-                <ScalarProperty Name="PERSONNEL_NOM" ColumnName="PERSONNEL_NOM" />
-                <ScalarProperty Name="PERSONNEL_PRENOM" ColumnName="PERSONNEL_PRENOM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CONTACT_CLIENT">
-            <EntityTypeMapping TypeName="maderaModel.CONTACT_CLIENT">
-              <MappingFragment StoreEntitySet="CONTACT_CLIENT">
-                <ScalarProperty Name="CONTACT_ID" ColumnName="CONTACT_ID" />
-                <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
-                <ScalarProperty Name="CONTACT_NOM" ColumnName="CONTACT_NOM" />
-                <ScalarProperty Name="CONTACT_TELEPHONE" ColumnName="CONTACT_TELEPHONE" />
-                <ScalarProperty Name="CONTACT_MAIL" ColumnName="CONTACT_MAIL" />
-                <ScalarProperty Name="CONTACT_ADRESSE" ColumnName="CONTACT_ADRESSE" />
-                <ScalarProperty Name="CONTACT_ADRESSE2" ColumnName="CONTACT_ADRESSE2" />
-                <ScalarProperty Name="CONTACT_CP" ColumnName="CONTACT_CP" />
-                <ScalarProperty Name="CONTACT_VILLE" ColumnName="CONTACT_VILLE" />
-                <ScalarProperty Name="CONTACT_CLIENT_SITUATION_MATRIMONIALE" ColumnName="CONTACT_CLIENT_SITUATION_MATRIMONIALE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CONTACT_FOURNISSEUR">
-            <EntityTypeMapping TypeName="maderaModel.CONTACT_FOURNISSEUR">
-              <MappingFragment StoreEntitySet="CONTACT_FOURNISSEUR">
-                <ScalarProperty Name="CONTACT_ID" ColumnName="CONTACT_ID" />
-                <ScalarProperty Name="FOURNISSEUR_ID" ColumnName="FOURNISSEUR_ID" />
-                <ScalarProperty Name="CONTACT_NOM" ColumnName="CONTACT_NOM" />
-                <ScalarProperty Name="CONTACT_TELEPHONE" ColumnName="CONTACT_TELEPHONE" />
-                <ScalarProperty Name="CONTACT_MAIL" ColumnName="CONTACT_MAIL" />
-                <ScalarProperty Name="CONTACT_ADRESSE" ColumnName="CONTACT_ADRESSE" />
-                <ScalarProperty Name="CONTACT_ADRESSE2" ColumnName="CONTACT_ADRESSE2" />
-                <ScalarProperty Name="CONTACT_CP" ColumnName="CONTACT_CP" />
-                <ScalarProperty Name="CONTACT_VILLE" ColumnName="CONTACT_VILLE" />
-                <ScalarProperty Name="CONTACT_FOURNISSEUR_POSTE" ColumnName="CONTACT_FOURNISSEUR_POSTE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CONTENIR">
-            <EntityTypeMapping TypeName="maderaModel.CONTENIR">
-              <MappingFragment StoreEntitySet="CONTENIR">
-                <ScalarProperty Name="PRODUIT_ID" ColumnName="PRODUIT_ID" />
-                <ScalarProperty Name="MODELE_GAMME_ID" ColumnName="MODELE_GAMME_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DEVIS">
-            <EntityTypeMapping TypeName="maderaModel.DEVIS">
-              <MappingFragment StoreEntitySet="DEVIS">
-                <ScalarProperty Name="DEVIS_ID" ColumnName="DEVIS_ID" />
-                <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
-                <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
-                <ScalarProperty Name="BUR_PERSONNEL_ID" ColumnName="BUR_PERSONNEL_ID" />
-                <ScalarProperty Name="COM_PERSONNEL_ID" ColumnName="COM_PERSONNEL_ID" />
-                <ScalarProperty Name="DEVIS_ESTIMATION_PRIX" ColumnName="DEVIS_ESTIMATION_PRIX" />
-                <ScalarProperty Name="DEVIS_DATE" ColumnName="DEVIS_DATE" />
-                <ScalarProperty Name="DEVIS_NOM_PROJET" ColumnName="DEVIS_NOM_PROJET" />
-                <ScalarProperty Name="DEVIS_REFERENCE" ColumnName="DEVIS_REFERENCE" />
-                <ScalarProperty Name="DEVIS_ETAT" ColumnName="DEVIS_ETAT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EST_COUPE_DE_PRINCIPE">
-            <EntityTypeMapping TypeName="maderaModel.EST_COUPE_DE_PRINCIPE">
-              <MappingFragment StoreEntitySet="EST_COUPE_DE_PRINCIPE">
-                <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
-                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EST_DISPONIBLE">
-            <EntityTypeMapping TypeName="maderaModel.EST_DISPONIBLE">
-              <MappingFragment StoreEntitySet="EST_DISPONIBLE">
-                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
-                <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EST_FICHIER_DEVIS">
-            <EntityTypeMapping TypeName="maderaModel.EST_FICHIER_DEVIS">
-              <MappingFragment StoreEntitySet="EST_FICHIER_DEVIS">
-                <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
-                <ScalarProperty Name="DEVIS_ID" ColumnName="DEVIS_ID" />
-                <ScalarProperty Name="TYPE_FICHIER_ID" ColumnName="TYPE_FICHIER_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EST_RESPONSABLE">
-            <EntityTypeMapping TypeName="maderaModel.EST_RESPONSABLE">
-              <MappingFragment StoreEntitySet="EST_RESPONSABLE">
-                <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
-                <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ETAPE_ECHELONNEMENT">
-            <EntityTypeMapping TypeName="maderaModel.ETAPE_ECHELONNEMENT">
-              <MappingFragment StoreEntitySet="ETAPE_ECHELONNEMENT">
-                <ScalarProperty Name="ETAPE_ECHELONNEMENT_ID" ColumnName="ETAPE_ECHELONNEMENT_ID" />
-                <ScalarProperty Name="ETAPE_ECHELONNEMENT_NOM" ColumnName="ETAPE_ECHELONNEMENT_NOM" />
-                <ScalarProperty Name="ETAPE_ECHELONNEMENT_ORDRE" ColumnName="ETAPE_ECHELONNEMENT_ORDRE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FAIRE_PARTIE">
-            <EntityTypeMapping TypeName="maderaModel.FAIRE_PARTIE">
-              <MappingFragment StoreEntitySet="FAIRE_PARTIE">
-                <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
-                <ScalarProperty Name="FINITION_ID" ColumnName="FINITION_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FICHIER">
-            <EntityTypeMapping TypeName="maderaModel.FICHIER">
-              <MappingFragment StoreEntitySet="FICHIER">
-                <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
-                <ScalarProperty Name="TYPE_FICHIER_ID" ColumnName="TYPE_FICHIER_ID" />
-                <ScalarProperty Name="FICHIER_NOM" ColumnName="FICHIER_NOM" />
-                <ScalarProperty Name="FICHIER_CHEMIN" ColumnName="FICHIER_CHEMIN" />
-                <ScalarProperty Name="FICHIER_POIDS" ColumnName="FICHIER_POIDS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FINITION">
-            <EntityTypeMapping TypeName="maderaModel.FINITION">
-              <MappingFragment StoreEntitySet="FINITION">
-                <ScalarProperty Name="FINITION_ID" ColumnName="FINITION_ID" />
-                <ScalarProperty Name="TYPE_FINITION_ID" ColumnName="TYPE_FINITION_ID" />
-                <ScalarProperty Name="FINITION_NOM" ColumnName="FINITION_NOM" />
-                <ScalarProperty Name="FINITION_DESCRIPTION" ColumnName="FINITION_DESCRIPTION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FINITION_IMAGE">
-            <EntityTypeMapping TypeName="maderaModel.FINITION_IMAGE">
-              <MappingFragment StoreEntitySet="FINITION_IMAGE">
-                <ScalarProperty Name="FINITION_ID" ColumnName="FINITION_ID" />
-                <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FOURNISSEUR">
-            <EntityTypeMapping TypeName="maderaModel.FOURNISSEUR">
-              <MappingFragment StoreEntitySet="FOURNISSEUR">
-                <ScalarProperty Name="FOURNISSEUR_ID" ColumnName="FOURNISSEUR_ID" />
-                <ScalarProperty Name="FOURNISSEUR_SIRET" ColumnName="FOURNISSEUR_SIRET" />
-                <ScalarProperty Name="FOURNISSEUR_SIREN" ColumnName="FOURNISSEUR_SIREN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GAMME">
-            <EntityTypeMapping TypeName="maderaModel.GAMME">
-              <MappingFragment StoreEntitySet="GAMME">
-                <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
-                <ScalarProperty Name="GAMME_NOM" ColumnName="GAMME_NOM" />
-                <ScalarProperty Name="GAMME_DESCRIPTION" ColumnName="GAMME_DESCRIPTION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LIER_FINITION">
-            <EntityTypeMapping TypeName="maderaModel.LIER_FINITION">
-              <MappingFragment StoreEntitySet="LIER_FINITION">
-                <ScalarProperty Name="FINITION_ID" ColumnName="FINITION_ID" />
-                <ScalarProperty Name="MODELE_GAMME_ID" ColumnName="MODELE_GAMME_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LIER_MODULE">
-            <EntityTypeMapping TypeName="maderaModel.LIER_MODULE">
-              <MappingFragment StoreEntitySet="LIER_MODULE">
-                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
-                <ScalarProperty Name="MODELE_GAMME_ID" ColumnName="MODELE_GAMME_ID" />
-                <ScalarProperty Name="IDENTIFICATION" ColumnName="IDENTIFICATION" />
-                <ScalarProperty Name="SECTION" ColumnName="SECTION" />
-                <ScalarProperty Name="LONGUEUR" ColumnName="LONGUEUR" />
-                <ScalarProperty Name="HAUTEUR" ColumnName="HAUTEUR" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LIGNE_COMMANDE">
-            <EntityTypeMapping TypeName="maderaModel.LIGNE_COMMANDE">
-              <MappingFragment StoreEntitySet="LIGNE_COMMANDE">
-                <ScalarProperty Name="COMMANDE_ID" ColumnName="COMMANDE_ID" />
-                <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
-                <ScalarProperty Name="FOURNISSEUR_ID" ColumnName="FOURNISSEUR_ID" />
-                <ScalarProperty Name="PRIX_ACHAT" ColumnName="PRIX_ACHAT" />
-                <ScalarProperty Name="QUANTITE_LIGNE_COMMANDE" ColumnName="QUANTITE_LIGNE_COMMANDE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MODELE_DE_GAMME">
-            <EntityTypeMapping TypeName="maderaModel.MODELE_DE_GAMME">
-              <MappingFragment StoreEntitySet="MODELE_DE_GAMME">
-                <ScalarProperty Name="MODELE_GAMME_ID" ColumnName="MODELE_GAMME_ID" />
-                <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
-                <ScalarProperty Name="TYPE_MODELE_GAMME_ID" ColumnName="TYPE_MODELE_GAMME_ID" />
-                <ScalarProperty Name="EST_PAR_DEFAUT" ColumnName="EST_PAR_DEFAUT" />
-                <ScalarProperty Name="MODELE_GAMME_NOM" ColumnName="MODELE_GAMME_NOM" />
-                <ScalarProperty Name="MODELE_GAMME_DESCRIPTION" ColumnName="MODELE_GAMME_DESCRIPTION" />
-                <ScalarProperty Name="MODELE_GAMME_NB_PIECES" ColumnName="MODELE_GAMME_NB_PIECES" />
-                <ScalarProperty Name="MODELE_GAMME_SURFACE" ColumnName="MODELE_GAMME_SURFACE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MODELE_GAMME_IMAGE">
-            <EntityTypeMapping TypeName="maderaModel.MODELE_GAMME_IMAGE">
-              <MappingFragment StoreEntitySet="MODELE_GAMME_IMAGE">
-                <ScalarProperty Name="MODELE_GAMME_ID" ColumnName="MODELE_GAMME_ID" />
-                <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MODULE">
-            <EntityTypeMapping TypeName="maderaModel.MODULE">
-              <MappingFragment StoreEntitySet="MODULE">
-                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
-                <ScalarProperty Name="MOD_MODULE_ID" ColumnName="MOD_MODULE_ID" />
-                <ScalarProperty Name="TYPE_MODULE_ID" ColumnName="TYPE_MODULE_ID" />
-                <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
-                <ScalarProperty Name="MODULE_NOM" ColumnName="MODULE_NOM" />
-                <ScalarProperty Name="MODULE_TYPE" ColumnName="MODULE_TYPE" />
-                <ScalarProperty Name="MODULE_MARGE_COMMERCIAL" ColumnName="MODULE_MARGE_COMMERCIAL" />
-                <ScalarProperty Name="MODULE_MARGE_ENTREPRISE" ColumnName="MODULE_MARGE_ENTREPRISE" />
-                <ScalarProperty Name="QUANTITE_PARENT" ColumnName="QUANTITE_PARENT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PAYER">
-            <EntityTypeMapping TypeName="maderaModel.PAYER">
-              <MappingFragment StoreEntitySet="PAYER">
-                <ScalarProperty Name="ETAPE_ECHELONNEMENT_ID" ColumnName="ETAPE_ECHELONNEMENT_ID" />
-                <ScalarProperty Name="DEVIS_ID" ColumnName="DEVIS_ID" />
-                <ScalarProperty Name="POURCENTAGE_ETAPE" ColumnName="POURCENTAGE_ETAPE" />
-                <ScalarProperty Name="STATUT_PAIEMENT" ColumnName="STATUT_PAIEMENT" />
-                <ScalarProperty Name="DATE_ECHEANCE" ColumnName="DATE_ECHEANCE" />
-                <ScalarProperty Name="DATE_PAIEMENT" ColumnName="DATE_PAIEMENT" />
-                <ScalarProperty Name="MONTANT_PAYER" ColumnName="MONTANT_PAYER" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PEUT_APPLIQUER">
-            <EntityTypeMapping TypeName="maderaModel.PEUT_APPLIQUER">
-              <MappingFragment StoreEntitySet="PEUT_APPLIQUER">
-                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
-                <ScalarProperty Name="FINITION_ID" ColumnName="FINITION_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PRODUIT">
-            <EntityTypeMapping TypeName="maderaModel.PRODUIT">
-              <MappingFragment StoreEntitySet="PRODUIT">
-                <ScalarProperty Name="PRODUIT_ID" ColumnName="PRODUIT_ID" />
-                <ScalarProperty Name="DEVIS_ID" ColumnName="DEVIS_ID" />
-                <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
-                <ScalarProperty Name="PRODUIT_NOM" ColumnName="PRODUIT_NOM" />
-                <ScalarProperty Name="PRODUIT_DESCRIPTION" ColumnName="PRODUIT_DESCRIPTION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TYPE_COMPOSANT">
-            <EntityTypeMapping TypeName="maderaModel.TYPE_COMPOSANT">
-              <MappingFragment StoreEntitySet="TYPE_COMPOSANT">
-                <ScalarProperty Name="TYPE_COMPOSANT1" ColumnName="TYPE_COMPOSANT" />
-                <ScalarProperty Name="TYPE_COMPOSANT_NOM" ColumnName="TYPE_COMPOSANT_NOM" />
-                <ScalarProperty Name="TYPE_COMPOSANT_CARACTERISTIQUE" ColumnName="TYPE_COMPOSANT_CARACTERISTIQUE" />
-                <ScalarProperty Name="TYPE_COMPOSANT_UNITE_USAGE" ColumnName="TYPE_COMPOSANT_UNITE_USAGE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TYPE_FICHIER">
-            <EntityTypeMapping TypeName="maderaModel.TYPE_FICHIER">
-              <MappingFragment StoreEntitySet="TYPE_FICHIER">
-                <ScalarProperty Name="TYPE_FICHIER_ID" ColumnName="TYPE_FICHIER_ID" />
-                <ScalarProperty Name="TYPE_FICHIER_NOM" ColumnName="TYPE_FICHIER_NOM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TYPE_FINITION">
-            <EntityTypeMapping TypeName="maderaModel.TYPE_FINITION">
-              <MappingFragment StoreEntitySet="TYPE_FINITION">
-                <ScalarProperty Name="TYPE_FINITION_ID" ColumnName="TYPE_FINITION_ID" />
-                <ScalarProperty Name="TYPE_FINITION_NOM" ColumnName="TYPE_FINITION_NOM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TYPE_MODELE_GAMME">
-            <EntityTypeMapping TypeName="maderaModel.TYPE_MODELE_GAMME">
-              <MappingFragment StoreEntitySet="TYPE_MODELE_GAMME">
-                <ScalarProperty Name="TYPE_MODELE_GAMME_ID" ColumnName="TYPE_MODELE_GAMME_ID" />
-                <ScalarProperty Name="TYPE_MODELE_GAMME_NOM" ColumnName="TYPE_MODELE_GAMME_NOM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TYPE_MODULE">
-            <EntityTypeMapping TypeName="maderaModel.TYPE_MODULE">
-              <MappingFragment StoreEntitySet="TYPE_MODULE">
-                <ScalarProperty Name="TYPE_MODULE_ID" ColumnName="TYPE_MODULE_ID" />
-                <ScalarProperty Name="TYPE_MODULE_NOM" ColumnName="TYPE_MODULE_NOM" />
-                <ScalarProperty Name="TYPE_MODULE_UNITE_USAGE" ColumnName="TYPE_MODULE_UNITE_USAGE" />
-                <ScalarProperty Name="TYPE_MODULE_CARACTERISTIQUE" ColumnName="TYPE_MODULE_CARACTERISTIQUE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UTILISER___COUPE_DE_PRINCIPE">
-            <EntityTypeMapping TypeName="maderaModel.UTILISER___COUPE_DE_PRINCIPE">
-              <MappingFragment StoreEntitySet="UTILISER___COUPE_DE_PRINCIPE">
-                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
-                <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
-                <ScalarProperty Name="QUANTITE_COUPE" ColumnName="QUANTITE_COUPE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="maderaModelStoreContainer" CdmEntityContainer="maderaEntities">
+    <EntitySetMapping Name="ACCEDER_APPLICATION">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.ACCEDER_APPLICATION)">
+        <MappingFragment StoreEntitySet="ACCEDER_APPLICATION">
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+          <ScalarProperty Name="APPLICATION_ID" ColumnName="APPLICATION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCEDER_APPLICATION2">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.ACCEDER_APPLICATION2)">
+        <MappingFragment StoreEntitySet="ACCEDER_APPLICATION2">
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+          <ScalarProperty Name="APPLICATION_ID" ColumnName="APPLICATION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCEDER_APPLICATION3">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.ACCEDER_APPLICATION3)">
+        <MappingFragment StoreEntitySet="ACCEDER_APPLICATION3">
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+          <ScalarProperty Name="APPLICATION_ID" ColumnName="APPLICATION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCES_APPLICATION">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.ACCES_APPLICATION)">
+        <MappingFragment StoreEntitySet="ACCES_APPLICATION">
+          <ScalarProperty Name="APPLICATION_ID" ColumnName="APPLICATION_ID" />
+          <ScalarProperty Name="APPLICATION_NOM" ColumnName="APPLICATION_NOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BUREAU_ETUDE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.BUREAU_ETUDE)">
+        <MappingFragment StoreEntitySet="BUREAU_ETUDE">
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+          <ScalarProperty Name="SPECIALISATION" ColumnName="SPECIALISATION" />
+          <ScalarProperty Name="PERSONNEL_LOGIN" ColumnName="PERSONNEL_LOGIN" />
+          <ScalarProperty Name="PERSONNEL_MDP" ColumnName="PERSONNEL_MDP" />
+          <ScalarProperty Name="PERSONNEL_TOKEN" ColumnName="PERSONNEL_TOKEN" />
+          <ScalarProperty Name="PERSONNEL_NOM" ColumnName="PERSONNEL_NOM" />
+          <ScalarProperty Name="PERSONNEL_PRENOM" ColumnName="PERSONNEL_PRENOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENT">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.CLIENT)">
+        <MappingFragment StoreEntitySet="CLIENT">
+          <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+          <ScalarProperty Name="CLIENT_REFERENCE" ColumnName="CLIENT_REFERENCE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMMANDE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.COMMANDE)">
+        <MappingFragment StoreEntitySet="COMMANDE">
+          <ScalarProperty Name="COMMANDE_ID" ColumnName="COMMANDE_ID" />
+          <ScalarProperty Name="COMMANDE_DATE" ColumnName="COMMANDE_DATE" />
+          <ScalarProperty Name="COMMANDE_STATUT" ColumnName="COMMANDE_STATUT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMMERCIAL">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.COMMERCIAL)">
+        <MappingFragment StoreEntitySet="COMMERCIAL">
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+          <ScalarProperty Name="SECTEUR" ColumnName="SECTEUR" />
+          <ScalarProperty Name="NUMERO_MOBILE" ColumnName="NUMERO_MOBILE" />
+          <ScalarProperty Name="PERSONNEL_LOGIN" ColumnName="PERSONNEL_LOGIN" />
+          <ScalarProperty Name="PERSONNEL_MDP" ColumnName="PERSONNEL_MDP" />
+          <ScalarProperty Name="PERSONNEL_TOKEN" ColumnName="PERSONNEL_TOKEN" />
+          <ScalarProperty Name="PERSONNEL_NOM" ColumnName="PERSONNEL_NOM" />
+          <ScalarProperty Name="PERSONNEL_PRENOM" ColumnName="PERSONNEL_PRENOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPOSANT">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.COMPOSANT)">
+        <MappingFragment StoreEntitySet="COMPOSANT">
+          <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
+          <ScalarProperty Name="TYPE_COMPOSANT" ColumnName="TYPE_COMPOSANT" />
+          <ScalarProperty Name="FOURNISSEUR_ID" ColumnName="FOURNISSEUR_ID" />
+          <ScalarProperty Name="COMPOSANT_NOM" ColumnName="COMPOSANT_NOM" />
+          <ScalarProperty Name="COMPOSANT_STOCK" ColumnName="COMPOSANT_STOCK" />
+          <ScalarProperty Name="COMPOSANT_VALEUR_CARACTERISTIQUE_1" ColumnName="COMPOSANT_VALEUR_CARACTERISTIQUE_1" />
+          <ScalarProperty Name="COMPOSANT_VALEUR_CARACTERISTIQUE_2" ColumnName="COMPOSANT_VALEUR_CARACTERISTIQUE_2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPOSANT_IMAGE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.COMPOSANT_IMAGE)">
+        <MappingFragment StoreEntitySet="COMPOSANT_IMAGE">
+          <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
+          <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPTABLE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.COMPTABLE)">
+        <MappingFragment StoreEntitySet="COMPTABLE">
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+          <ScalarProperty Name="NUMERO_POSTE" ColumnName="NUMERO_POSTE" />
+          <ScalarProperty Name="PERSONNEL_LOGIN" ColumnName="PERSONNEL_LOGIN" />
+          <ScalarProperty Name="PERSONNEL_MDP" ColumnName="PERSONNEL_MDP" />
+          <ScalarProperty Name="PERSONNEL_TOKEN" ColumnName="PERSONNEL_TOKEN" />
+          <ScalarProperty Name="PERSONNEL_NOM" ColumnName="PERSONNEL_NOM" />
+          <ScalarProperty Name="PERSONNEL_PRENOM" ColumnName="PERSONNEL_PRENOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTACT_CLIENT">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.CONTACT_CLIENT)">
+        <MappingFragment StoreEntitySet="CONTACT_CLIENT">
+          <ScalarProperty Name="CONTACT_ID" ColumnName="CONTACT_ID" />
+          <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+          <ScalarProperty Name="CONTACT_NOM" ColumnName="CONTACT_NOM" />
+          <ScalarProperty Name="CONTACT_TELEPHONE" ColumnName="CONTACT_TELEPHONE" />
+          <ScalarProperty Name="CONTACT_MAIL" ColumnName="CONTACT_MAIL" />
+          <ScalarProperty Name="CONTACT_ADRESSE" ColumnName="CONTACT_ADRESSE" />
+          <ScalarProperty Name="CONTACT_ADRESSE2" ColumnName="CONTACT_ADRESSE2" />
+          <ScalarProperty Name="CONTACT_CP" ColumnName="CONTACT_CP" />
+          <ScalarProperty Name="CONTACT_VILLE" ColumnName="CONTACT_VILLE" />
+          <ScalarProperty Name="CONTACT_CLIENT_SITUATION_MATRIMONIALE" ColumnName="CONTACT_CLIENT_SITUATION_MATRIMONIALE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTACT_FOURNISSEUR">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.CONTACT_FOURNISSEUR)">
+        <MappingFragment StoreEntitySet="CONTACT_FOURNISSEUR">
+          <ScalarProperty Name="CONTACT_ID" ColumnName="CONTACT_ID" />
+          <ScalarProperty Name="FOURNISSEUR_ID" ColumnName="FOURNISSEUR_ID" />
+          <ScalarProperty Name="CONTACT_NOM" ColumnName="CONTACT_NOM" />
+          <ScalarProperty Name="CONTACT_TELEPHONE" ColumnName="CONTACT_TELEPHONE" />
+          <ScalarProperty Name="CONTACT_MAIL" ColumnName="CONTACT_MAIL" />
+          <ScalarProperty Name="CONTACT_ADRESSE" ColumnName="CONTACT_ADRESSE" />
+          <ScalarProperty Name="CONTACT_ADRESSE2" ColumnName="CONTACT_ADRESSE2" />
+          <ScalarProperty Name="CONTACT_CP" ColumnName="CONTACT_CP" />
+          <ScalarProperty Name="CONTACT_VILLE" ColumnName="CONTACT_VILLE" />
+          <ScalarProperty Name="CONTACT_FOURNISSEUR_POSTE" ColumnName="CONTACT_FOURNISSEUR_POSTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTENIR">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.CONTENIR)">
+        <MappingFragment StoreEntitySet="CONTENIR">
+          <ScalarProperty Name="PRODUIT_ID" ColumnName="PRODUIT_ID" />
+          <ScalarProperty Name="MODELE_GAMME_ID" ColumnName="MODELE_GAMME_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEVIS">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.DEVIS)">
+        <MappingFragment StoreEntitySet="DEVIS">
+          <ScalarProperty Name="DEVIS_ID" ColumnName="DEVIS_ID" />
+          <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+          <ScalarProperty Name="BUR_PERSONNEL_ID" ColumnName="BUR_PERSONNEL_ID" />
+          <ScalarProperty Name="COM_PERSONNEL_ID" ColumnName="COM_PERSONNEL_ID" />
+          <ScalarProperty Name="DEVIS_ESTIMATION_PRIX" ColumnName="DEVIS_ESTIMATION_PRIX" />
+          <ScalarProperty Name="DEVIS_DATE" ColumnName="DEVIS_DATE" />
+          <ScalarProperty Name="DEVIS_NOM_PROJET" ColumnName="DEVIS_NOM_PROJET" />
+          <ScalarProperty Name="DEVIS_REFERENCE" ColumnName="DEVIS_REFERENCE" />
+          <ScalarProperty Name="DEVIS_ETAT" ColumnName="DEVIS_ETAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EST_COUPE_DE_PRINCIPE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.EST_COUPE_DE_PRINCIPE)">
+        <MappingFragment StoreEntitySet="EST_COUPE_DE_PRINCIPE">
+          <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
+          <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EST_DISPONIBLE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.EST_DISPONIBLE)">
+        <MappingFragment StoreEntitySet="EST_DISPONIBLE">
+          <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+          <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EST_FICHIER_DEVIS">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.EST_FICHIER_DEVIS)">
+        <MappingFragment StoreEntitySet="EST_FICHIER_DEVIS">
+          <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
+          <ScalarProperty Name="DEVIS_ID" ColumnName="DEVIS_ID" />
+          <ScalarProperty Name="TYPE_FICHIER_ID" ColumnName="TYPE_FICHIER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EST_RESPONSABLE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.EST_RESPONSABLE)">
+        <MappingFragment StoreEntitySet="EST_RESPONSABLE">
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+          <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ETAPE_ECHELONNEMENT">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.ETAPE_ECHELONNEMENT)">
+        <MappingFragment StoreEntitySet="ETAPE_ECHELONNEMENT">
+          <ScalarProperty Name="ETAPE_ECHELONNEMENT_ID" ColumnName="ETAPE_ECHELONNEMENT_ID" />
+          <ScalarProperty Name="ETAPE_ECHELONNEMENT_NOM" ColumnName="ETAPE_ECHELONNEMENT_NOM" />
+          <ScalarProperty Name="ETAPE_ECHELONNEMENT_ORDRE" ColumnName="ETAPE_ECHELONNEMENT_ORDRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAIRE_PARTIE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.FAIRE_PARTIE)">
+        <MappingFragment StoreEntitySet="FAIRE_PARTIE">
+          <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
+          <ScalarProperty Name="FINITION_ID" ColumnName="FINITION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FICHIER">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.FICHIER)">
+        <MappingFragment StoreEntitySet="FICHIER">
+          <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
+          <ScalarProperty Name="TYPE_FICHIER_ID" ColumnName="TYPE_FICHIER_ID" />
+          <ScalarProperty Name="FICHIER_NOM" ColumnName="FICHIER_NOM" />
+          <ScalarProperty Name="FICHIER_CHEMIN" ColumnName="FICHIER_CHEMIN" />
+          <ScalarProperty Name="FICHIER_POIDS" ColumnName="FICHIER_POIDS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FINITION">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.FINITION)">
+        <MappingFragment StoreEntitySet="FINITION">
+          <ScalarProperty Name="FINITION_ID" ColumnName="FINITION_ID" />
+          <ScalarProperty Name="TYPE_FINITION_ID" ColumnName="TYPE_FINITION_ID" />
+          <ScalarProperty Name="FINITION_NOM" ColumnName="FINITION_NOM" />
+          <ScalarProperty Name="FINITION_DESCRIPTION" ColumnName="FINITION_DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FINITION_IMAGE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.FINITION_IMAGE)">
+        <MappingFragment StoreEntitySet="FINITION_IMAGE">
+          <ScalarProperty Name="FINITION_ID" ColumnName="FINITION_ID" />
+          <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FOURNISSEUR">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.FOURNISSEUR)">
+        <MappingFragment StoreEntitySet="FOURNISSEUR">
+          <ScalarProperty Name="FOURNISSEUR_ID" ColumnName="FOURNISSEUR_ID" />
+          <ScalarProperty Name="FOURNISSEUR_SIRET" ColumnName="FOURNISSEUR_SIRET" />
+          <ScalarProperty Name="FOURNISSEUR_SIREN" ColumnName="FOURNISSEUR_SIREN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GAMME">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.GAMME)">
+        <MappingFragment StoreEntitySet="GAMME">
+          <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
+          <ScalarProperty Name="GAMME_NOM" ColumnName="GAMME_NOM" />
+          <ScalarProperty Name="GAMME_DESCRIPTION" ColumnName="GAMME_DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LIER_FINITION">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.LIER_FINITION)">
+        <MappingFragment StoreEntitySet="LIER_FINITION">
+          <ScalarProperty Name="FINITION_ID" ColumnName="FINITION_ID" />
+          <ScalarProperty Name="MODELE_GAMME_ID" ColumnName="MODELE_GAMME_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LIER_MODULE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.LIER_MODULE)">
+        <MappingFragment StoreEntitySet="LIER_MODULE">
+          <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+          <ScalarProperty Name="MODELE_GAMME_ID" ColumnName="MODELE_GAMME_ID" />
+          <ScalarProperty Name="IDENTIFICATION" ColumnName="IDENTIFICATION" />
+          <ScalarProperty Name="SECTION" ColumnName="SECTION" />
+          <ScalarProperty Name="LONGUEUR" ColumnName="LONGUEUR" />
+          <ScalarProperty Name="HAUTEUR" ColumnName="HAUTEUR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LIGNE_COMMANDE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.LIGNE_COMMANDE)">
+        <MappingFragment StoreEntitySet="LIGNE_COMMANDE">
+          <ScalarProperty Name="COMMANDE_ID" ColumnName="COMMANDE_ID" />
+          <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
+          <ScalarProperty Name="FOURNISSEUR_ID" ColumnName="FOURNISSEUR_ID" />
+          <ScalarProperty Name="PRIX_ACHAT" ColumnName="PRIX_ACHAT" />
+          <ScalarProperty Name="QUANTITE_LIGNE_COMMANDE" ColumnName="QUANTITE_LIGNE_COMMANDE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODELE_DE_GAMME">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.MODELE_DE_GAMME)">
+        <MappingFragment StoreEntitySet="MODELE_DE_GAMME">
+          <ScalarProperty Name="MODELE_GAMME_ID" ColumnName="MODELE_GAMME_ID" />
+          <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
+          <ScalarProperty Name="TYPE_MODELE_GAMME_ID" ColumnName="TYPE_MODELE_GAMME_ID" />
+          <ScalarProperty Name="EST_PAR_DEFAUT" ColumnName="EST_PAR_DEFAUT" />
+          <ScalarProperty Name="MODELE_GAMME_NOM" ColumnName="MODELE_GAMME_NOM" />
+          <ScalarProperty Name="MODELE_GAMME_DESCRIPTION" ColumnName="MODELE_GAMME_DESCRIPTION" />
+          <ScalarProperty Name="MODELE_GAMME_NB_PIECES" ColumnName="MODELE_GAMME_NB_PIECES" />
+          <ScalarProperty Name="MODELE_GAMME_SURFACE" ColumnName="MODELE_GAMME_SURFACE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODELE_GAMME_IMAGE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.MODELE_GAMME_IMAGE)">
+        <MappingFragment StoreEntitySet="MODELE_GAMME_IMAGE">
+          <ScalarProperty Name="MODELE_GAMME_ID" ColumnName="MODELE_GAMME_ID" />
+          <ScalarProperty Name="FICHIER_ID" ColumnName="FICHIER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODULE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.MODULE)">
+        <MappingFragment StoreEntitySet="MODULE">
+          <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+          <ScalarProperty Name="MOD_MODULE_ID" ColumnName="MOD_MODULE_ID" />
+          <ScalarProperty Name="TYPE_MODULE_ID" ColumnName="TYPE_MODULE_ID" />
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+          <ScalarProperty Name="MODULE_NOM" ColumnName="MODULE_NOM" />
+          <ScalarProperty Name="MODULE_TYPE" ColumnName="MODULE_TYPE" />
+          <ScalarProperty Name="MODULE_MARGE_COMMERCIAL" ColumnName="MODULE_MARGE_COMMERCIAL" />
+          <ScalarProperty Name="MODULE_MARGE_ENTREPRISE" ColumnName="MODULE_MARGE_ENTREPRISE" />
+          <ScalarProperty Name="QUANTITE_PARENT" ColumnName="QUANTITE_PARENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAYER">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.PAYER)">
+        <MappingFragment StoreEntitySet="PAYER">
+          <ScalarProperty Name="ETAPE_ECHELONNEMENT_ID" ColumnName="ETAPE_ECHELONNEMENT_ID" />
+          <ScalarProperty Name="DEVIS_ID" ColumnName="DEVIS_ID" />
+          <ScalarProperty Name="POURCENTAGE_ETAPE" ColumnName="POURCENTAGE_ETAPE" />
+          <ScalarProperty Name="STATUT_PAIEMENT" ColumnName="STATUT_PAIEMENT" />
+          <ScalarProperty Name="DATE_ECHEANCE" ColumnName="DATE_ECHEANCE" />
+          <ScalarProperty Name="DATE_PAIEMENT" ColumnName="DATE_PAIEMENT" />
+          <ScalarProperty Name="MONTANT_PAYER" ColumnName="MONTANT_PAYER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEUT_APPLIQUER">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.PEUT_APPLIQUER)">
+        <MappingFragment StoreEntitySet="PEUT_APPLIQUER">
+          <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+          <ScalarProperty Name="FINITION_ID" ColumnName="FINITION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUIT">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.PRODUIT)">
+        <MappingFragment StoreEntitySet="PRODUIT">
+          <ScalarProperty Name="PRODUIT_ID" ColumnName="PRODUIT_ID" />
+          <ScalarProperty Name="DEVIS_ID" ColumnName="DEVIS_ID" />
+          <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
+          <ScalarProperty Name="PRODUIT_NOM" ColumnName="PRODUIT_NOM" />
+          <ScalarProperty Name="PRODUIT_DESCRIPTION" ColumnName="PRODUIT_DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPE_COMPOSANT">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.TYPE_COMPOSANT)">
+        <MappingFragment StoreEntitySet="TYPE_COMPOSANT">
+          <ScalarProperty Name="TYPE_COMPOSANT1" ColumnName="TYPE_COMPOSANT1" />
+          <ScalarProperty Name="TYPE_COMPOSANT_NOM" ColumnName="TYPE_COMPOSANT_NOM" />
+          <ScalarProperty Name="TYPE_COMPOSANT_CARACTERISTIQUE" ColumnName="TYPE_COMPOSANT_CARACTERISTIQUE" />
+          <ScalarProperty Name="TYPE_COMPOSANT_UNITE_USAGE" ColumnName="TYPE_COMPOSANT_UNITE_USAGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPE_FICHIER">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.TYPE_FICHIER)">
+        <MappingFragment StoreEntitySet="TYPE_FICHIER">
+          <ScalarProperty Name="TYPE_FICHIER_ID" ColumnName="TYPE_FICHIER_ID" />
+          <ScalarProperty Name="TYPE_FICHIER_NOM" ColumnName="TYPE_FICHIER_NOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPE_FINITION">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.TYPE_FINITION)">
+        <MappingFragment StoreEntitySet="TYPE_FINITION">
+          <ScalarProperty Name="TYPE_FINITION_ID" ColumnName="TYPE_FINITION_ID" />
+          <ScalarProperty Name="TYPE_FINITION_NOM" ColumnName="TYPE_FINITION_NOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPE_MODELE_GAMME">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.TYPE_MODELE_GAMME)">
+        <MappingFragment StoreEntitySet="TYPE_MODELE_GAMME">
+          <ScalarProperty Name="TYPE_MODELE_GAMME_ID" ColumnName="TYPE_MODELE_GAMME_ID" />
+          <ScalarProperty Name="TYPE_MODELE_GAMME_NOM" ColumnName="TYPE_MODELE_GAMME_NOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPE_MODULE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.TYPE_MODULE)">
+        <MappingFragment StoreEntitySet="TYPE_MODULE">
+          <ScalarProperty Name="TYPE_MODULE_ID" ColumnName="TYPE_MODULE_ID" />
+          <ScalarProperty Name="TYPE_MODULE_NOM" ColumnName="TYPE_MODULE_NOM" />
+          <ScalarProperty Name="TYPE_MODULE_UNITE_USAGE" ColumnName="TYPE_MODULE_UNITE_USAGE" />
+          <ScalarProperty Name="TYPE_MODULE_CARACTERISTIQUE" ColumnName="TYPE_MODULE_CARACTERISTIQUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UTILISER___COUPE_DE_PRINCIPE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.UTILISER___COUPE_DE_PRINCIPE)">
+        <MappingFragment StoreEntitySet="UTILISER___COUPE_DE_PRINCIPE">
+          <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+          <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
+          <ScalarProperty Name="QUANTITE_COUPE" ColumnName="QUANTITE_COUPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -1323,7 +1322,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
       </DesignerInfoPropertySet>
     </Options>

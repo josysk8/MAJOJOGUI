@@ -9,7 +9,7 @@ public partial class Accueil : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
 
     protected void btnCreerDevis_Click(object sender, EventArgs e)
@@ -19,7 +19,7 @@ public partial class Accueil : System.Web.UI.Page
 
     protected void btnBrouillonDevis_Click(object sender, EventArgs e)
     {
-
+        new TestEF();
     }
 
     protected void btnNouveauClientDevis_Click(object sender, EventArgs e)
