@@ -17,7 +17,7 @@ public class Contact
     private String cp;
     private String ville;
 
-    protected int Id
+    public int Id
     {
         get
         {

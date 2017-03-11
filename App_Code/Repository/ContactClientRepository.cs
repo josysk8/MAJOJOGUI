@@ -38,4 +38,16 @@ public class ContactClientRepository
             return contacts;
         }
     }
+
+    public void Add(ContactClient contactClient)
+    {
+        CONTACT_CLIENT entity = new CONTACT_CLIENT();
+        entity.CLIENT_ID = contactClient.Id;
+
+        using (var db = new maderaEntities())
+        {
+            db.CONTACT_CLIENT.Add(entity);
+            db.SaveChanges();
+        }
+    }
 }
