@@ -20,6 +20,8 @@ public class ProduitRepository
         PRODUIT entity = new PRODUIT();
         entity.PRODUIT_NOM = produit.Nom;
         entity.PRODUIT_DESCRIPTION = produit.Description;
+        entity.DEVIS_ID = produit.Devis.Id;
+        entity.GAMME_ID = produit.Gamme.Id;
         
         using (var db = new maderaEntities())
         {

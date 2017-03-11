@@ -11,6 +11,8 @@ public class Produit
     private int id;
     private String nom;
     private String description;
+    private Devis devis;
+    private Gamme gamme;
 
     public int Id
     {
@@ -48,6 +50,32 @@ public class Produit
         set
         {
             description = value;
+        }
+    }
+
+    public Gamme Gamme
+    {
+        get
+        {
+            return gamme;
+        }
+
+        set
+        {
+            gamme = value;
+        }
+    }
+
+    public Devis Devis
+    {
+        get
+        {
+            return devis;
+        }
+
+        set
+        {
+            devis = value;
         }
     }
 

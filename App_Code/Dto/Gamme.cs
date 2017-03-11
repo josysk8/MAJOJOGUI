@@ -12,7 +12,7 @@ public class Gamme
     private String nom;
     private String description;
 
-    protected int Id
+    public int Id
     {
         get
         {
@@ -25,7 +25,7 @@ public class Gamme
         }
     }
 
-    protected string Nom
+    public string Nom
     {
         get
         {
@@ -38,7 +38,7 @@ public class Gamme
         }
     }
 
-    protected string Description
+    public string Description
     {
         get
         {

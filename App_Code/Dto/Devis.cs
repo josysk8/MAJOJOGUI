@@ -17,7 +17,7 @@ public class Devis
     private Client client;
 
     #region accesseur
-    protected int Id
+    public int Id
     {
         get
         {
@@ -30,7 +30,7 @@ public class Devis
         }
     }
 
-    protected decimal EstimationPrix
+    public decimal EstimationPrix
     {
         get
         {
@@ -43,7 +43,7 @@ public class Devis
         }
     }
 
-    protected DateTime Date
+    public DateTime Date
     {
         get
         {
@@ -56,7 +56,7 @@ public class Devis
         }
     }
 
-    protected string NomProjet
+    public string NomProjet
     {
         get
         {
@@ -69,7 +69,7 @@ public class Devis
         }
     }
 
-    protected string Reference
+    public string Reference
     {
         get
         {
@@ -82,7 +82,7 @@ public class Devis
         }
     }
 
-    protected short Etat
+    public short Etat
     {
         get
         {
