@@ -592,13 +592,13 @@
           <Key>
             <PropertyRef Name="DEVIS_ID" />
           </Key>
-          <Property Name="DEVIS_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CLIENT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="BUR_PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COM_PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="DEVIS_ESTIMATION_PRIX" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="DEVIS_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DEVIS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLIENT_ID" Type="Int32" Nullable="false" />
+          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="false" />
+          <Property Name="BUR_PERSONNEL_ID" Type="Int32" Nullable="false" />
+          <Property Name="COM_PERSONNEL_ID" Type="Int32" Nullable="false" />
+          <Property Name="DEVIS_ESTIMATION_PRIX" Type="Decimal" Precision="18" Scale="0" Nullable="true" />
+          <Property Name="DEVIS_DATE" Type="DateTime" Precision="3" Nullable="true" />
           <Property Name="DEVIS_NOM_PROJET" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="DEVIS_REFERENCE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="DEVIS_ETAT" Type="Int16" />
@@ -788,9 +788,9 @@
           <Key>
             <PropertyRef Name="PRODUIT_ID" />
           </Key>
-          <Property Name="PRODUIT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DEVIS_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PRODUIT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DEVIS_ID" Type="Int32" Nullable="false" />
+          <Property Name="GAMME_ID" Type="Int32" Nullable="false" />
           <Property Name="PRODUIT_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="PRODUIT_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
