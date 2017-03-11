@@ -32,5 +32,6 @@ public partial class NouveauDevis : System.Web.UI.Page
         Session["currentDevis"] = recordedClient;
         Response.Redirect("ListeProduit.aspx");
         */
+
     }
 }

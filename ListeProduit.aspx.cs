@@ -14,74 +14,86 @@ public partial class ListeProduit : System.Web.UI.Page
         if (null != Session["currentDevis"])
         {
             Devis recordedDevis = (Devis)Session["currentDevis"];
-
         }
 
         if (null != Session["panelContent"])
         {
-            produits = (Dictionary<string, Panel>)Session["panelContent"];
-            for (int i = 0; i < produits.Count; i++)
-            {
-                String key = "produit" + i.ToString();
-                Button deleteButton = produits[key].Controls.OfType<Button>().Last();
-                if (deleteButton.OnClientClick == null)
-                {
-                    deleteButton.OnClientClick += new EventHandler(ImgBtnDelete_Click);
-                }
-                PnlListeProduit.Controls.AddAt(i, produits[key]);
-            }
+            refreshProductPanel();
         }
     }
 
     protected void ImgBtnNouveauProduit_Click(object sender, ImageClickEventArgs e)
     {
-
+        refreshProductPanel();
     }
 
     protected void BtnModalConfirmer_Click(object sender, EventArgs e)
     {
-        // Utiliser la session pour repasser la liste à chaque refresh
-
         Panel myPanel = new Panel();
+        String nextKey = "" + (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+        myPanel.ID = nextKey;
 
         Button myEditButton = new Button();
-
-        Button myDeleteButton = new Button();
-        myDeleteButton.Text = "Effacer";
-        //myDeleteButton.ImageUrl = "Images/cancel-icon.png";
-        //myDeleteButton.Height = 10;
-        //myDeleteButton.Width = 10;
-
         myEditButton.Text = TxtModalNomProduit.Text;
+        //myEditButton.ID = nextKey;
 
-        myDeleteButton.ID = "produit" + produits.Count;
-
+        ImageButton myDeleteButton = new ImageButton();
+        myDeleteButton.ImageUrl = "Images/cancel-icon.png";
+        myDeleteButton.Height = 10;
+        myDeleteButton.Width = 10;
+        //myDeleteButton.ID = nextKey;
         myPanel.Controls.Add(myEditButton);
         myPanel.Controls.Add(myDeleteButton);
 
-        String nextKey = "produit" + produits.Count.ToString();
         produits.Add(nextKey, myPanel);
         Session["panelContent"] = produits;
 
-        for (int i = 0; i < produits.Count; i++)
-        {
-            String key = "produit" + i.ToString();
-            PnlListeProduit.Controls.AddAt(i, produits[key]);
-        }
+        refreshProductPanel();
+    }
+
+    protected void BtnConfigurerProduit_Click(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
+
+        string idProduit = button.Parent.ID;
+   
+        PRODUIT produitEnvoy = new PRODUIT();
+        produitEnvoy.PRODUIT_ID = int.Parse(idProduit);
+        produitEnvoy.PRODUIT_NOM = button.Text;
+        Session["currentProduit"] = produitEnvoy;
+        Response.Redirect("ConfigurerProduit.aspx");
     }
 
     protected void ImgBtnDelete_Click(object sender, EventArgs e)
     {
-        Button button = (Button)sender;
-        string buttonId = button.ID;
-        produits.Remove(buttonId);
+        ImageButton button = (ImageButton)sender;
+
+        string idProduit = button.Parent.ID;
+        produits.Remove(idProduit);
         Session["panelContent"] = produits;
+        refreshProductPanel();
     }
 
-    //Appeler après le page load :S
     protected void BtnClearProduit_Click(object sender, ImageClickEventArgs e)
     {
+        PnlListeProduit.Controls.Clear();
         produits.Clear();
         Session["panelContent"] = null;
+    }
+
+    //fonction qui refresh le panel de produits
+    private void refreshProductPanel()
+    {
+        produits = (Dictionary<string, Panel>)Session["panelContent"];
+        PnlListeProduit.Controls.Clear();
+        foreach (KeyValuePair<string, Panel> produit in produits)
+        {
+            Button modifierButton = produit.Value.Controls.OfType<Button>().Last();
+            modifierButton.Click += new EventHandler(this.BtnConfigurerProduit_Click);
+
+            ImageButton deleteButton = produit.Value.Controls.OfType<ImageButton>().Last();
+            deleteButton.Click += new ImageClickEventHandler(this.ImgBtnDelete_Click);
+            PnlListeProduit.Controls.Add(produit.Value);
+        }
     }
 }
