@@ -193,11 +193,11 @@
     <Key>
       <PropertyRef Name="DEVIS_ID" />
     </Key>
-    <Property Name="DEVIS_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="CLIENT_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="BUR_PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="COM_PERSONNEL_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="DEVIS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CLIENT_ID" Type="int" Nullable="false" />
+    <Property Name="PERSONNEL_ID" Type="int" Nullable="false" />
+    <Property Name="BUR_PERSONNEL_ID" Type="int" Nullable="false" />
+    <Property Name="COM_PERSONNEL_ID" Type="int" Nullable="false" />
     <Property Name="DEVIS_ESTIMATION_PRIX" Type="decimal" Nullable="true" Precision="18" Scale="0" />
     <Property Name="DEVIS_DATE" Type="datetime" Nullable="true" />
     <Property Name="DEVIS_NOM_PROJET" Type="varchar" Nullable="true" MaxLength="60" />
@@ -340,7 +340,7 @@
     <Property Name="MODELE_GAMME_NOM" Type="varchar" Nullable="true" MaxLength="40" />
     <Property Name="MODELE_GAMME_DESCRIPTION" Type="varchar(max)" Nullable="true" />
     <Property Name="MODELE_GAMME_NB_PIECES" Type="int" Nullable="true" />
-    <Property Name="MODELE_GAMME_SURFACE" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="MODELE_GAMME_SURFACE" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="MODELE_GAMME_IMAGE">
     <Key>
@@ -389,9 +389,9 @@
     <Key>
       <PropertyRef Name="PRODUIT_ID" />
     </Key>
-    <Property Name="PRODUIT_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="DEVIS_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PRODUIT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DEVIS_ID" Type="int" Nullable="false" />
+    <Property Name="GAMME_ID" Type="int" Nullable="false" />
     <Property Name="PRODUIT_NOM" Type="varchar" Nullable="true" MaxLength="1" />
     <Property Name="PRODUIT_DESCRIPTION" Type="varchar(max)" Nullable="true" />
   </EntityType>
@@ -452,7 +452,7 @@
             <PropertyRef Name="PERSONNEL_ID" />
             <PropertyRef Name="APPLICATION_ID" />
           </Key>
-          <Property Name="PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="false" />
           <Property Name="APPLICATION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="ACCEDER_APPLICATION2">
@@ -460,7 +460,7 @@
             <PropertyRef Name="PERSONNEL_ID" />
             <PropertyRef Name="APPLICATION_ID" />
           </Key>
-          <Property Name="PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="false" />
           <Property Name="APPLICATION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="ACCEDER_APPLICATION3">
@@ -468,21 +468,21 @@
             <PropertyRef Name="PERSONNEL_ID" />
             <PropertyRef Name="APPLICATION_ID" />
           </Key>
-          <Property Name="PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="APPLICATION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="false" />
+          <Property Name="APPLICATION_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ACCES_APPLICATION">
           <Key>
             <PropertyRef Name="APPLICATION_ID" />
           </Key>
-          <Property Name="APPLICATION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APPLICATION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="APPLICATION_NOM" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="BUREAU_ETUDE">
           <Key>
             <PropertyRef Name="PERSONNEL_ID" />
           </Key>
-          <Property Name="PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SPECIALISATION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="PERSONNEL_LOGIN" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="PERSONNEL_MDP" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
@@ -494,14 +494,14 @@
           <Key>
             <PropertyRef Name="CLIENT_ID" />
           </Key>
-          <Property Name="CLIENT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLIENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CLIENT_REFERENCE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="COMMANDE">
           <Key>
             <PropertyRef Name="COMMANDE_ID" />
           </Key>
-          <Property Name="COMMANDE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COMMANDE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="COMMANDE_DATE" Type="DateTime" Precision="3" />
           <Property Name="COMMANDE_STATUT" Type="Int16" />
         </EntityType>
@@ -509,7 +509,7 @@
           <Key>
             <PropertyRef Name="PERSONNEL_ID" />
           </Key>
-          <Property Name="PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SECTEUR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NUMERO_MOBILE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="PERSONNEL_LOGIN" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
@@ -522,9 +522,9 @@
           <Key>
             <PropertyRef Name="COMPOSANT_ID" />
           </Key>
-          <Property Name="COMPOSANT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TYPE_COMPOSANT" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FOURNISSEUR_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="COMPOSANT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_COMPOSANT" Type="Int32" Nullable="false" />
+          <Property Name="FOURNISSEUR_ID" Type="Int32" Nullable="false" />
           <Property Name="COMPOSANT_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="COMPOSANT_STOCK" Type="Int32" />
           <Property Name="COMPOSANT_VALEUR_CARACTERISTIQUE_1" Type="Decimal" Precision="18" Scale="0" />
@@ -535,14 +535,14 @@
             <PropertyRef Name="FICHIER_ID" />
             <PropertyRef Name="COMPOSANT_ID" />
           </Key>
-          <Property Name="FICHIER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COMPOSANT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FICHIER_ID" Type="Int32" Nullable="false" />
+          <Property Name="COMPOSANT_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="COMPTABLE">
           <Key>
             <PropertyRef Name="PERSONNEL_ID" />
           </Key>
-          <Property Name="PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NUMERO_POSTE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="PERSONNEL_LOGIN" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="PERSONNEL_MDP" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
@@ -554,8 +554,8 @@
           <Key>
             <PropertyRef Name="CONTACT_ID" />
           </Key>
-          <Property Name="CONTACT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CLIENT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CONTACT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLIENT_ID" Type="Int32" Nullable="false" />
           <Property Name="CONTACT_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="CONTACT_TELEPHONE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="CONTACT_MAIL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
@@ -569,8 +569,8 @@
           <Key>
             <PropertyRef Name="CONTACT_ID" />
           </Key>
-          <Property Name="CONTACT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FOURNISSEUR_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CONTACT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FOURNISSEUR_ID" Type="Int32" Nullable="false" />
           <Property Name="CONTACT_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="CONTACT_TELEPHONE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="CONTACT_MAIL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
@@ -585,8 +585,8 @@
             <PropertyRef Name="PRODUIT_ID" />
             <PropertyRef Name="MODELE_GAMME_ID" />
           </Key>
-          <Property Name="PRODUIT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MODELE_GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PRODUIT_ID" Type="Int32" Nullable="false" />
+          <Property Name="MODELE_GAMME_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="DEVIS">
           <Key>
@@ -594,9 +594,9 @@
           </Key>
           <Property Name="DEVIS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CLIENT_ID" Type="Int32" Nullable="false" />
-          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="false" />
-          <Property Name="BUR_PERSONNEL_ID" Type="Int32" Nullable="false" />
-          <Property Name="COM_PERSONNEL_ID" Type="Int32" Nullable="false" />
+          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="true" />
+          <Property Name="BUR_PERSONNEL_ID" Type="Int32" Nullable="true" />
+          <Property Name="COM_PERSONNEL_ID" Type="Int32" Nullable="true" />
           <Property Name="DEVIS_ESTIMATION_PRIX" Type="Decimal" Precision="18" Scale="0" Nullable="true" />
           <Property Name="DEVIS_DATE" Type="DateTime" Precision="3" Nullable="true" />
           <Property Name="DEVIS_NOM_PROJET" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
@@ -608,16 +608,16 @@
             <PropertyRef Name="FICHIER_ID" />
             <PropertyRef Name="MODULE_ID" />
           </Key>
-          <Property Name="FICHIER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MODULE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FICHIER_ID" Type="Int32" Nullable="false" />
+          <Property Name="MODULE_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="EST_DISPONIBLE">
           <Key>
             <PropertyRef Name="MODULE_ID" />
             <PropertyRef Name="GAMME_ID" />
           </Key>
-          <Property Name="MODULE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MODULE_ID" Type="Int32" Nullable="false" />
+          <Property Name="GAMME_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="EST_FICHIER_DEVIS">
           <Key>
@@ -625,23 +625,23 @@
             <PropertyRef Name="DEVIS_ID" />
             <PropertyRef Name="TYPE_FICHIER_ID" />
           </Key>
-          <Property Name="FICHIER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="DEVIS_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="TYPE_FICHIER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FICHIER_ID" Type="Int32" Nullable="false" />
+          <Property Name="DEVIS_ID" Type="Int32" Nullable="false" />
+          <Property Name="TYPE_FICHIER_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="EST_RESPONSABLE">
           <Key>
             <PropertyRef Name="PERSONNEL_ID" />
             <PropertyRef Name="COMPOSANT_ID" />
           </Key>
-          <Property Name="PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COMPOSANT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="false" />
+          <Property Name="COMPOSANT_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ETAPE_ECHELONNEMENT">
           <Key>
             <PropertyRef Name="ETAPE_ECHELONNEMENT_ID" />
           </Key>
-          <Property Name="ETAPE_ECHELONNEMENT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ETAPE_ECHELONNEMENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ETAPE_ECHELONNEMENT_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ETAPE_ECHELONNEMENT_ORDRE" Type="Int32" />
         </EntityType>
@@ -650,15 +650,15 @@
             <PropertyRef Name="GAMME_ID" />
             <PropertyRef Name="FINITION_ID" />
           </Key>
-          <Property Name="GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FINITION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GAMME_ID" Type="Int32" Nullable="false" />
+          <Property Name="FINITION_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="FICHIER">
           <Key>
             <PropertyRef Name="FICHIER_ID" />
           </Key>
-          <Property Name="FICHIER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TYPE_FICHIER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FICHIER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_FICHIER_ID" Type="Int32" Nullable="false" />
           <Property Name="FICHIER_NOM" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="FICHIER_CHEMIN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="FICHIER_POIDS" Type="Int32" />
@@ -667,8 +667,8 @@
           <Key>
             <PropertyRef Name="FINITION_ID" />
           </Key>
-          <Property Name="FINITION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TYPE_FINITION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FINITION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_FINITION_ID" Type="Int32" Nullable="false" />
           <Property Name="FINITION_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FINITION_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -677,14 +677,14 @@
             <PropertyRef Name="FINITION_ID" />
             <PropertyRef Name="FICHIER_ID" />
           </Key>
-          <Property Name="FINITION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FICHIER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FINITION_ID" Type="Int32" Nullable="false" />
+          <Property Name="FICHIER_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="FOURNISSEUR">
           <Key>
             <PropertyRef Name="FOURNISSEUR_ID" />
           </Key>
-          <Property Name="FOURNISSEUR_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FOURNISSEUR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FOURNISSEUR_SIRET" Type="String" MaxLength="14" FixedLength="true" Unicode="false" />
           <Property Name="FOURNISSEUR_SIREN" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
         </EntityType>
@@ -692,7 +692,7 @@
           <Key>
             <PropertyRef Name="GAMME_ID" />
           </Key>
-          <Property Name="GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GAMME_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GAMME_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="GAMME_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -701,16 +701,16 @@
             <PropertyRef Name="FINITION_ID" />
             <PropertyRef Name="MODELE_GAMME_ID" />
           </Key>
-          <Property Name="FINITION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MODELE_GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FINITION_ID" Type="Int32" Nullable="false" />
+          <Property Name="MODELE_GAMME_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="LIER_MODULE">
           <Key>
             <PropertyRef Name="MODULE_ID" />
             <PropertyRef Name="MODELE_GAMME_ID" />
           </Key>
-          <Property Name="MODULE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MODELE_GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MODULE_ID" Type="Int32" Nullable="false" />
+          <Property Name="MODELE_GAMME_ID" Type="Int32" Nullable="false" />
           <Property Name="IDENTIFICATION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="SECTION" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="LONGUEUR" Type="Int32" />
@@ -722,9 +722,9 @@
             <PropertyRef Name="COMPOSANT_ID" />
             <PropertyRef Name="FOURNISSEUR_ID" />
           </Key>
-          <Property Name="COMMANDE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COMPOSANT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FOURNISSEUR_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="COMMANDE_ID" Type="Int32" Nullable="false" />
+          <Property Name="COMPOSANT_ID" Type="Int32" Nullable="false" />
+          <Property Name="FOURNISSEUR_ID" Type="Int32" Nullable="false" />
           <Property Name="PRIX_ACHAT" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="QUANTITE_LIGNE_COMMANDE" Type="Int32" />
         </EntityType>
@@ -732,31 +732,31 @@
           <Key>
             <PropertyRef Name="MODELE_GAMME_ID" />
           </Key>
-          <Property Name="MODELE_GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MODELE_GAMME_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GAMME_ID" Type="Int32" Nullable="false" />
           <Property Name="TYPE_MODELE_GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="EST_PAR_DEFAUT" Type="Boolean" />
+          <Property Name="EST_PAR_DEFAUT" Type="Boolean" Nullable="false" />
           <Property Name="MODELE_GAMME_NOM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="MODELE_GAMME_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MODELE_GAMME_NB_PIECES" Type="Int32" />
-          <Property Name="MODELE_GAMME_SURFACE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MODELE_GAMME_SURFACE" Type="Int32" />
         </EntityType>
         <EntityType Name="MODELE_GAMME_IMAGE">
           <Key>
             <PropertyRef Name="MODELE_GAMME_ID" />
             <PropertyRef Name="FICHIER_ID" />
           </Key>
-          <Property Name="MODELE_GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FICHIER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MODELE_GAMME_ID" Type="Int32" Nullable="false" />
+          <Property Name="FICHIER_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="MODULE">
           <Key>
             <PropertyRef Name="MODULE_ID" />
           </Key>
-          <Property Name="MODULE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MOD_MODULE_ID" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="TYPE_MODULE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="PERSONNEL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MODULE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MOD_MODULE_ID" Type="Int32" />
+          <Property Name="TYPE_MODULE_ID" Type="Int32" Nullable="false" />
+          <Property Name="PERSONNEL_ID" Type="Int32" Nullable="true" />
           <Property Name="MODULE_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="MODULE_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="MODULE_MARGE_COMMERCIAL" Type="Decimal" Precision="18" Scale="0" />
@@ -768,8 +768,8 @@
             <PropertyRef Name="ETAPE_ECHELONNEMENT_ID" />
             <PropertyRef Name="DEVIS_ID" />
           </Key>
-          <Property Name="ETAPE_ECHELONNEMENT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="DEVIS_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ETAPE_ECHELONNEMENT_ID" Type="Int32" Nullable="false" />
+          <Property Name="DEVIS_ID" Type="Int32" Nullable="false" />
           <Property Name="POURCENTAGE_ETAPE" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="STATUT_PAIEMENT" Type="Boolean" />
           <Property Name="DATE_ECHEANCE" Type="DateTime" Precision="3" />
@@ -781,8 +781,8 @@
             <PropertyRef Name="MODULE_ID" />
             <PropertyRef Name="FINITION_ID" />
           </Key>
-          <Property Name="MODULE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="FINITION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MODULE_ID" Type="Int32" Nullable="false" />
+          <Property Name="FINITION_ID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="PRODUIT">
           <Key>
@@ -821,14 +821,14 @@
           <Key>
             <PropertyRef Name="TYPE_MODELE_GAMME_ID" />
           </Key>
-          <Property Name="TYPE_MODELE_GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_MODELE_GAMME_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TYPE_MODELE_GAMME_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TYPE_MODULE">
           <Key>
             <PropertyRef Name="TYPE_MODULE_ID" />
           </Key>
-          <Property Name="TYPE_MODULE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_MODULE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TYPE_MODULE_NOM" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="TYPE_MODULE_UNITE_USAGE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="TYPE_MODULE_CARACTERISTIQUE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />

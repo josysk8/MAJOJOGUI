@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/11/2017 16:50:18
--- Generated from EDMX file: C:\Users\DEVARENNE\Documents\Visual Studio 2015\WebSites\Madera\App_Code\Model.edmx
+-- Date Created: 03/12/2017 16:20:06
+-- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -152,35 +152,35 @@ GO
 
 -- Creating table 'ACCEDER_APPLICATION'
 CREATE TABLE [dbo].[ACCEDER_APPLICATION] (
-    [PERSONNEL_ID] decimal(18,0)  NOT NULL,
+    [PERSONNEL_ID] int  NOT NULL,
     [APPLICATION_ID] decimal(18,0)  NOT NULL
 );
 GO
 
 -- Creating table 'ACCEDER_APPLICATION2'
 CREATE TABLE [dbo].[ACCEDER_APPLICATION2] (
-    [PERSONNEL_ID] decimal(18,0)  NOT NULL,
+    [PERSONNEL_ID] int  NOT NULL,
     [APPLICATION_ID] decimal(18,0)  NOT NULL
 );
 GO
 
 -- Creating table 'ACCEDER_APPLICATION3'
 CREATE TABLE [dbo].[ACCEDER_APPLICATION3] (
-    [PERSONNEL_ID] decimal(18,0)  NOT NULL,
-    [APPLICATION_ID] decimal(18,0)  NOT NULL
+    [PERSONNEL_ID] int  NOT NULL,
+    [APPLICATION_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'ACCES_APPLICATION'
 CREATE TABLE [dbo].[ACCES_APPLICATION] (
-    [APPLICATION_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [APPLICATION_ID] int IDENTITY(1,1) NOT NULL,
     [APPLICATION_NOM] varchar(80)  NULL
 );
 GO
 
 -- Creating table 'BUREAU_ETUDE'
 CREATE TABLE [dbo].[BUREAU_ETUDE] (
-    [PERSONNEL_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [PERSONNEL_ID] int IDENTITY(1,1) NOT NULL,
     [SPECIALISATION] varchar(60)  NULL,
     [PERSONNEL_LOGIN] varchar(80)  NULL,
     [PERSONNEL_MDP] varchar(80)  NULL,
@@ -192,14 +192,14 @@ GO
 
 -- Creating table 'CLIENT'
 CREATE TABLE [dbo].[CLIENT] (
-    [CLIENT_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [CLIENT_ID] int IDENTITY(1,1) NOT NULL,
     [CLIENT_REFERENCE] char(10)  NULL
 );
 GO
 
 -- Creating table 'COMMANDE'
 CREATE TABLE [dbo].[COMMANDE] (
-    [COMMANDE_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [COMMANDE_ID] int IDENTITY(1,1) NOT NULL,
     [COMMANDE_DATE] datetime  NULL,
     [COMMANDE_STATUT] smallint  NULL
 );
@@ -207,7 +207,7 @@ GO
 
 -- Creating table 'COMMERCIAL'
 CREATE TABLE [dbo].[COMMERCIAL] (
-    [PERSONNEL_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [PERSONNEL_ID] int IDENTITY(1,1) NOT NULL,
     [SECTEUR] varchar(10)  NULL,
     [NUMERO_MOBILE] varchar(16)  NULL,
     [PERSONNEL_LOGIN] varchar(80)  NULL,
@@ -220,9 +220,9 @@ GO
 
 -- Creating table 'COMPOSANT'
 CREATE TABLE [dbo].[COMPOSANT] (
-    [COMPOSANT_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
-    [TYPE_COMPOSANT] decimal(18,0)  NOT NULL,
-    [FOURNISSEUR_ID] decimal(18,0)  NOT NULL,
+    [COMPOSANT_ID] int IDENTITY(1,1) NOT NULL,
+    [TYPE_COMPOSANT] int  NOT NULL,
+    [FOURNISSEUR_ID] int  NOT NULL,
     [COMPOSANT_NOM] varchar(1)  NULL,
     [COMPOSANT_STOCK] int  NULL,
     [COMPOSANT_VALEUR_CARACTERISTIQUE_1] decimal(18,0)  NULL,
@@ -232,14 +232,14 @@ GO
 
 -- Creating table 'COMPOSANT_IMAGE'
 CREATE TABLE [dbo].[COMPOSANT_IMAGE] (
-    [FICHIER_ID] decimal(18,0)  NOT NULL,
-    [COMPOSANT_ID] decimal(18,0)  NOT NULL
+    [FICHIER_ID] int  NOT NULL,
+    [COMPOSANT_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'COMPTABLE'
 CREATE TABLE [dbo].[COMPTABLE] (
-    [PERSONNEL_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [PERSONNEL_ID] int IDENTITY(1,1) NOT NULL,
     [NUMERO_POSTE] varchar(16)  NULL,
     [PERSONNEL_LOGIN] varchar(80)  NULL,
     [PERSONNEL_MDP] varchar(80)  NULL,
@@ -251,8 +251,8 @@ GO
 
 -- Creating table 'CONTACT_CLIENT'
 CREATE TABLE [dbo].[CONTACT_CLIENT] (
-    [CONTACT_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
-    [CLIENT_ID] decimal(18,0)  NOT NULL,
+    [CONTACT_ID] int IDENTITY(1,1) NOT NULL,
+    [CLIENT_ID] int  NOT NULL,
     [CONTACT_NOM] varchar(1)  NULL,
     [CONTACT_TELEPHONE] char(10)  NULL,
     [CONTACT_MAIL] varchar(1)  NULL,
@@ -266,8 +266,8 @@ GO
 
 -- Creating table 'CONTACT_FOURNISSEUR'
 CREATE TABLE [dbo].[CONTACT_FOURNISSEUR] (
-    [CONTACT_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
-    [FOURNISSEUR_ID] decimal(18,0)  NOT NULL,
+    [CONTACT_ID] int IDENTITY(1,1) NOT NULL,
+    [FOURNISSEUR_ID] int  NOT NULL,
     [CONTACT_NOM] varchar(1)  NULL,
     [CONTACT_TELEPHONE] char(10)  NULL,
     [CONTACT_MAIL] varchar(1)  NULL,
@@ -281,18 +281,18 @@ GO
 
 -- Creating table 'CONTENIR'
 CREATE TABLE [dbo].[CONTENIR] (
-    [PRODUIT_ID] decimal(18,0)  NOT NULL,
-    [MODELE_GAMME_ID] decimal(18,0)  NOT NULL
+    [PRODUIT_ID] int  NOT NULL,
+    [MODELE_GAMME_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'DEVIS'
 CREATE TABLE [dbo].[DEVIS] (
-    [DEVIS_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
-    [CLIENT_ID] decimal(18,0)  NOT NULL,
-    [PERSONNEL_ID] decimal(18,0)  NOT NULL,
-    [BUR_PERSONNEL_ID] decimal(18,0)  NOT NULL,
-    [COM_PERSONNEL_ID] decimal(18,0)  NOT NULL,
+    [DEVIS_ID] int IDENTITY(1,1) NOT NULL,
+    [CLIENT_ID] int  NOT NULL,
+    [PERSONNEL_ID] int  NULL,
+    [BUR_PERSONNEL_ID] int  NULL,
+    [COM_PERSONNEL_ID] int  NULL,
     [DEVIS_ESTIMATION_PRIX] decimal(18,0)  NULL,
     [DEVIS_DATE] datetime  NULL,
     [DEVIS_NOM_PROJET] varchar(60)  NULL,
@@ -303,36 +303,36 @@ GO
 
 -- Creating table 'EST_COUPE_DE_PRINCIPE'
 CREATE TABLE [dbo].[EST_COUPE_DE_PRINCIPE] (
-    [FICHIER_ID] decimal(18,0)  NOT NULL,
-    [MODULE_ID] decimal(18,0)  NOT NULL
+    [FICHIER_ID] int  NOT NULL,
+    [MODULE_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'EST_DISPONIBLE'
 CREATE TABLE [dbo].[EST_DISPONIBLE] (
-    [MODULE_ID] decimal(18,0)  NOT NULL,
-    [GAMME_ID] decimal(18,0)  NOT NULL
+    [MODULE_ID] int  NOT NULL,
+    [GAMME_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'EST_FICHIER_DEVIS'
 CREATE TABLE [dbo].[EST_FICHIER_DEVIS] (
-    [FICHIER_ID] decimal(18,0)  NOT NULL,
-    [DEVIS_ID] decimal(18,0)  NOT NULL,
-    [TYPE_FICHIER_ID] decimal(18,0)  NOT NULL
+    [FICHIER_ID] int  NOT NULL,
+    [DEVIS_ID] int  NOT NULL,
+    [TYPE_FICHIER_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'EST_RESPONSABLE'
 CREATE TABLE [dbo].[EST_RESPONSABLE] (
-    [PERSONNEL_ID] decimal(18,0)  NOT NULL,
-    [COMPOSANT_ID] decimal(18,0)  NOT NULL
+    [PERSONNEL_ID] int  NOT NULL,
+    [COMPOSANT_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'ETAPE_ECHELONNEMENT'
 CREATE TABLE [dbo].[ETAPE_ECHELONNEMENT] (
-    [ETAPE_ECHELONNEMENT_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [ETAPE_ECHELONNEMENT_ID] int IDENTITY(1,1) NOT NULL,
     [ETAPE_ECHELONNEMENT_NOM] varchar(1)  NULL,
     [ETAPE_ECHELONNEMENT_ORDRE] int  NULL
 );
@@ -340,15 +340,15 @@ GO
 
 -- Creating table 'FAIRE_PARTIE'
 CREATE TABLE [dbo].[FAIRE_PARTIE] (
-    [GAMME_ID] decimal(18,0)  NOT NULL,
-    [FINITION_ID] decimal(18,0)  NOT NULL
+    [GAMME_ID] int  NOT NULL,
+    [FINITION_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'FICHIER'
 CREATE TABLE [dbo].[FICHIER] (
-    [FICHIER_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
-    [TYPE_FICHIER_ID] decimal(18,0)  NOT NULL,
+    [FICHIER_ID] int IDENTITY(1,1) NOT NULL,
+    [TYPE_FICHIER_ID] int  NOT NULL,
     [FICHIER_NOM] varchar(60)  NULL,
     [FICHIER_CHEMIN] varchar(255)  NULL,
     [FICHIER_POIDS] int  NULL
@@ -357,8 +357,8 @@ GO
 
 -- Creating table 'FINITION'
 CREATE TABLE [dbo].[FINITION] (
-    [FINITION_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
-    [TYPE_FINITION_ID] decimal(18,0)  NOT NULL,
+    [FINITION_ID] int IDENTITY(1,1) NOT NULL,
+    [TYPE_FINITION_ID] int  NOT NULL,
     [FINITION_NOM] varchar(50)  NULL,
     [FINITION_DESCRIPTION] varchar(max)  NULL
 );
@@ -366,14 +366,14 @@ GO
 
 -- Creating table 'FINITION_IMAGE'
 CREATE TABLE [dbo].[FINITION_IMAGE] (
-    [FINITION_ID] decimal(18,0)  NOT NULL,
-    [FICHIER_ID] decimal(18,0)  NOT NULL
+    [FINITION_ID] int  NOT NULL,
+    [FICHIER_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'FOURNISSEUR'
 CREATE TABLE [dbo].[FOURNISSEUR] (
-    [FOURNISSEUR_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [FOURNISSEUR_ID] int IDENTITY(1,1) NOT NULL,
     [FOURNISSEUR_SIRET] char(14)  NULL,
     [FOURNISSEUR_SIREN] char(9)  NULL
 );
@@ -381,7 +381,7 @@ GO
 
 -- Creating table 'GAMME'
 CREATE TABLE [dbo].[GAMME] (
-    [GAMME_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [GAMME_ID] int IDENTITY(1,1) NOT NULL,
     [GAMME_NOM] varchar(1)  NULL,
     [GAMME_DESCRIPTION] varchar(max)  NULL
 );
@@ -389,15 +389,15 @@ GO
 
 -- Creating table 'LIER_FINITION'
 CREATE TABLE [dbo].[LIER_FINITION] (
-    [FINITION_ID] decimal(18,0)  NOT NULL,
-    [MODELE_GAMME_ID] decimal(18,0)  NOT NULL
+    [FINITION_ID] int  NOT NULL,
+    [MODELE_GAMME_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'LIER_MODULE'
 CREATE TABLE [dbo].[LIER_MODULE] (
-    [MODULE_ID] decimal(18,0)  NOT NULL,
-    [MODELE_GAMME_ID] decimal(18,0)  NOT NULL,
+    [MODULE_ID] int  NOT NULL,
+    [MODELE_GAMME_ID] int  NOT NULL,
     [IDENTIFICATION] varchar(60)  NULL,
     [SECTION] varchar(80)  NULL,
     [LONGUEUR] int  NULL,
@@ -407,9 +407,9 @@ GO
 
 -- Creating table 'LIGNE_COMMANDE'
 CREATE TABLE [dbo].[LIGNE_COMMANDE] (
-    [COMMANDE_ID] decimal(18,0)  NOT NULL,
-    [COMPOSANT_ID] decimal(18,0)  NOT NULL,
-    [FOURNISSEUR_ID] decimal(18,0)  NOT NULL,
+    [COMMANDE_ID] int  NOT NULL,
+    [COMPOSANT_ID] int  NOT NULL,
+    [FOURNISSEUR_ID] int  NOT NULL,
     [PRIX_ACHAT] decimal(18,0)  NULL,
     [QUANTITE_LIGNE_COMMANDE] int  NULL
 );
@@ -417,30 +417,30 @@ GO
 
 -- Creating table 'MODELE_DE_GAMME'
 CREATE TABLE [dbo].[MODELE_DE_GAMME] (
-    [MODELE_GAMME_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
-    [GAMME_ID] decimal(18,0)  NOT NULL,
+    [MODELE_GAMME_ID] int IDENTITY(1,1) NOT NULL,
+    [GAMME_ID] int  NOT NULL,
     [TYPE_MODELE_GAMME_ID] decimal(18,0)  NOT NULL,
-    [EST_PAR_DEFAUT] bit  NULL,
+    [EST_PAR_DEFAUT] bit  NOT NULL,
     [MODELE_GAMME_NOM] varchar(40)  NULL,
     [MODELE_GAMME_DESCRIPTION] varchar(max)  NULL,
     [MODELE_GAMME_NB_PIECES] int  NULL,
-    [MODELE_GAMME_SURFACE] varchar(1)  NULL
+    [MODELE_GAMME_SURFACE] int  NULL
 );
 GO
 
 -- Creating table 'MODELE_GAMME_IMAGE'
 CREATE TABLE [dbo].[MODELE_GAMME_IMAGE] (
-    [MODELE_GAMME_ID] decimal(18,0)  NOT NULL,
-    [FICHIER_ID] decimal(18,0)  NOT NULL
+    [MODELE_GAMME_ID] int  NOT NULL,
+    [FICHIER_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'MODULE'
 CREATE TABLE [dbo].[MODULE] (
-    [MODULE_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
-    [MOD_MODULE_ID] decimal(18,0)  NULL,
-    [TYPE_MODULE_ID] decimal(18,0)  NOT NULL,
-    [PERSONNEL_ID] decimal(18,0)  NOT NULL,
+    [MODULE_ID] int IDENTITY(1,1) NOT NULL,
+    [MOD_MODULE_ID] int  NULL,
+    [TYPE_MODULE_ID] int  NOT NULL,
+    [PERSONNEL_ID] int  NULL,
     [MODULE_NOM] varchar(1)  NULL,
     [MODULE_TYPE] varchar(1)  NULL,
     [MODULE_MARGE_COMMERCIAL] decimal(18,0)  NULL,
@@ -451,8 +451,8 @@ GO
 
 -- Creating table 'PAYER'
 CREATE TABLE [dbo].[PAYER] (
-    [ETAPE_ECHELONNEMENT_ID] decimal(18,0)  NOT NULL,
-    [DEVIS_ID] decimal(18,0)  NOT NULL,
+    [ETAPE_ECHELONNEMENT_ID] int  NOT NULL,
+    [DEVIS_ID] int  NOT NULL,
     [POURCENTAGE_ETAPE] decimal(18,0)  NULL,
     [STATUT_PAIEMENT] bit  NULL,
     [DATE_ECHEANCE] datetime  NULL,
@@ -463,16 +463,16 @@ GO
 
 -- Creating table 'PEUT_APPLIQUER'
 CREATE TABLE [dbo].[PEUT_APPLIQUER] (
-    [MODULE_ID] decimal(18,0)  NOT NULL,
-    [FINITION_ID] decimal(18,0)  NOT NULL
+    [MODULE_ID] int  NOT NULL,
+    [FINITION_ID] int  NOT NULL
 );
 GO
 
 -- Creating table 'PRODUIT'
 CREATE TABLE [dbo].[PRODUIT] (
-    [PRODUIT_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
-    [DEVIS_ID] decimal(18,0)  NOT NULL,
-    [GAMME_ID] decimal(18,0)  NOT NULL,
+    [PRODUIT_ID] int IDENTITY(1,1) NOT NULL,
+    [DEVIS_ID] int  NOT NULL,
+    [GAMME_ID] int  NOT NULL,
     [PRODUIT_NOM] varchar(1)  NULL,
     [PRODUIT_DESCRIPTION] varchar(max)  NULL
 );
@@ -503,14 +503,14 @@ GO
 
 -- Creating table 'TYPE_MODELE_GAMME'
 CREATE TABLE [dbo].[TYPE_MODELE_GAMME] (
-    [TYPE_MODELE_GAMME_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [TYPE_MODELE_GAMME_ID] int IDENTITY(1,1) NOT NULL,
     [TYPE_MODELE_GAMME_NOM] varchar(1)  NULL
 );
 GO
 
 -- Creating table 'TYPE_MODULE'
 CREATE TABLE [dbo].[TYPE_MODULE] (
-    [TYPE_MODULE_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [TYPE_MODULE_ID] int IDENTITY(1,1) NOT NULL,
     [TYPE_MODULE_NOM] varchar(60)  NULL,
     [TYPE_MODULE_UNITE_USAGE] varchar(20)  NULL,
     [TYPE_MODULE_CARACTERISTIQUE] varchar(30)  NULL

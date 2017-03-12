@@ -12,31 +12,31 @@ using System.Collections.Generic;
 
 public partial class ACCEDER_APPLICATION
 {
-    public decimal PERSONNEL_ID { get; set; }
+    public int PERSONNEL_ID { get; set; }
     public decimal APPLICATION_ID { get; set; }
 }
 
 public partial class ACCEDER_APPLICATION2
 {
-    public decimal PERSONNEL_ID { get; set; }
+    public int PERSONNEL_ID { get; set; }
     public decimal APPLICATION_ID { get; set; }
 }
 
 public partial class ACCEDER_APPLICATION3
 {
-    public decimal PERSONNEL_ID { get; set; }
-    public decimal APPLICATION_ID { get; set; }
+    public int PERSONNEL_ID { get; set; }
+    public int APPLICATION_ID { get; set; }
 }
 
 public partial class ACCES_APPLICATION
 {
-    public decimal APPLICATION_ID { get; set; }
+    public int APPLICATION_ID { get; set; }
     public string APPLICATION_NOM { get; set; }
 }
 
 public partial class BUREAU_ETUDE
 {
-    public decimal PERSONNEL_ID { get; set; }
+    public int PERSONNEL_ID { get; set; }
     public string SPECIALISATION { get; set; }
     public string PERSONNEL_LOGIN { get; set; }
     public string PERSONNEL_MDP { get; set; }
@@ -47,20 +47,20 @@ public partial class BUREAU_ETUDE
 
 public partial class CLIENT
 {
-    public decimal CLIENT_ID { get; set; }
+    public int CLIENT_ID { get; set; }
     public string CLIENT_REFERENCE { get; set; }
 }
 
 public partial class COMMANDE
 {
-    public decimal COMMANDE_ID { get; set; }
+    public int COMMANDE_ID { get; set; }
     public Nullable<System.DateTime> COMMANDE_DATE { get; set; }
     public Nullable<short> COMMANDE_STATUT { get; set; }
 }
 
 public partial class COMMERCIAL
 {
-    public decimal PERSONNEL_ID { get; set; }
+    public int PERSONNEL_ID { get; set; }
     public string SECTEUR { get; set; }
     public string NUMERO_MOBILE { get; set; }
     public string PERSONNEL_LOGIN { get; set; }
@@ -72,9 +72,9 @@ public partial class COMMERCIAL
 
 public partial class COMPOSANT
 {
-    public decimal COMPOSANT_ID { get; set; }
-    public decimal TYPE_COMPOSANT { get; set; }
-    public decimal FOURNISSEUR_ID { get; set; }
+    public int COMPOSANT_ID { get; set; }
+    public int TYPE_COMPOSANT { get; set; }
+    public int FOURNISSEUR_ID { get; set; }
     public string COMPOSANT_NOM { get; set; }
     public Nullable<int> COMPOSANT_STOCK { get; set; }
     public Nullable<decimal> COMPOSANT_VALEUR_CARACTERISTIQUE_1 { get; set; }
@@ -83,13 +83,13 @@ public partial class COMPOSANT
 
 public partial class COMPOSANT_IMAGE
 {
-    public decimal FICHIER_ID { get; set; }
-    public decimal COMPOSANT_ID { get; set; }
+    public int FICHIER_ID { get; set; }
+    public int COMPOSANT_ID { get; set; }
 }
 
 public partial class COMPTABLE
 {
-    public decimal PERSONNEL_ID { get; set; }
+    public int PERSONNEL_ID { get; set; }
     public string NUMERO_POSTE { get; set; }
     public string PERSONNEL_LOGIN { get; set; }
     public string PERSONNEL_MDP { get; set; }
@@ -100,8 +100,8 @@ public partial class COMPTABLE
 
 public partial class CONTACT_CLIENT
 {
-    public decimal CONTACT_ID { get; set; }
-    public decimal CLIENT_ID { get; set; }
+    public int CONTACT_ID { get; set; }
+    public int CLIENT_ID { get; set; }
     public string CONTACT_NOM { get; set; }
     public string CONTACT_TELEPHONE { get; set; }
     public string CONTACT_MAIL { get; set; }
@@ -114,8 +114,8 @@ public partial class CONTACT_CLIENT
 
 public partial class CONTACT_FOURNISSEUR
 {
-    public decimal CONTACT_ID { get; set; }
-    public decimal FOURNISSEUR_ID { get; set; }
+    public int CONTACT_ID { get; set; }
+    public int FOURNISSEUR_ID { get; set; }
     public string CONTACT_NOM { get; set; }
     public string CONTACT_TELEPHONE { get; set; }
     public string CONTACT_MAIL { get; set; }
@@ -128,17 +128,17 @@ public partial class CONTACT_FOURNISSEUR
 
 public partial class CONTENIR
 {
-    public decimal PRODUIT_ID { get; set; }
-    public decimal MODELE_GAMME_ID { get; set; }
+    public int PRODUIT_ID { get; set; }
+    public int MODELE_GAMME_ID { get; set; }
 }
 
 public partial class DEVIS
 {
     public int DEVIS_ID { get; set; }
     public int CLIENT_ID { get; set; }
-    public int PERSONNEL_ID { get; set; }
-    public int BUR_PERSONNEL_ID { get; set; }
-    public int COM_PERSONNEL_ID { get; set; }
+    public Nullable<int> PERSONNEL_ID { get; set; }
+    public Nullable<int> BUR_PERSONNEL_ID { get; set; }
+    public Nullable<int> COM_PERSONNEL_ID { get; set; }
     public Nullable<decimal> DEVIS_ESTIMATION_PRIX { get; set; }
     public Nullable<System.DateTime> DEVIS_DATE { get; set; }
     public string DEVIS_NOM_PROJET { get; set; }
@@ -148,46 +148,46 @@ public partial class DEVIS
 
 public partial class EST_COUPE_DE_PRINCIPE
 {
-    public decimal FICHIER_ID { get; set; }
-    public decimal MODULE_ID { get; set; }
+    public int FICHIER_ID { get; set; }
+    public int MODULE_ID { get; set; }
 }
 
 public partial class EST_DISPONIBLE
 {
-    public decimal MODULE_ID { get; set; }
-    public decimal GAMME_ID { get; set; }
+    public int MODULE_ID { get; set; }
+    public int GAMME_ID { get; set; }
 }
 
 public partial class EST_FICHIER_DEVIS
 {
-    public decimal FICHIER_ID { get; set; }
-    public decimal DEVIS_ID { get; set; }
-    public decimal TYPE_FICHIER_ID { get; set; }
+    public int FICHIER_ID { get; set; }
+    public int DEVIS_ID { get; set; }
+    public int TYPE_FICHIER_ID { get; set; }
 }
 
 public partial class EST_RESPONSABLE
 {
-    public decimal PERSONNEL_ID { get; set; }
-    public decimal COMPOSANT_ID { get; set; }
+    public int PERSONNEL_ID { get; set; }
+    public int COMPOSANT_ID { get; set; }
 }
 
 public partial class ETAPE_ECHELONNEMENT
 {
-    public decimal ETAPE_ECHELONNEMENT_ID { get; set; }
+    public int ETAPE_ECHELONNEMENT_ID { get; set; }
     public string ETAPE_ECHELONNEMENT_NOM { get; set; }
     public Nullable<int> ETAPE_ECHELONNEMENT_ORDRE { get; set; }
 }
 
 public partial class FAIRE_PARTIE
 {
-    public decimal GAMME_ID { get; set; }
-    public decimal FINITION_ID { get; set; }
+    public int GAMME_ID { get; set; }
+    public int FINITION_ID { get; set; }
 }
 
 public partial class FICHIER
 {
-    public decimal FICHIER_ID { get; set; }
-    public decimal TYPE_FICHIER_ID { get; set; }
+    public int FICHIER_ID { get; set; }
+    public int TYPE_FICHIER_ID { get; set; }
     public string FICHIER_NOM { get; set; }
     public string FICHIER_CHEMIN { get; set; }
     public Nullable<int> FICHIER_POIDS { get; set; }
@@ -195,42 +195,42 @@ public partial class FICHIER
 
 public partial class FINITION
 {
-    public decimal FINITION_ID { get; set; }
-    public decimal TYPE_FINITION_ID { get; set; }
+    public int FINITION_ID { get; set; }
+    public int TYPE_FINITION_ID { get; set; }
     public string FINITION_NOM { get; set; }
     public string FINITION_DESCRIPTION { get; set; }
 }
 
 public partial class FINITION_IMAGE
 {
-    public decimal FINITION_ID { get; set; }
-    public decimal FICHIER_ID { get; set; }
+    public int FINITION_ID { get; set; }
+    public int FICHIER_ID { get; set; }
 }
 
 public partial class FOURNISSEUR
 {
-    public decimal FOURNISSEUR_ID { get; set; }
+    public int FOURNISSEUR_ID { get; set; }
     public string FOURNISSEUR_SIRET { get; set; }
     public string FOURNISSEUR_SIREN { get; set; }
 }
 
 public partial class GAMME
 {
-    public decimal GAMME_ID { get; set; }
+    public int GAMME_ID { get; set; }
     public string GAMME_NOM { get; set; }
     public string GAMME_DESCRIPTION { get; set; }
 }
 
 public partial class LIER_FINITION
 {
-    public decimal FINITION_ID { get; set; }
-    public decimal MODELE_GAMME_ID { get; set; }
+    public int FINITION_ID { get; set; }
+    public int MODELE_GAMME_ID { get; set; }
 }
 
 public partial class LIER_MODULE
 {
-    public decimal MODULE_ID { get; set; }
-    public decimal MODELE_GAMME_ID { get; set; }
+    public int MODULE_ID { get; set; }
+    public int MODELE_GAMME_ID { get; set; }
     public string IDENTIFICATION { get; set; }
     public string SECTION { get; set; }
     public Nullable<int> LONGUEUR { get; set; }
@@ -239,37 +239,37 @@ public partial class LIER_MODULE
 
 public partial class LIGNE_COMMANDE
 {
-    public decimal COMMANDE_ID { get; set; }
-    public decimal COMPOSANT_ID { get; set; }
-    public decimal FOURNISSEUR_ID { get; set; }
+    public int COMMANDE_ID { get; set; }
+    public int COMPOSANT_ID { get; set; }
+    public int FOURNISSEUR_ID { get; set; }
     public Nullable<decimal> PRIX_ACHAT { get; set; }
     public Nullable<int> QUANTITE_LIGNE_COMMANDE { get; set; }
 }
 
 public partial class MODELE_DE_GAMME
 {
-    public decimal MODELE_GAMME_ID { get; set; }
-    public decimal GAMME_ID { get; set; }
+    public int MODELE_GAMME_ID { get; set; }
+    public int GAMME_ID { get; set; }
     public decimal TYPE_MODELE_GAMME_ID { get; set; }
-    public Nullable<bool> EST_PAR_DEFAUT { get; set; }
+    public bool EST_PAR_DEFAUT { get; set; }
     public string MODELE_GAMME_NOM { get; set; }
     public string MODELE_GAMME_DESCRIPTION { get; set; }
     public Nullable<int> MODELE_GAMME_NB_PIECES { get; set; }
-    public string MODELE_GAMME_SURFACE { get; set; }
+    public Nullable<int> MODELE_GAMME_SURFACE { get; set; }
 }
 
 public partial class MODELE_GAMME_IMAGE
 {
-    public decimal MODELE_GAMME_ID { get; set; }
-    public decimal FICHIER_ID { get; set; }
+    public int MODELE_GAMME_ID { get; set; }
+    public int FICHIER_ID { get; set; }
 }
 
 public partial class MODULE
 {
-    public decimal MODULE_ID { get; set; }
-    public Nullable<decimal> MOD_MODULE_ID { get; set; }
-    public decimal TYPE_MODULE_ID { get; set; }
-    public decimal PERSONNEL_ID { get; set; }
+    public int MODULE_ID { get; set; }
+    public Nullable<int> MOD_MODULE_ID { get; set; }
+    public int TYPE_MODULE_ID { get; set; }
+    public Nullable<int> PERSONNEL_ID { get; set; }
     public string MODULE_NOM { get; set; }
     public string MODULE_TYPE { get; set; }
     public Nullable<decimal> MODULE_MARGE_COMMERCIAL { get; set; }
@@ -279,8 +279,8 @@ public partial class MODULE
 
 public partial class PAYER
 {
-    public decimal ETAPE_ECHELONNEMENT_ID { get; set; }
-    public decimal DEVIS_ID { get; set; }
+    public int ETAPE_ECHELONNEMENT_ID { get; set; }
+    public int DEVIS_ID { get; set; }
     public Nullable<decimal> POURCENTAGE_ETAPE { get; set; }
     public Nullable<bool> STATUT_PAIEMENT { get; set; }
     public Nullable<System.DateTime> DATE_ECHEANCE { get; set; }
@@ -290,8 +290,8 @@ public partial class PAYER
 
 public partial class PEUT_APPLIQUER
 {
-    public decimal MODULE_ID { get; set; }
-    public decimal FINITION_ID { get; set; }
+    public int MODULE_ID { get; set; }
+    public int FINITION_ID { get; set; }
 }
 
 public partial class PRODUIT
@@ -325,13 +325,13 @@ public partial class TYPE_FINITION
 
 public partial class TYPE_MODELE_GAMME
 {
-    public decimal TYPE_MODELE_GAMME_ID { get; set; }
+    public int TYPE_MODELE_GAMME_ID { get; set; }
     public string TYPE_MODELE_GAMME_NOM { get; set; }
 }
 
 public partial class TYPE_MODULE
 {
-    public decimal TYPE_MODULE_ID { get; set; }
+    public int TYPE_MODULE_ID { get; set; }
     public string TYPE_MODULE_NOM { get; set; }
     public string TYPE_MODULE_UNITE_USAGE { get; set; }
     public string TYPE_MODULE_CARACTERISTIQUE { get; set; }
