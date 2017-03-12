@@ -11,7 +11,7 @@ public class Commercial : Personnel
     private String secteur;
     private String numeroMobile;
 
-    protected string Secteur
+    public string Secteur
     {
         get
         {
@@ -24,7 +24,7 @@ public class Commercial : Personnel
         }
     }
 
-    protected string NumeroMobile
+    public string NumeroMobile
     {
         get
         {
@@ -43,4 +43,12 @@ public class Commercial : Personnel
         // TODO: Add constructor logic here
         //
     }
+
+    public Commercial(string secteur, string numeroMobile, int id, String nom, String prenom, String login, String mdp, String token) : base(id, nom, prenom, login, mdp, token)
+    {
+        this.secteur = secteur;
+        this.numeroMobile = numeroMobile;
+    }
+
+    
 }
