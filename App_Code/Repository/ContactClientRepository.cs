@@ -26,6 +26,7 @@ public class ContactClientRepository
             {
                 ContactClient contactClient = new ContactClient(
                     item.CONTACT_NOM,
+                    item.CONTACT_CLIENT_SITUATION_MATRIMONIALE,
                     item.CONTACT_TELEPHONE,
                     item.CONTACT_MAIL,
                     item.CONTACT_ADRESSE,
