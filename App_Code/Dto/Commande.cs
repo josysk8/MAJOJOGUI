@@ -9,10 +9,10 @@ using System.Web;
 public class Commande
 {
     private int id;
-    private DateTime date;
-    private short statut;
+    private DateTime? date;
+    private short? statut;
 
-    protected int Id
+    public int Id
     {
         get
         {
@@ -25,7 +25,7 @@ public class Commande
         }
     }
 
-    protected DateTime Date
+    public DateTime? Date
     {
         get
         {
@@ -38,7 +38,7 @@ public class Commande
         }
     }
 
-    protected short Statut
+    public short? Statut
     {
         get
         {
@@ -56,5 +56,12 @@ public class Commande
         //
         // TODO: Add constructor logic here
         //
+    }
+
+    public Commande(int id, DateTime? date, short? statut)
+    {
+        this.id = id;
+        this.date = date;
+        this.statut = statut;
     }
 }
