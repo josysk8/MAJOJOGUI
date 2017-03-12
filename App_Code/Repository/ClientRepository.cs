@@ -33,4 +33,33 @@ public class ClientRepository
 
         return clients;
     }
+
+    public void Add(Client client)
+    {
+        Random random = new Random();
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+        CLIENT entity = new CLIENT();
+        string reference = new string(Enumerable.Repeat(chars, 10)
+          .Select(s => s[random.Next(s.Length)]).ToArray());
+        entity.CLIENT_REFERENCE = reference;
+
+        using (var db = new maderaEntities())
+        {
+            db.CLIENT.Add(entity);
+            db.SaveChanges();
+            var query = from a in db.CLIENT where a.CLIENT_REFERENCE.Equals(reference) select a;
+
+            int id = 0;
+            foreach (var item in query)
+            {
+                id = (int) item.CLIENT_ID;
+            }
+
+            foreach (var item in client.listeContactClient)
+            {
+                contactClientRepository.Add(item);
+            }
+        }
+    }
 }

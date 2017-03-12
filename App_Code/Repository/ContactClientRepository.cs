@@ -43,7 +43,13 @@ public class ContactClientRepository
     {
         CONTACT_CLIENT entity = new CONTACT_CLIENT();
         entity.CLIENT_ID = contactClient.Id;
-
+        entity.CONTACT_ADRESSE = contactClient.Adresse;
+        entity.CONTACT_ADRESSE2 = contactClient.Adresse2;
+        entity.CONTACT_CP = contactClient.Cp;
+        entity.CONTACT_MAIL = contactClient.Email;
+        entity.CONTACT_NOM = contactClient.Nom;
+        entity.CONTACT_TELEPHONE = contactClient.Telephone;
+        entity.CONTACT_VILLE = contactClient.Ville;
         using (var db = new maderaEntities())
         {
             db.CONTACT_CLIENT.Add(entity);

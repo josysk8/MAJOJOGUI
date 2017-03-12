@@ -30,7 +30,7 @@ public class Contact
         }
     }
 
-    protected string Nom
+    public string Nom
     {
         get
         {
@@ -43,7 +43,7 @@ public class Contact
         }
     }
 
-    protected string Telephone
+    public string Telephone
     {
         get
         {
@@ -56,7 +56,7 @@ public class Contact
         }
     }
 
-    protected string Email
+    public string Email
     {
         get
         {
@@ -69,7 +69,7 @@ public class Contact
         }
     }
 
-    protected string Adresse
+    public string Adresse
     {
         get
         {
@@ -82,7 +82,7 @@ public class Contact
         }
     }
 
-    protected string Adresse2
+    public string Adresse2
     {
         get
         {
@@ -95,7 +95,7 @@ public class Contact
         }
     }
 
-    protected string Cp
+    public string Cp
     {
         get
         {
@@ -108,7 +108,7 @@ public class Contact
         }
     }
 
-    protected string Ville
+    public string Ville
     {
         get
         {

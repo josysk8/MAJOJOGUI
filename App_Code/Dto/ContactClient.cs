@@ -17,7 +17,7 @@ public class ContactClient : Contact
     {
     }
 
-    protected string ReferenceClient
+    public string ReferenceClient
     {
         get
         {
