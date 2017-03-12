@@ -8,11 +8,12 @@ using System.Web;
 /// </summary>
 public class DevisRepository
 {
+
+    private ClientRepository clientRepo;
+
     public DevisRepository()
     {
-        //
-        // TODO: Add constructor logic here
-        //
+        clientRepo = new ClientRepository();
     }
 
     public void Add(Devis devis)
@@ -32,5 +33,19 @@ public class DevisRepository
             db.DEVIS.Add(entity);
             db.SaveChanges();
         }
+    }
+
+    public Devis GetById(int id)
+    {
+        Devis devis;
+        using (var db = new maderaEntities())
+        {
+            var query = from a in db.DEVIS where a.DEVIS_ID.Equals(id) select a;
+            
+            devis = new Devis(query.First().DEVIS_ID, query.First().DEVIS_ESTIMATION_PRIX, query.First().DEVIS_DATE, 
+                               query.First().DEVIS_NOM_PROJET, query.First().DEVIS_REFERENCE, query.First().DEVIS_ETAT,
+                               clientRepo.GetById(query.First().CLIENT_ID));
+        }
+        return devis;
     }
 }

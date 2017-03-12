@@ -34,6 +34,19 @@ public class ClientRepository
         return clients;
     }
 
+    public Client GetById(int id)
+    {
+        Client dto = new Client();
+        using (var db = new maderaEntities())
+        {
+            var query = from a in db.CLIENT where a.CLIENT_ID.Equals(id) select a;
+            dto.Id = (int) query.First().CLIENT_ID;
+            dto.Reference = query.First().CLIENT_REFERENCE;
+            dto.ListeContactClient = contactClientRepository.GetById(dto.Id);
+        }
+        return dto;
+    }
+
     public void Add(Client client)
     {
         Random random = new Random();

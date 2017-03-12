@@ -9,11 +9,11 @@ using System.Web;
 public class Devis
 {
     private int id;
-    private decimal estimationPrix;
-    private DateTime date;
+    private decimal? estimationPrix;
+    private DateTime? date;
     private string nomProjet;
     private String reference;
-    private short etat;
+    private short? etat;
     private Client client;
 
     #region accesseur
@@ -30,7 +30,7 @@ public class Devis
         }
     }
 
-    public decimal EstimationPrix
+    public decimal? EstimationPrix
     {
         get
         {
@@ -43,7 +43,7 @@ public class Devis
         }
     }
 
-    public DateTime Date
+    public DateTime? Date
     {
         get
         {
@@ -82,7 +82,7 @@ public class Devis
         }
     }
 
-    public short Etat
+    public short? Etat
     {
         get
         {
@@ -122,4 +122,16 @@ public class Devis
         this.Client = SelectedClient;
     }
     #endregion
+
+    public Devis(int id, decimal? estimationPrix, DateTime? date, string nomProjet, string reference, short? etat, Client client)
+    {
+        this.id = id;
+        this.estimationPrix = estimationPrix;
+        this.date = date;
+        this.nomProjet = nomProjet;
+        this.reference = reference;
+        this.etat = etat;
+        this.client = client;
+    }
+   
 }
