@@ -12,8 +12,9 @@ public class Fichier
     private String nom;
     private String chemin;
     private long poids;
+    private TypeFichier typeFichier;
 
-    protected int Id
+    public int Id
     {
         get
         {
@@ -26,7 +27,7 @@ public class Fichier
         }
     }
 
-    protected string Nom
+    public string Nom
     {
         get
         {
@@ -39,7 +40,7 @@ public class Fichier
         }
     }
 
-    protected string Chemin
+    public string Chemin
     {
         get
         {
@@ -52,7 +53,7 @@ public class Fichier
         }
     }
 
-    protected long Poids
+    public long Poids
     {
         get
         {
@@ -62,6 +63,19 @@ public class Fichier
         set
         {
             poids = value;
+        }
+    }
+
+    public TypeFichier TypeFichier
+    {
+        get
+        {
+            return typeFichier;
+        }
+
+        set
+        {
+            typeFichier = value;
         }
     }
 

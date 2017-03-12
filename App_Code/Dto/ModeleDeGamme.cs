@@ -16,6 +16,7 @@ public class ModeleDeGamme
     private int? nbPieces;
     private int? surface;
     private TypeModeleGamme typeModeleGamme;
+    private Fichier image;
 
     public int Id
     {

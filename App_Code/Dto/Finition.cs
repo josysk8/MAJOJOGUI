@@ -12,6 +12,7 @@ public class Finition
     private String nom;
     private String description;
     private TypeFinition typeFinition;
+    private Fichier image;
 
     public int Id
     {
@@ -62,6 +63,19 @@ public class Finition
         set
         {
             typeFinition = value;
+        }
+    }
+
+    public Fichier Image
+    {
+        get
+        {
+            return image;
+        }
+
+        set
+        {
+            image = value;
         }
     }
 

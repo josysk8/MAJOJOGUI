@@ -9,9 +9,11 @@ using System.Web;
 public class ModeleGammeRepository
 {
     protected TypeModeleGammeRepository typeModeleGammeRepository;
+    protected FichierRepository fichierRepository;
     public ModeleGammeRepository()
     {
         typeModeleGammeRepository = new TypeModeleGammeRepository();
+        fichierRepository = new FichierRepository();
     }
 
     public List<ModeleDeGamme> GetByGamme(Gamme gamme)
@@ -30,7 +32,8 @@ public class ModeleGammeRepository
                 dto.EstParDefaut = item.EST_PAR_DEFAUT;
                 dto.NbPieces = item.MODELE_GAMME_NB_PIECES;
                 dto.Surface = item.MODELE_GAMME_SURFACE;
-                dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(item.TYPE_MODELE_GAMME_ID); 
+                dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(item.TYPE_MODELE_GAMME_ID);
+                var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
                 dtos.Add(dto);
             }
         }
