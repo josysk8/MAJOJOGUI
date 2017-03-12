@@ -49,6 +49,7 @@ public partial class CLIENT
 {
     public int CLIENT_ID { get; set; }
     public string CLIENT_REFERENCE { get; set; }
+    public string CLIENT_NAME { get; set; }
 }
 
 public partial class COMMANDE
