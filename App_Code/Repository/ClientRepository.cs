@@ -41,6 +41,7 @@ public class ClientRepository
         {
             var query = from a in db.CLIENT where a.CLIENT_ID.Equals(id) select a;
             dto.Id = (int) query.First().CLIENT_ID;
+            dto.Name = query.First().CLIENT_NAME;
             dto.Reference = query.First().CLIENT_REFERENCE;
             dto.ListeContactClient = contactClientRepository.GetById(dto.Id);
         }
@@ -56,6 +57,7 @@ public class ClientRepository
         string reference = new string(Enumerable.Repeat(chars, 10)
           .Select(s => s[random.Next(s.Length)]).ToArray());
         entity.CLIENT_REFERENCE = reference;
+        entity.CLIENT_NAME = client.Name;
 
         using (var db = new maderaEntities())
         {
