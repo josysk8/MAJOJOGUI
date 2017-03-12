@@ -12,6 +12,7 @@ public class Client
     private int id;
     private ICollection<ContactClient> listeContactClient;
     private string reference;
+    private string name;
 
     public string Reference
     {
@@ -49,6 +50,19 @@ public class Client
         set
         {
             listeContactClient = value;
+        }
+    }
+
+    public string Name
+    {
+        get
+        {
+            return name;
+        }
+
+        set
+        {
+            name = value;
         }
     }
 
