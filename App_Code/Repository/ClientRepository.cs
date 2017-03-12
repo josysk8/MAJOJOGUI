@@ -58,7 +58,7 @@ public class ClientRepository
 
             foreach (var item in client.listeContactClient)
             {
-                contactClientRepository.Add(item);
+                contactClientRepository.Add(item, id);
             }
         }
     }

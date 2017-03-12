@@ -39,10 +39,10 @@ public class ContactClientRepository
         }
     }
 
-    public void Add(ContactClient contactClient)
+    public void Add(ContactClient contactClient, int clientId)
     {
         CONTACT_CLIENT entity = new CONTACT_CLIENT();
-        entity.CLIENT_ID = contactClient.Id;
+        entity.CLIENT_ID = clientId;
         entity.CONTACT_ADRESSE = contactClient.Adresse;
         entity.CONTACT_ADRESSE2 = contactClient.Adresse2;
         entity.CONTACT_CP = contactClient.Cp;
