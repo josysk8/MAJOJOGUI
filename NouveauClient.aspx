@@ -5,7 +5,7 @@
         <asp:Label ID="LblNomClient" runat="server" Text="Nom du Client"></asp:Label>
         <asp:TextBox ID="TxtNomCLient" runat="server"></asp:TextBox>
         <br />
-        <asp:Label ID="Situation Matrimoniale" runat="server" Text="Nom du Client"></asp:Label>
+        <asp:Label ID="LblSituationMat" runat="server" Text="Situation Matrimoniale"></asp:Label>
         <asp:TextBox ID="TxtMatrimoniale" runat="server"></asp:TextBox>
         <br />
         <asp:Label ID="LblTelephoneClient" runat="server" Text="Telephone : "></asp:Label>
