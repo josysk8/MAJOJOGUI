@@ -16,7 +16,12 @@ public class BureauEtude : Personnel
         //
     }
 
-    protected string Specialisation
+    public BureauEtude(String spe, int id, String nom, String prenom, String login, String mdp, String token) : base (id, nom, prenom, login, mdp, token)
+    {
+
+    }
+
+    public string Specialisation
     {
         get
         {
