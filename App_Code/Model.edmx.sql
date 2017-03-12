@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/12/2017 18:27:32
--- Generated from EDMX file: C:\Users\DEVFOO\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
+-- Date Created: 03/12/2017 18:50:38
+-- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -227,7 +227,8 @@ CREATE TABLE [dbo].[COMPOSANT] (
     [COMPOSANT_NOM] varchar(60)  NULL,
     [COMPOSANT_STOCK] int  NULL,
     [COMPOSANT_VALEUR_CARACTERISTIQUE_1] decimal(18,0)  NULL,
-    [COMPOSANT_VALEUR_CARACTERISTIQUE_2] decimal(18,0)  NULL
+    [COMPOSANT_VALEUR_CARACTERISTIQUE_2] decimal(18,0)  NULL,
+    [VALEUR_AJOUTEE] float  NOT NULL
 );
 GO
 

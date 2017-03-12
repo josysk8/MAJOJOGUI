@@ -80,6 +80,7 @@ public partial class COMPOSANT
     public Nullable<int> COMPOSANT_STOCK { get; set; }
     public Nullable<decimal> COMPOSANT_VALEUR_CARACTERISTIQUE_1 { get; set; }
     public Nullable<decimal> COMPOSANT_VALEUR_CARACTERISTIQUE_2 { get; set; }
+    public double VALEUR_AJOUTEE { get; set; }
 }
 
 public partial class COMPOSANT_IMAGE

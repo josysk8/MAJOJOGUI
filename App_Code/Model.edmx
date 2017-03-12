@@ -131,6 +131,7 @@
     <Property Name="COMPOSANT_STOCK" Type="int" Nullable="true" />
     <Property Name="COMPOSANT_VALEUR_CARACTERISTIQUE_1" Type="decimal" Nullable="true" Precision="18" Scale="0" />
     <Property Name="COMPOSANT_VALEUR_CARACTERISTIQUE_2" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="VALEUR_AJOUTEE" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="COMPOSANT_IMAGE">
     <Key>
@@ -531,6 +532,7 @@
           <Property Name="COMPOSANT_STOCK" Type="Int32" />
           <Property Name="COMPOSANT_VALEUR_CARACTERISTIQUE_1" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="COMPOSANT_VALEUR_CARACTERISTIQUE_2" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="VALEUR_AJOUTEE" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="COMPOSANT_IMAGE">
           <Key>
@@ -980,6 +982,7 @@
           <ScalarProperty Name="COMPOSANT_STOCK" ColumnName="COMPOSANT_STOCK" />
           <ScalarProperty Name="COMPOSANT_VALEUR_CARACTERISTIQUE_1" ColumnName="COMPOSANT_VALEUR_CARACTERISTIQUE_1" />
           <ScalarProperty Name="COMPOSANT_VALEUR_CARACTERISTIQUE_2" ColumnName="COMPOSANT_VALEUR_CARACTERISTIQUE_2" />
+          <ScalarProperty Name="VALEUR_AJOUTEE" ColumnName="VALEUR_AJOUTEE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
