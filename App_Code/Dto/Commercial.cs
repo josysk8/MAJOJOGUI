@@ -6,7 +6,7 @@ using System.Web;
 /// <summary>
 /// Description résumée de Commercial
 /// </summary>
-public class Commercial
+public class Commercial : Personnel
 {
     private String secteur;
     private String numeroMobile;

@@ -6,13 +6,13 @@ using System.Web;
 /// <summary>
 /// Description résumée de Personnel
 /// </summary>
-public class Personnel
+public abstract class Personnel
 {
     private int id;
     private String nom;
     private String prenom;
 
-    protected int Id
+    public int Id
     {
         get
         {
@@ -25,7 +25,7 @@ public class Personnel
         }
     }
 
-    protected string Nom
+    public string Nom
     {
         get
         {
@@ -38,7 +38,7 @@ public class Personnel
         }
     }
 
-    protected string Prenom
+    public string Prenom
     {
         get
         {

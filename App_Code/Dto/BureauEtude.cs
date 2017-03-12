@@ -6,7 +6,7 @@ using System.Web;
 /// <summary>
 /// Description résumée de BureauEtude
 /// </summary>
-public class BureauEtude
+public class BureauEtude : Personnel
 {
     private String specialisation;
     public BureauEtude()
