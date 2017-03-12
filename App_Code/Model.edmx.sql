@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/12/2017 16:20:06
+-- Date Created: 03/12/2017 16:33:01
 -- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
@@ -223,7 +223,7 @@ CREATE TABLE [dbo].[COMPOSANT] (
     [COMPOSANT_ID] int IDENTITY(1,1) NOT NULL,
     [TYPE_COMPOSANT] int  NOT NULL,
     [FOURNISSEUR_ID] int  NOT NULL,
-    [COMPOSANT_NOM] varchar(1)  NULL,
+    [COMPOSANT_NOM] varchar(60)  NULL,
     [COMPOSANT_STOCK] int  NULL,
     [COMPOSANT_VALEUR_CARACTERISTIQUE_1] decimal(18,0)  NULL,
     [COMPOSANT_VALEUR_CARACTERISTIQUE_2] decimal(18,0)  NULL
@@ -253,14 +253,14 @@ GO
 CREATE TABLE [dbo].[CONTACT_CLIENT] (
     [CONTACT_ID] int IDENTITY(1,1) NOT NULL,
     [CLIENT_ID] int  NOT NULL,
-    [CONTACT_NOM] varchar(1)  NULL,
+    [CONTACT_NOM] varchar(60)  NULL,
     [CONTACT_TELEPHONE] char(10)  NULL,
-    [CONTACT_MAIL] varchar(1)  NULL,
-    [CONTACT_ADRESSE] varchar(1)  NULL,
-    [CONTACT_ADRESSE2] varchar(1)  NULL,
-    [CONTACT_CP] varchar(1)  NULL,
-    [CONTACT_VILLE] varchar(1)  NULL,
-    [CONTACT_CLIENT_SITUATION_MATRIMONIALE] varchar(1)  NULL
+    [CONTACT_MAIL] varchar(10)  NULL,
+    [CONTACT_ADRESSE] varchar(90)  NULL,
+    [CONTACT_ADRESSE2] varchar(90)  NULL,
+    [CONTACT_CP] varchar(5)  NULL,
+    [CONTACT_VILLE] varchar(60)  NULL,
+    [CONTACT_CLIENT_SITUATION_MATRIMONIALE] varchar(10)  NULL
 );
 GO
 
@@ -333,7 +333,7 @@ GO
 -- Creating table 'ETAPE_ECHELONNEMENT'
 CREATE TABLE [dbo].[ETAPE_ECHELONNEMENT] (
     [ETAPE_ECHELONNEMENT_ID] int IDENTITY(1,1) NOT NULL,
-    [ETAPE_ECHELONNEMENT_NOM] varchar(1)  NULL,
+    [ETAPE_ECHELONNEMENT_NOM] varchar(20)  NULL,
     [ETAPE_ECHELONNEMENT_ORDRE] int  NULL
 );
 GO
@@ -441,7 +441,7 @@ CREATE TABLE [dbo].[MODULE] (
     [MOD_MODULE_ID] int  NULL,
     [TYPE_MODULE_ID] int  NOT NULL,
     [PERSONNEL_ID] int  NULL,
-    [MODULE_NOM] varchar(1)  NULL,
+    [MODULE_NOM] varchar(60)  NULL,
     [MODULE_TYPE] varchar(1)  NULL,
     [MODULE_MARGE_COMMERCIAL] decimal(18,0)  NULL,
     [MODULE_MARGE_ENTREPRISE] decimal(18,0)  NULL,
@@ -473,7 +473,7 @@ CREATE TABLE [dbo].[PRODUIT] (
     [PRODUIT_ID] int IDENTITY(1,1) NOT NULL,
     [DEVIS_ID] int  NOT NULL,
     [GAMME_ID] int  NOT NULL,
-    [PRODUIT_NOM] varchar(1)  NULL,
+    [PRODUIT_NOM] varchar(90)  NULL,
     [PRODUIT_DESCRIPTION] varchar(max)  NULL
 );
 GO
@@ -504,7 +504,7 @@ GO
 -- Creating table 'TYPE_MODELE_GAMME'
 CREATE TABLE [dbo].[TYPE_MODELE_GAMME] (
     [TYPE_MODELE_GAMME_ID] int IDENTITY(1,1) NOT NULL,
-    [TYPE_MODELE_GAMME_NOM] varchar(1)  NULL
+    [TYPE_MODELE_GAMME_NOM] varchar(60)  NULL
 );
 GO
 
