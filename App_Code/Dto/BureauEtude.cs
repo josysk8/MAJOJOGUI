@@ -18,7 +18,7 @@ public class BureauEtude : Personnel
 
     public BureauEtude(String spe, int id, String nom, String prenom, String login, String mdp, String token) : base (id, nom, prenom, login, mdp, token)
     {
-
+        this.Specialisation = spe;
     }
 
     public string Specialisation
