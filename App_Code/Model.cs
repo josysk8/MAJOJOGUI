@@ -250,7 +250,7 @@ public partial class MODELE_DE_GAMME
 {
     public int MODELE_GAMME_ID { get; set; }
     public int GAMME_ID { get; set; }
-    public decimal TYPE_MODELE_GAMME_ID { get; set; }
+    public int TYPE_MODELE_GAMME_ID { get; set; }
     public bool EST_PAR_DEFAUT { get; set; }
     public string MODELE_GAMME_NOM { get; set; }
     public string MODELE_GAMME_DESCRIPTION { get; set; }

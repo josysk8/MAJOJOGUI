@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/12/2017 16:51:30
+-- Date Created: 03/12/2017 16:58:19
 -- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
@@ -419,7 +419,7 @@ GO
 CREATE TABLE [dbo].[MODELE_DE_GAMME] (
     [MODELE_GAMME_ID] int IDENTITY(1,1) NOT NULL,
     [GAMME_ID] int  NOT NULL,
-    [TYPE_MODELE_GAMME_ID] decimal(18,0)  NOT NULL,
+    [TYPE_MODELE_GAMME_ID] int  NOT NULL,
     [EST_PAR_DEFAUT] bit  NOT NULL,
     [MODELE_GAMME_NOM] varchar(40)  NULL,
     [MODELE_GAMME_DESCRIPTION] varchar(max)  NULL,

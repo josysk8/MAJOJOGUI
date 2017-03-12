@@ -335,7 +335,7 @@
     </Key>
     <Property Name="MODELE_GAMME_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GAMME_ID" Type="int" Nullable="false" />
-    <Property Name="TYPE_MODELE_GAMME_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_MODELE_GAMME_ID" Type="int" Nullable="false" />
     <Property Name="EST_PAR_DEFAUT" Type="bit" Nullable="false" />
     <Property Name="MODELE_GAMME_NOM" Type="varchar" Nullable="true" MaxLength="40" />
     <Property Name="MODELE_GAMME_DESCRIPTION" Type="varchar(max)" Nullable="true" />
@@ -734,7 +734,7 @@
           </Key>
           <Property Name="MODELE_GAMME_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GAMME_ID" Type="Int32" Nullable="false" />
-          <Property Name="TYPE_MODELE_GAMME_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TYPE_MODELE_GAMME_ID" Type="Int32" Nullable="false" />
           <Property Name="EST_PAR_DEFAUT" Type="Boolean" Nullable="false" />
           <Property Name="MODELE_GAMME_NOM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="MODELE_GAMME_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />

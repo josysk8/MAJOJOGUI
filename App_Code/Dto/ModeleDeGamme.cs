@@ -9,11 +9,15 @@ using System.Web;
 public class ModeleDeGamme
 {
     private int id;
-    private bool estParDefaut;
+    private bool? estParDefaut;
     private String nom;
     private String description;
+    private Gamme gamme;
+    private int? nbPieces;
+    private int? surface;
+    private TypeModeleGamme typeModeleGamme;
 
-    protected int Id
+    public int Id
     {
         get
         {
@@ -26,7 +30,7 @@ public class ModeleDeGamme
         }
     }
 
-    protected bool EstParDefaut
+    public bool? EstParDefaut
     {
         get
         {
@@ -39,7 +43,7 @@ public class ModeleDeGamme
         }
     }
 
-    protected string Nom
+    public string Nom
     {
         get
         {
@@ -52,7 +56,7 @@ public class ModeleDeGamme
         }
     }
 
-    protected string Description
+    public string Description
     {
         get
         {
@@ -62,6 +66,58 @@ public class ModeleDeGamme
         set
         {
             description = value;
+        }
+    }
+
+    public Gamme Gamme
+    {
+        get
+        {
+            return gamme;
+        }
+
+        set
+        {
+            gamme = value;
+        }
+    }
+
+    public int? NbPieces
+    {
+        get
+        {
+            return nbPieces;
+        }
+
+        set
+        {
+            nbPieces = value;
+        }
+    }
+
+    public int? Surface
+    {
+        get
+        {
+            return surface;
+        }
+
+        set
+        {
+            surface = value;
+        }
+    }
+
+    public TypeModeleGamme TypeModeleGamme
+    {
+        get
+        {
+            return typeModeleGamme;
+        }
+
+        set
+        {
+            typeModeleGamme = value;
         }
     }
 
