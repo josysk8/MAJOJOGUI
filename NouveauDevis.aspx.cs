@@ -8,11 +8,12 @@ using System.Web.UI.WebControls;
 
 public partial class NouveauDevis : System.Web.UI.Page
 {
+    ClientRepository clientRepository;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-           //ViewState["RefUrl"] = Request.UrlReferrer.ToString();
+           ViewState["RefUrl"] = Request.UrlReferrer.ToString();
         }
     }
 
@@ -26,12 +27,11 @@ public partial class NouveauDevis : System.Web.UI.Page
     protected void btnConfirmer_Click(object sender, EventArgs e)
     {
         //Envoi d'un type client
-        /*
-        Client clientFromSelect = 
+        clientRepository = new ClientRepository();
+        Client clientFromSelect = clientRepository.GetById(int.Parse(SelectClient.SelectedValue));
         Devis recordedClient = new Devis(TxtNomProjet.Text, clientFromSelect);
         Session["currentDevis"] = recordedClient;
         Response.Redirect("ListeProduit.aspx");
-        */
 
     }
 }
