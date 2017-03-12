@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/12/2017 16:33:01
+-- Date Created: 03/12/2017 16:51:30
 -- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
@@ -255,7 +255,7 @@ CREATE TABLE [dbo].[CONTACT_CLIENT] (
     [CLIENT_ID] int  NOT NULL,
     [CONTACT_NOM] varchar(60)  NULL,
     [CONTACT_TELEPHONE] char(10)  NULL,
-    [CONTACT_MAIL] varchar(10)  NULL,
+    [CONTACT_MAIL] varchar(70)  NULL,
     [CONTACT_ADRESSE] varchar(90)  NULL,
     [CONTACT_ADRESSE2] varchar(90)  NULL,
     [CONTACT_CP] varchar(5)  NULL,
