@@ -14,7 +14,7 @@ public class Module
     private decimal margeCommercial;
     private decimal margeEntreprise;
 
-    protected int Id
+    public int Id
     {
         get
         {
@@ -27,7 +27,7 @@ public class Module
         }
     }
 
-    protected string Nom
+    public string Nom
     {
         get
         {
@@ -40,7 +40,7 @@ public class Module
         }
     }
 
-    protected string Type
+    public string Type
     {
         get
         {
@@ -53,7 +53,7 @@ public class Module
         }
     }
 
-    protected decimal MargeCommercial
+    public decimal MargeCommercial
     {
         get
         {
@@ -66,7 +66,7 @@ public class Module
         }
     }
 
-    protected decimal MargeEntreprise
+    public decimal MargeEntreprise
     {
         get
         {
