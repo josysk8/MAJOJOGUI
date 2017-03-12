@@ -85,4 +85,13 @@ public class Fichier
         // TODO: Add constructor logic here
         //
     }
+
+    public Fichier(int id, string nom, string chemin, long poids, TypeFichier typeFichier)
+    {
+        this.id = id;
+        this.nom = nom;
+        this.chemin = chemin;
+        this.poids = poids;
+        this.typeFichier = typeFichier;
+    }
 }

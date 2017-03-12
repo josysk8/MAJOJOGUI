@@ -192,7 +192,7 @@ public partial class FICHIER
     public int TYPE_FICHIER_ID { get; set; }
     public string FICHIER_NOM { get; set; }
     public string FICHIER_CHEMIN { get; set; }
-    public Nullable<int> FICHIER_POIDS { get; set; }
+    public long FICHIER_POIDS { get; set; }
 }
 
 public partial class FINITION
