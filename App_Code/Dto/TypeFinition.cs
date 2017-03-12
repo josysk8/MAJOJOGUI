@@ -11,7 +11,7 @@ public class TypeFinition
     private int id;
     private String nom;
 
-    protected int Id
+    public int Id
     {
         get
         {
@@ -24,7 +24,7 @@ public class TypeFinition
         }
     }
 
-    protected string Nom
+    public string Nom
     {
         get
         {

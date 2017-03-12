@@ -11,8 +11,9 @@ public class Finition
     private int id;
     private String nom;
     private String description;
+    private TypeFinition typeFinition;
 
-    protected int Id
+    public int Id
     {
         get
         {
@@ -25,7 +26,7 @@ public class Finition
         }
     }
 
-    protected string Nom
+    public string Nom
     {
         get
         {
@@ -38,7 +39,7 @@ public class Finition
         }
     }
 
-    protected string Description
+    public string Description
     {
         get
         {
@@ -48,6 +49,19 @@ public class Finition
         set
         {
             description = value;
+        }
+    }
+
+    public TypeFinition TypeFinition
+    {
+        get
+        {
+            return typeFinition;
+        }
+
+        set
+        {
+            typeFinition = value;
         }
     }
 

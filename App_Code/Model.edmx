@@ -415,7 +415,7 @@
     <Key>
       <PropertyRef Name="TYPE_FINITION_ID" />
     </Key>
-    <Property Name="TYPE_FINITION_ID" Type="decimal" StoreGeneratedPattern="Identity" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TYPE_FINITION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TYPE_FINITION_NOM" Type="varchar" Nullable="true" MaxLength="40" />
   </EntityType>
   <EntityType Name="TYPE_MODELE_GAMME">
@@ -798,7 +798,7 @@
           <Key>
             <PropertyRef Name="TYPE_COMPOSANT1" />
           </Key>
-          <Property Name="TYPE_COMPOSANT1" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_COMPOSANT1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TYPE_COMPOSANT_NOM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="TYPE_COMPOSANT_CARACTERISTIQUE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="TYPE_COMPOSANT_UNITE_USAGE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
@@ -807,14 +807,14 @@
           <Key>
             <PropertyRef Name="TYPE_FICHIER_ID" />
           </Key>
-          <Property Name="TYPE_FICHIER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_FICHIER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TYPE_FICHIER_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TYPE_FINITION">
           <Key>
             <PropertyRef Name="TYPE_FINITION_ID" />
           </Key>
-          <Property Name="TYPE_FINITION_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_FINITION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TYPE_FINITION_NOM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TYPE_MODELE_GAMME">

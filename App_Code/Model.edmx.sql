@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/12/2017 16:58:19
+-- Date Created: 03/12/2017 17:46:53
 -- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
@@ -480,7 +480,7 @@ GO
 
 -- Creating table 'TYPE_COMPOSANT'
 CREATE TABLE [dbo].[TYPE_COMPOSANT] (
-    [TYPE_COMPOSANT1] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [TYPE_COMPOSANT1] int IDENTITY(1,1) NOT NULL,
     [TYPE_COMPOSANT_NOM] varchar(40)  NULL,
     [TYPE_COMPOSANT_CARACTERISTIQUE] varchar(40)  NULL,
     [TYPE_COMPOSANT_UNITE_USAGE] varchar(40)  NULL
@@ -489,14 +489,14 @@ GO
 
 -- Creating table 'TYPE_FICHIER'
 CREATE TABLE [dbo].[TYPE_FICHIER] (
-    [TYPE_FICHIER_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [TYPE_FICHIER_ID] int IDENTITY(1,1) NOT NULL,
     [TYPE_FICHIER_NOM] varchar(1)  NULL
 );
 GO
 
 -- Creating table 'TYPE_FINITION'
 CREATE TABLE [dbo].[TYPE_FINITION] (
-    [TYPE_FINITION_ID] decimal(18,0) IDENTITY(1,1) NOT NULL,
+    [TYPE_FINITION_ID] int IDENTITY(1,1) NOT NULL,
     [TYPE_FINITION_NOM] varchar(40)  NULL
 );
 GO

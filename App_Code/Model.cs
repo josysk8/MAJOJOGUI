@@ -305,7 +305,7 @@ public partial class PRODUIT
 
 public partial class TYPE_COMPOSANT
 {
-    public decimal TYPE_COMPOSANT1 { get; set; }
+    public int TYPE_COMPOSANT1 { get; set; }
     public string TYPE_COMPOSANT_NOM { get; set; }
     public string TYPE_COMPOSANT_CARACTERISTIQUE { get; set; }
     public string TYPE_COMPOSANT_UNITE_USAGE { get; set; }
@@ -313,13 +313,13 @@ public partial class TYPE_COMPOSANT
 
 public partial class TYPE_FICHIER
 {
-    public decimal TYPE_FICHIER_ID { get; set; }
+    public int TYPE_FICHIER_ID { get; set; }
     public string TYPE_FICHIER_NOM { get; set; }
 }
 
 public partial class TYPE_FINITION
 {
-    public decimal TYPE_FINITION_ID { get; set; }
+    public int TYPE_FINITION_ID { get; set; }
     public string TYPE_FINITION_NOM { get; set; }
 }
 
