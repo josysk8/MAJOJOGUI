@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 
@@ -8,8 +9,9 @@ using System.Web;
 /// </summary>
 public class Client
 {
-    public int id { get; set; }
-    public virtual ICollection<ContactClient> listeContactClient { get; set; }
+    private int id;
+    private ICollection<ContactClient> listeContactClient;
+    private string reference;
 
     public string Reference
     {
@@ -24,11 +26,34 @@ public class Client
         }
     }
 
-    private string reference;
+    public int Id
+    {
+        get
+        {
+            return id;
+        }
 
+        set
+        {
+            id = value;
+        }
+    }
 
+    public ICollection<ContactClient> ListeContactClient
+    {
+        get
+        {
+            return listeContactClient;
+        }
+
+        set
+        {
+            listeContactClient = value;
+        }
+    }
 
     public Client()
     {
+        this.ListeContactClient = new Collection<ContactClient>();
     }
 }

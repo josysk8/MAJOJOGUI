@@ -57,9 +57,9 @@ public partial class ListeProduit : System.Web.UI.Page
 
         string idProduit = button.Parent.ID;
    
-        PRODUIT produitEnvoy = new PRODUIT();
-        produitEnvoy.PRODUIT_ID = int.Parse(idProduit);
-        produitEnvoy.PRODUIT_NOM = button.Text;
+        Produit produitEnvoy = new Produit();
+        produitEnvoy.Id = int.Parse(idProduit);
+        produitEnvoy.Nom = button.Text;
         Session["currentProduit"] = produitEnvoy;
         Response.Redirect("ConfigurerProduit.aspx");
     }

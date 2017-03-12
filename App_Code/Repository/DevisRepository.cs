@@ -21,7 +21,7 @@ public class DevisRepository
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         
         DEVIS entity = new DEVIS();
-        entity.CLIENT_ID = devis.Client.id;
+        entity.CLIENT_ID = devis.Client.Id;
         entity.DEVIS_NOM_PROJET = devis.NomProjet;
         entity.DEVIS_REFERENCE = new string(Enumerable.Repeat(chars, 10)
           .Select(s => s[random.Next(s.Length)]).ToArray());

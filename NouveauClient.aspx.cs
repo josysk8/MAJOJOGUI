@@ -24,8 +24,11 @@ public partial class NouveauClient : System.Web.UI.Page
 
     protected void BtnConfirmer_Click(object sender, EventArgs e)
     {
-        ContactClient contactNouveauClient = new ContactClient(TxtNomCLient.Text, TxtTelephoneClient.Text, TxtEmailClient.Text, TxtAdressseClient.Text, TxtAdresse2Client.Text,TxtCpClient.Text, TxtVilleClient.Text);
+        ContactClient contactNouveauClient = new ContactClient(TxtNomCLient.Text,TxtMatrimoniale.Text, TxtTelephoneClient.Text, TxtEmailClient.Text, TxtAdressseClient.Text, TxtAdresse2Client.Text,TxtCpClient.Text, TxtVilleClient.Text);
         Client nouveauClient = new Client();
-        nouveauClient.listeContactClient.Add(contactNouveauClient);
+        nouveauClient.ListeContactClient.Add(contactNouveauClient);
+
+        ClientRepository clientRepository = new ClientRepository();
+        clientRepository.Add(nouveauClient);
     }
 }

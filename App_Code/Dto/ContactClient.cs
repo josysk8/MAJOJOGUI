@@ -9,11 +9,11 @@ using System.Web;
 public class ContactClient : Contact
 {
     private String referenceClient;
-    public ContactClient(string nom, string telephone, string email, string adresse, string adresse2, string cp, string ville) : base(nom, telephone, email, adresse, adresse2,cp, ville)
+    public ContactClient(string nom, string situationMatrimoniale, string telephone, string email, string adresse, string adresse2, string cp, string ville) : base(nom, telephone, email, adresse, adresse2,cp, ville)
     {
     }
 
-    public ContactClient(String referenceClient, string nom, string telephone, string email, string adresse, string adresse2, string cp, string ville) : base(nom, telephone, email, adresse, adresse2, cp, ville)
+    public ContactClient(String referenceClient, string nom, string situationMatrimoniale, string telephone, string email, string adresse, string adresse2, string cp, string ville) : base(nom, telephone, email, adresse, adresse2, cp, ville)
     {
     }
 

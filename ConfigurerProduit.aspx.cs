@@ -10,7 +10,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     List<Gamme> listeGamme = new List<Gamme>();
     protected void Page_Load(object sender, EventArgs e)
     {
-        for (int i =0; i < 10; i++)
+        for (int i = 0; i < 10; i++)
         {
             Gamme addGamme = new Gamme();
             addGamme.Nom = "Gamme " + i;
@@ -20,14 +20,20 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
         if (null != Session["currentProduit"])
         {
-            PRODUIT produitSelectionne = (PRODUIT)Session["currentProduit"];
-            LblNomProduit.Text = produitSelectionne.PRODUIT_NOM;
+            Produit produitSelectionne = (Produit)Session["currentProduit"];
+            LblNomProduit.Text = produitSelectionne.Nom;
+            if (null != Session["selectedGamme"])
+            {
+                produitSelectionne.Gamme = (Gamme)Session["selectedGamme"];
+            }
         }
+
     }
 
     protected void BtnGamme_Click(object sender, EventArgs e)
     {
         Panel myPanelGamme = new Panel();
+        myPanelGamme.ID = "panelGamme";
         foreach (Gamme gamme in listeGamme)
         {
             Button myButtonGamme = new Button();
@@ -43,6 +49,9 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     protected void BtnSelectionGamme_Click(object sender, EventArgs e)
     {
         Button BtnSelectionGamme = (Button)sender;
-        BtnSelectionGamme.Text = "cliquer";
+        Gamme foundGamme = listeGamme.Find(i => i.Id == int.Parse(BtnSelectionGamme.ID));
+        Session["selectedGamme"] = foundGamme;
+        System.Diagnostics.Debug.WriteLine("Nom de la gamme : ");
+        System.Diagnostics.Debug.WriteLine(foundGamme.Nom);
     }
 }

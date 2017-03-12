@@ -24,9 +24,9 @@ public class ClientRepository
             foreach (var item in query)
             {
                 Client dto = new Client();
-                dto.id = (int)item.CLIENT_ID;
+                dto.Id = (int)item.CLIENT_ID;
                 dto.Reference = item.CLIENT_REFERENCE;
-                dto.listeContactClient = contactClientRepository.GetById(dto.id);
+                dto.ListeContactClient = contactClientRepository.GetById(dto.Id);
                 clients.Add(dto);
             }
         }
@@ -56,7 +56,7 @@ public class ClientRepository
                 id = (int) item.CLIENT_ID;
             }
 
-            foreach (var item in client.listeContactClient)
+            foreach (var item in client.ListeContactClient)
             {
                 contactClientRepository.Add(item, id);
             }
