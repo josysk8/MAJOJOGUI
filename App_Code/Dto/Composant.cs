@@ -8,11 +8,91 @@ using System.Web;
 /// </summary>
 public class Composant
 {
-    protected int id;
-    protected String nom;
-    protected int stock;
-    protected decimal valeurCaracteristique1;
-    protected decimal valeurCaracteristique2;
+    private int id;
+    private String nom;
+    private int stock;
+    private decimal valeurCaracteristique1;
+    private decimal valeurCaracteristique2;
+    private double valeurAjoutee;
+
+    public int Id
+    {
+        get
+        {
+            return id;
+        }
+
+        set
+        {
+            id = value;
+        }
+    }
+
+    public string Nom
+    {
+        get
+        {
+            return nom;
+        }
+
+        set
+        {
+            nom = value;
+        }
+    }
+
+    public int Stock
+    {
+        get
+        {
+            return stock;
+        }
+
+        set
+        {
+            stock = value;
+        }
+    }
+
+    public decimal ValeurCaracteristique1
+    {
+        get
+        {
+            return valeurCaracteristique1;
+        }
+
+        set
+        {
+            valeurCaracteristique1 = value;
+        }
+    }
+
+    public decimal ValeurCaracteristique2
+    {
+        get
+        {
+            return valeurCaracteristique2;
+        }
+
+        set
+        {
+            valeurCaracteristique2 = value;
+        }
+    }
+
+    public double ValeurAjoutee
+    {
+        get
+        {
+            return valeurAjoutee;
+        }
+
+        set
+        {
+            valeurAjoutee = value;
+        }
+    }
+
     public Composant()
     {
         //
