@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/13/2017 14:23:30
+-- Date Created: 03/13/2017 15:34:33
 -- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
@@ -145,8 +145,8 @@ GO
 IF OBJECT_ID(N'[dbo].[UTILISER___COUPE_DE_PRINCIPE]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UTILISER___COUPE_DE_PRINCIPE];
 GO
-IF OBJECT_ID(N'[dbo].[ASSOC_MODULESet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ASSOC_MODULESet];
+IF OBJECT_ID(N'[dbo].[ASSOC_MODULE]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ASSOC_MODULE];
 GO
 
 -- --------------------------------------------------
@@ -387,7 +387,7 @@ GO
 -- Creating table 'GAMME'
 CREATE TABLE [dbo].[GAMME] (
     [GAMME_ID] int IDENTITY(1,1) NOT NULL,
-    [GAMME_NOM] varchar(1)  NULL,
+    [GAMME_NOM] varchar(70)  NULL,
     [GAMME_DESCRIPTION] varchar(max)  NULL
 );
 GO
@@ -494,7 +494,7 @@ GO
 -- Creating table 'TYPE_FICHIER'
 CREATE TABLE [dbo].[TYPE_FICHIER] (
     [TYPE_FICHIER_ID] int IDENTITY(1,1) NOT NULL,
-    [TYPE_FICHIER_NOM] varchar(1)  NULL
+    [TYPE_FICHIER_NOM] varchar(50)  NULL
 );
 GO
 

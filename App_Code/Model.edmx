@@ -706,7 +706,7 @@
             <PropertyRef Name="GAMME_ID" />
           </Key>
           <Property Name="GAMME_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GAMME_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="GAMME_NOM" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="GAMME_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="LIER_FINITION">
