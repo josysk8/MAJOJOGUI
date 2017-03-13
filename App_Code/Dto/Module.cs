@@ -14,9 +14,9 @@ public class Module
     private double margeCommercial;
     private double margeEntreprise;
     private TypeModule typeModule;
-    private Module parent;
-    private int? quantiteParent;
     private List<ComposantCoupePrincipe> composantsCoupePrincipe;
+    private List<Module> enfants;
+    private int? quantiteCompositionParent;
 
     public int Id
     {
@@ -96,32 +96,6 @@ public class Module
         }
     }
 
-    public Module Parent
-    {
-        get
-        {
-            return parent;
-        }
-
-        set
-        {
-            parent = value;
-        }
-    }
-
-    public int? QuantiteParent
-    {
-        get
-        {
-            return quantiteParent;
-        }
-
-        set
-        {
-            quantiteParent = value;
-        }
-    }
-
     public List<ComposantCoupePrincipe> ComposantsCoupePrincipe
     {
         get
@@ -132,6 +106,19 @@ public class Module
         set
         {
             composantsCoupePrincipe = value;
+        }
+    }
+
+    public int? QuantiteCompositionParent
+    {
+        get
+        {
+            return quantiteCompositionParent;
+        }
+
+        set
+        {
+            quantiteCompositionParent = value;
         }
     }
 

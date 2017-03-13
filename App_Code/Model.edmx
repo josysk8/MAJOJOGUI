@@ -47,6 +47,7 @@
     <EntitySet Name="TYPE_MODELE_GAMME" EntityType="maderaModel.Store.TYPE_MODELE_GAMME" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TYPE_MODULE" EntityType="maderaModel.Store.TYPE_MODULE" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UTILISER___COUPE_DE_PRINCIPE" EntityType="maderaModel.Store.UTILISER___COUPE_DE_PRINCIPE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ASSOC_MODULESet" EntityType="maderaModel.Store.ASSOC_MODULESet" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="ACCEDER_APPLICATION">
     <Key>
@@ -328,8 +329,8 @@
     <Property Name="COMMANDE_ID" Type="int" Nullable="false" />
     <Property Name="COMPOSANT_ID" Type="int" Nullable="false" />
     <Property Name="FOURNISSEUR_ID" Type="int" Nullable="false" />
-    <Property Name="PRIX_ACHAT" Type="decimal" Nullable="true" Precision="18" Scale="0" />
-    <Property Name="QUANTITE_LIGNE_COMMANDE" Type="int" Nullable="true" />
+    <Property Name="PRIX_ACHAT" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="QUANTITE_LIGNE_COMMANDE" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MODELE_DE_GAMME">
     <Key>
@@ -357,14 +358,12 @@
       <PropertyRef Name="MODULE_ID" />
     </Key>
     <Property Name="MODULE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MOD_MODULE_ID" Type="int" Nullable="true" />
     <Property Name="TYPE_MODULE_ID" Type="int" Nullable="false" />
     <Property Name="PERSONNEL_ID" Type="int" Nullable="true" />
     <Property Name="MODULE_NOM" Type="varchar" Nullable="true" MaxLength="60" />
     <Property Name="MODULE_TYPE" Type="varchar" Nullable="true" MaxLength="1" />
     <Property Name="MODULE_MARGE_COMMERCIAL" Type="float" Nullable="false" />
     <Property Name="MODULE_MARGE_ENTREPRISE" Type="float" Nullable="false" />
-    <Property Name="QUANTITE_PARENT" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="PAYER">
     <Key>
@@ -444,7 +443,16 @@
     </Key>
     <Property Name="MODULE_ID" Type="int" Nullable="false" />
     <Property Name="COMPOSANT_ID" Type="int" Nullable="false" />
-    <Property Name="QUANTITE_COUPE" Type="int" Nullable="true" />
+    <Property Name="QUANTITE_COUPE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ASSOC_MODULESet">
+    <Key>
+      <PropertyRef Name="MODULE_PARENT_ID" />
+      <PropertyRef Name="MODULE_ENFANT_ID" />
+    </Key>
+    <Property Name="MODULE_PARENT_ID" Type="int" Nullable="false" />
+    <Property Name="MODULE_ENFANT_ID" Type="int" Nullable="false" />
+    <Property Name="QUANTITE" Type="int" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -730,8 +738,8 @@
           <Property Name="COMMANDE_ID" Type="Int32" Nullable="false" />
           <Property Name="COMPOSANT_ID" Type="Int32" Nullable="false" />
           <Property Name="FOURNISSEUR_ID" Type="Int32" Nullable="false" />
-          <Property Name="PRIX_ACHAT" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="QUANTITE_LIGNE_COMMANDE" Type="Int32" />
+          <Property Name="PRIX_ACHAT" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="QUANTITE_LIGNE_COMMANDE" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="MODELE_DE_GAMME">
           <Key>
@@ -759,15 +767,13 @@
             <PropertyRef Name="MODULE_ID" />
           </Key>
           <Property Name="MODULE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MOD_MODULE_ID" Type="Int32" />
           <Property Name="TYPE_MODULE_ID" Type="Int32" Nullable="false" />
           <Property Name="PERSONNEL_ID" Type="Int32" Nullable="true" />
           <Property Name="MODULE_NOM" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="MODULE_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MODULE_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="true" />
           <Property Name="MODULE_MARGE_COMMERCIAL" Type="Double" Nullable="false" />
           <Property Name="MODULE_MARGE_ENTREPRISE" Type="Double" Nullable="false" />
-          <Property Name="QUANTITE_PARENT" Type="Int32" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="PAYER">
           <Key>
             <PropertyRef Name="ETAPE_ECHELONNEMENT_ID" />
@@ -890,7 +896,17 @@
           <EntitySet Name="TYPE_MODELE_GAMME" EntityType="Self.TYPE_MODELE_GAMME" />
           <EntitySet Name="TYPE_MODULE" EntityType="Self.TYPE_MODULE" />
           <EntitySet Name="UTILISER___COUPE_DE_PRINCIPE" EntityType="Self.UTILISER___COUPE_DE_PRINCIPE" />
+          <EntitySet Name="ASSOC_MODULE" EntityType="maderaModel.ASSOC_MODULE" />
         </EntityContainer>
+        <EntityType Name="ASSOC_MODULE" >
+          <Key>
+            <PropertyRef Name="MODULE_PARENT_ID" />
+            <PropertyRef Name="MODULE_ENFANT_ID" />
+          </Key>
+          <Property Name="MODULE_PARENT_ID" Type="Int32" Nullable="false" />
+          <Property Name="MODULE_ENFANT_ID" Type="Int32" Nullable="false" />
+          <Property Name="QUANTITE" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1219,14 +1235,12 @@
       <EntityTypeMapping TypeName="IsTypeOf(maderaModel.MODULE)">
         <MappingFragment StoreEntitySet="MODULE">
           <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
-          <ScalarProperty Name="MOD_MODULE_ID" ColumnName="MOD_MODULE_ID" />
           <ScalarProperty Name="TYPE_MODULE_ID" ColumnName="TYPE_MODULE_ID" />
           <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
           <ScalarProperty Name="MODULE_NOM" ColumnName="MODULE_NOM" />
           <ScalarProperty Name="MODULE_TYPE" ColumnName="MODULE_TYPE" />
           <ScalarProperty Name="MODULE_MARGE_COMMERCIAL" ColumnName="MODULE_MARGE_COMMERCIAL" />
           <ScalarProperty Name="MODULE_MARGE_ENTREPRISE" ColumnName="MODULE_MARGE_ENTREPRISE" />
-          <ScalarProperty Name="QUANTITE_PARENT" ColumnName="QUANTITE_PARENT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1313,6 +1327,15 @@
           <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
           <ScalarProperty Name="COMPOSANT_ID" ColumnName="COMPOSANT_ID" />
           <ScalarProperty Name="QUANTITE_COUPE" ColumnName="QUANTITE_COUPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASSOC_MODULE">
+      <EntityTypeMapping TypeName="IsTypeOf(maderaModel.ASSOC_MODULE)">
+        <MappingFragment StoreEntitySet="ASSOC_MODULESet">
+          <ScalarProperty Name="MODULE_PARENT_ID" ColumnName="MODULE_PARENT_ID" />
+          <ScalarProperty Name="MODULE_ENFANT_ID" ColumnName="MODULE_ENFANT_ID" />
+          <ScalarProperty Name="QUANTITE" ColumnName="QUANTITE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

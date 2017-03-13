@@ -27,8 +27,6 @@ public class ModuleRepository
         entity.MODULE_MARGE_ENTREPRISE = module.MargeEntreprise;
         // temp
         entity.PERSONNEL_ID = 0;
-        entity.MOD_MODULE_ID = 0;
-        entity.QUANTITE_PARENT = 0;
         using (var db = new maderaEntities())
         {
             db.MODULE.Add(entity);
@@ -70,9 +68,15 @@ public class ModuleRepository
             dto.MargeEntreprise = query.First().MODULE_MARGE_ENTREPRISE;
             dto.Nom = query.First().MODULE_NOM;
             dto.TypeModule = typeModuleRepository.GetOne(query.First().TYPE_MODULE_ID);
-            dto.QuantiteParent = query.First().QUANTITE_PARENT;
-            dto.Parent = GetOne((int)query.First().MOD_MODULE_ID);
             dto.ComposantsCoupePrincipe = composantRepository.GetComposantCoupePrincipeByModule(dto);
+            var queryAssoc = from a in db.ASSOC_MODULE where a.MODULE_PARENT_ID.Equals(dto.Id) select a;
+            List<Module> enfants = new List<Module>();
+            foreach (var item in queryAssoc)
+            {
+                Module enfant = GetOne(item.MODULE_ENFANT_ID);
+                enfant.QuantiteCompositionParent = item.QUANTITE;
+                enfants.Add(enfant);
+            }
         }
 
         return dto;

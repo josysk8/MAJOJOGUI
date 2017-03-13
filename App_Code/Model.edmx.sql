@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/13/2017 11:28:20
+-- Date Created: 03/13/2017 14:23:30
 -- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
@@ -144,6 +144,9 @@ IF OBJECT_ID(N'[dbo].[TYPE_MODULE]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[UTILISER___COUPE_DE_PRINCIPE]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UTILISER___COUPE_DE_PRINCIPE];
+GO
+IF OBJECT_ID(N'[dbo].[ASSOC_MODULESet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ASSOC_MODULESet];
 GO
 
 -- --------------------------------------------------
@@ -412,8 +415,8 @@ CREATE TABLE [dbo].[LIGNE_COMMANDE] (
     [COMMANDE_ID] int  NOT NULL,
     [COMPOSANT_ID] int  NOT NULL,
     [FOURNISSEUR_ID] int  NOT NULL,
-    [PRIX_ACHAT] decimal(18,0)  NULL,
-    [QUANTITE_LIGNE_COMMANDE] int  NULL
+    [PRIX_ACHAT] decimal(18,0)  NOT NULL,
+    [QUANTITE_LIGNE_COMMANDE] int  NOT NULL
 );
 GO
 
@@ -440,14 +443,12 @@ GO
 -- Creating table 'MODULE'
 CREATE TABLE [dbo].[MODULE] (
     [MODULE_ID] int IDENTITY(1,1) NOT NULL,
-    [MOD_MODULE_ID] int  NULL,
     [TYPE_MODULE_ID] int  NOT NULL,
     [PERSONNEL_ID] int  NULL,
     [MODULE_NOM] varchar(60)  NULL,
     [MODULE_TYPE] varchar(1)  NULL,
     [MODULE_MARGE_COMMERCIAL] float  NOT NULL,
-    [MODULE_MARGE_ENTREPRISE] float  NOT NULL,
-    [QUANTITE_PARENT] int  NULL
+    [MODULE_MARGE_ENTREPRISE] float  NOT NULL
 );
 GO
 
@@ -525,6 +526,14 @@ CREATE TABLE [dbo].[UTILISER___COUPE_DE_PRINCIPE] (
     [MODULE_ID] int  NOT NULL,
     [COMPOSANT_ID] int  NOT NULL,
     [QUANTITE_COUPE] int  NOT NULL
+);
+GO
+
+-- Creating table 'ASSOC_MODULE'
+CREATE TABLE [dbo].[ASSOC_MODULE] (
+    [MODULE_PARENT_ID] int  NOT NULL,
+    [MODULE_ENFANT_ID] int  NOT NULL,
+    [QUANTITE] int  NOT NULL
 );
 GO
 
@@ -776,6 +785,12 @@ GO
 ALTER TABLE [dbo].[UTILISER___COUPE_DE_PRINCIPE]
 ADD CONSTRAINT [PK_UTILISER___COUPE_DE_PRINCIPE]
     PRIMARY KEY CLUSTERED ([MODULE_ID], [COMPOSANT_ID] ASC);
+GO
+
+-- Creating primary key on [MODULE_PARENT_ID], [MODULE_ENFANT_ID] in table 'ASSOC_MODULE'
+ALTER TABLE [dbo].[ASSOC_MODULE]
+ADD CONSTRAINT [PK_ASSOC_MODULE]
+    PRIMARY KEY CLUSTERED ([MODULE_PARENT_ID], [MODULE_ENFANT_ID] ASC);
 GO
 
 -- --------------------------------------------------

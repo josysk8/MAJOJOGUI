@@ -34,6 +34,13 @@ public partial class ACCES_APPLICATION
     public string APPLICATION_NOM { get; set; }
 }
 
+public partial class ASSOC_MODULE
+{
+    public int MODULE_PARENT_ID { get; set; }
+    public int MODULE_ENFANT_ID { get; set; }
+    public int QUANTITE { get; set; }
+}
+
 public partial class BUREAU_ETUDE
 {
     public int PERSONNEL_ID { get; set; }
@@ -244,8 +251,8 @@ public partial class LIGNE_COMMANDE
     public int COMMANDE_ID { get; set; }
     public int COMPOSANT_ID { get; set; }
     public int FOURNISSEUR_ID { get; set; }
-    public Nullable<decimal> PRIX_ACHAT { get; set; }
-    public Nullable<int> QUANTITE_LIGNE_COMMANDE { get; set; }
+    public decimal PRIX_ACHAT { get; set; }
+    public int QUANTITE_LIGNE_COMMANDE { get; set; }
 }
 
 public partial class MODELE_DE_GAMME
@@ -269,14 +276,12 @@ public partial class MODELE_GAMME_IMAGE
 public partial class MODULE
 {
     public int MODULE_ID { get; set; }
-    public Nullable<int> MOD_MODULE_ID { get; set; }
     public int TYPE_MODULE_ID { get; set; }
     public Nullable<int> PERSONNEL_ID { get; set; }
     public string MODULE_NOM { get; set; }
     public string MODULE_TYPE { get; set; }
     public double MODULE_MARGE_COMMERCIAL { get; set; }
     public double MODULE_MARGE_ENTREPRISE { get; set; }
-    public Nullable<int> QUANTITE_PARENT { get; set; }
 }
 
 public partial class PAYER

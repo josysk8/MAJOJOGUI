@@ -64,4 +64,5 @@ public partial class maderaEntities : DbContext
     public virtual DbSet<TYPE_MODELE_GAMME> TYPE_MODELE_GAMME { get; set; }
     public virtual DbSet<TYPE_MODULE> TYPE_MODULE { get; set; }
     public virtual DbSet<UTILISER___COUPE_DE_PRINCIPE> UTILISER___COUPE_DE_PRINCIPE { get; set; }
+    public virtual DbSet<ASSOC_MODULE> ASSOC_MODULE { get; set; }
 }

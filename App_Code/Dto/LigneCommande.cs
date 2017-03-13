@@ -8,10 +8,12 @@ using System.Web;
 /// </summary>
 public class LigneCommande
 {
+    private int id;
     private int quantite;
     private decimal prixAchat;
+    private Fournisseur fournisseur;
 
-    protected int Quantite
+    public int Quantite
     {
         get
         {
@@ -24,7 +26,7 @@ public class LigneCommande
         }
     }
 
-    protected decimal PrixAchat
+    public decimal PrixAchat
     {
         get
         {
@@ -34,6 +36,32 @@ public class LigneCommande
         set
         {
             prixAchat = value;
+        }
+    }
+
+    public int Id
+    {
+        get
+        {
+            return id;
+        }
+
+        set
+        {
+            id = value;
+        }
+    }
+
+    public Fournisseur Fournisseur
+    {
+        get
+        {
+            return fournisseur;
+        }
+
+        set
+        {
+            fournisseur = value;
         }
     }
 
