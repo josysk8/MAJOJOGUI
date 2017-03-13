@@ -67,7 +67,10 @@ public partial class ListeProduit : System.Web.UI.Page
         Produit produitEnvoy = new Produit();
         produitEnvoy.Id = int.Parse(idProduit);
         produitEnvoy.Nom = button.Text;
-        Session["currentProduit"] = produitEnvoy;
+
+        recordedDevis.Produits.Add(produitEnvoy);
+        Session["currentProduit"] = produitEnvoy.Id;
+        Session["currentDevis"] = recordedDevis;
         Response.Redirect("ConfigurerProduit.aspx");
     }
 

@@ -11,5 +11,5 @@
         <asp:Button ID="BtnModule" runat="server" Text="Modules" />
         <asp:Button ID="BtnFinition" runat="server" Text="Finitions" />
     </asp:Panel>
-    <asp:Panel ID="downPanel" runat="server"></asp:Panel>
+    <asp:Panel ID="downPanel" ScrollBars = "Horizontal" style="overflow:scroll;display:flex" runat="server" Width="500px"></asp:Panel>
 </asp:Content>
