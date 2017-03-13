@@ -45,6 +45,27 @@ public class ModeleGammeRepository
         return dtos;
     }
 
+    public ModeleDeGamme GetOne(int id)
+    {
+        ModeleDeGamme dto = new ModeleDeGamme();
+        using (var db = new maderaEntities())
+        {
+            var query = from a in db.MODELE_DE_GAMME where a.GAMME_ID.Equals(id) select a;
+
+            dto.Id = query.First().MODELE_GAMME_ID;
+            dto.Nom = query.First().MODELE_GAMME_NOM;
+            dto.Description = query.First().MODELE_GAMME_DESCRIPTION;
+            dto.EstParDefaut = query.First().EST_PAR_DEFAUT;
+            dto.NbPieces = query.First().MODELE_GAMME_NB_PIECES;
+            dto.Surface = query.First().MODELE_GAMME_SURFACE;
+            dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(query.First().TYPE_MODELE_GAMME_ID);
+            var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
+            dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
+        }
+
+        return dto;
+    }
+
     public void Add(ModeleDeGamme dto)
     {
         MODELE_DE_GAMME entity = new MODELE_DE_GAMME();
