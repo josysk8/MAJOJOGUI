@@ -7,17 +7,10 @@ using System.Web.UI.WebControls;
 
 public partial class ConfigurerProduit : System.Web.UI.Page
 {
+    GammeRepository gammeRepository;
     List<Gamme> listeGamme = new List<Gamme>();
     protected void Page_Load(object sender, EventArgs e)
     {
-        for (int i = 0; i < 10; i++)
-        {
-            Gamme addGamme = new Gamme();
-            addGamme.Nom = "Gamme " + i;
-            addGamme.Id = i;
-            listeGamme.Add(addGamme);
-        }
-
         if (null != Session["currentProduit"])
         {
             Produit produitSelectionne = (Produit)Session["currentProduit"];
@@ -32,9 +25,10 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
     protected void BtnGamme_Click(object sender, EventArgs e)
     {
+        gammeRepository = new GammeRepository();
         Panel myPanelGamme = new Panel();
         myPanelGamme.ID = "panelGamme";
-        foreach (Gamme gamme in listeGamme)
+        foreach (Gamme gamme in gammeRepository.getAll())
         {
             Button myButtonGamme = new Button();
             myButtonGamme.Text = gamme.Nom;

@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
-using Madera.DAL;
 
-namespace Madera.DAL
+namespace Madera
 {
-    public class MaderaInitializer : DropCreateDatabaseAlways<MaderaContext> //DropCreateDatabaseIfModelChanges<MaderaContext>
+    public class MaderaInitializer : DropCreateDatabaseIfModelChanges<maderaEntities> //DropCreateDatabaseIfModelChanges<MaderaContext>
     {
-        protected override void Seed(MaderaContext context)
+        protected override void Seed(maderaEntities context)
         {
+            var gamme = new List<GAMME>
+            {
+            new GAMME{GAMME_ID=1, GAMME_NOM="Maison individuelle", GAMME_DESCRIPTION="Emsemble de maison de 50 à 150m²"},
+            new GAMME{GAMME_ID=2, GAMME_NOM="Maison moyenne", GAMME_DESCRIPTION="Emsemble de maison de 150 à 250m² avec ou sans étage"},
+            };
+
+            gamme.ForEach(s => context.GAMME.Add(s));
+            context.SaveChanges();
             /*var contactClient = new List<ContactClient>
             {
             new ContactClient{Nom="Devarenne Joseph", Telephone="0707070707", Email="jo.devarenne@awesome.fr", Adresse="2 rue du sapin qui pue", Adresse2="allée B", Cp="76000", Ville="Rouen"},

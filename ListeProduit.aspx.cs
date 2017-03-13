@@ -8,12 +8,12 @@ using System.Web.UI.WebControls;
 public partial class ListeProduit : System.Web.UI.Page
 {
     Dictionary<string, Panel> produits = new Dictionary<string, Panel>();
-
+    Devis recordedDevis;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (null != Session["currentDevis"])
         {
-            Devis recordedDevis = (Devis)Session["currentDevis"];
+            recordedDevis = (Devis)Session["currentDevis"];
             LblNomProjet.Text = recordedDevis.NomProjet;
             LblNomClient.Text = recordedDevis.Client.Name;
             if (recordedDevis.EstimationPrix == null)
@@ -42,18 +42,18 @@ public partial class ListeProduit : System.Web.UI.Page
 
         Button myEditButton = new Button();
         myEditButton.Text = TxtModalNomProduit.Text;
-        //myEditButton.ID = nextKey;
 
         ImageButton myDeleteButton = new ImageButton();
         myDeleteButton.ImageUrl = "Images/cancel-icon.png";
         myDeleteButton.Height = 10;
         myDeleteButton.Width = 10;
-        //myDeleteButton.ID = nextKey;
+
         myPanel.Controls.Add(myEditButton);
         myPanel.Controls.Add(myDeleteButton);
 
         produits.Add(nextKey, myPanel);
         Session["panelContent"] = produits;
+        Session["currentDevis"] = recordedDevis;
 
         refreshProductPanel();
     }
@@ -93,6 +93,10 @@ public partial class ListeProduit : System.Web.UI.Page
     {
         produits = (Dictionary<string, Panel>)Session["panelContent"];
         PnlListeProduit.Controls.Clear();
+        if (recordedDevis.Produits != null)
+        {
+            recordedDevis.Produits.Clear();
+        }
         foreach (KeyValuePair<string, Panel> produit in produits)
         {
             Button modifierButton = produit.Value.Controls.OfType<Button>().Last();
@@ -101,6 +105,9 @@ public partial class ListeProduit : System.Web.UI.Page
             ImageButton deleteButton = produit.Value.Controls.OfType<ImageButton>().Last();
             deleteButton.Click += new ImageClickEventHandler(this.ImgBtnDelete_Click);
             PnlListeProduit.Controls.Add(produit.Value);
+            Produit produitToAdd = new Produit();
+            produitToAdd.Nom = modifierButton.Text;
+            recordedDevis.Produits.Add(produitToAdd);
         }
     }
 }
