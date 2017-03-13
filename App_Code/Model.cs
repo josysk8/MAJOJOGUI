@@ -274,9 +274,9 @@ public partial class MODULE
     public Nullable<int> PERSONNEL_ID { get; set; }
     public string MODULE_NOM { get; set; }
     public string MODULE_TYPE { get; set; }
-    public Nullable<decimal> MODULE_MARGE_COMMERCIAL { get; set; }
-    public Nullable<decimal> MODULE_MARGE_ENTREPRISE { get; set; }
-    public Nullable<decimal> QUANTITE_PARENT { get; set; }
+    public double MODULE_MARGE_COMMERCIAL { get; set; }
+    public double MODULE_MARGE_ENTREPRISE { get; set; }
+    public Nullable<int> QUANTITE_PARENT { get; set; }
 }
 
 public partial class PAYER
@@ -303,6 +303,7 @@ public partial class PRODUIT
     public int GAMME_ID { get; set; }
     public string PRODUIT_NOM { get; set; }
     public string PRODUIT_DESCRIPTION { get; set; }
+    public Nullable<int> MODELE_DE_GAMME_ID { get; set; }
 }
 
 public partial class TYPE_COMPOSANT
@@ -341,7 +342,7 @@ public partial class TYPE_MODULE
 
 public partial class UTILISER___COUPE_DE_PRINCIPE
 {
-    public decimal MODULE_ID { get; set; }
-    public decimal COMPOSANT_ID { get; set; }
-    public Nullable<int> QUANTITE_COUPE { get; set; }
+    public int MODULE_ID { get; set; }
+    public int COMPOSANT_ID { get; set; }
+    public int QUANTITE_COUPE { get; set; }
 }

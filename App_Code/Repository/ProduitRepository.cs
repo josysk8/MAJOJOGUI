@@ -8,11 +8,12 @@ using System.Web;
 /// </summary>
 public class ProduitRepository
 {
+    protected GammeRepository gammeRepository;
+    protected ModeleGammeRepository modeleGammeRepository;
+
     public ProduitRepository()
     {
-        //
-        // TODO: Add constructor logic here
-        //
+        gammeRepository = new GammeRepository();
     }
     
     public void Add(Produit produit)
@@ -28,5 +29,28 @@ public class ProduitRepository
             db.PRODUIT.Add(entity);
             db.SaveChanges();
         }
+    }
+
+    public List<Produit> GetByDevis(Devis devis)
+    {
+        List<Produit> dtos = new List<Produit>();
+
+        using (var db = new maderaEntities())
+        {
+            var query = from a in db.PRODUIT where a.DEVIS_ID.Equals(devis.Id) select a;
+
+            foreach (var item in query)
+            {
+                Produit dto = new Produit();
+                dto.Id = item.PRODUIT_ID;
+                dto.Nom = item.PRODUIT_NOM;
+                dto.Description = item.PRODUIT_DESCRIPTION;
+                dto.Gamme = gammeRepository.GetOne(item.GAMME_ID);
+                dto.ModeleDeGamme = modeleGammeRepository.GetByProduit(dto.Id);
+                dtos.Add(dto);
+            }
+        }
+
+        return dtos;
     }
 }

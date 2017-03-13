@@ -47,4 +47,23 @@ public class ComposantRepository
             db.SaveChanges();
         }
     }
+
+    public List<ComposantCoupePrincipe> GetComposantCoupePrincipeByModule(Module module)
+    {
+        List<ComposantCoupePrincipe> dtos = new List<ComposantCoupePrincipe>();
+
+        using (var db = new maderaEntities())
+        {
+            var query = from a in db.UTILISER___COUPE_DE_PRINCIPE where a.MODULE_ID.Equals(module.Id) select a;
+            foreach (var item in query)
+            {
+                ComposantCoupePrincipe dto = new ComposantCoupePrincipe();
+                dto.Composant = GetById(item.COMPOSANT_ID);
+                dto.Quantite = item.QUANTITE_COUPE;
+                dtos.Add(dto);
+            }
+        }
+
+        return dtos;
+    }
 }

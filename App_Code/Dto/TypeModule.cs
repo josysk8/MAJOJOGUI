@@ -13,7 +13,7 @@ public class TypeModule
     private String uniteUsage;
     private String caracteristique;
 
-    protected int Id
+    public int Id
     {
         get
         {
@@ -26,7 +26,7 @@ public class TypeModule
         }
     }
 
-    protected string Nom
+    public string Nom
     {
         get
         {
@@ -39,7 +39,7 @@ public class TypeModule
         }
     }
 
-    protected string UniteUsage
+    public string UniteUsage
     {
         get
         {
@@ -52,7 +52,7 @@ public class TypeModule
         }
     }
 
-    protected string Caracteristique
+    public string Caracteristique
     {
         get
         {

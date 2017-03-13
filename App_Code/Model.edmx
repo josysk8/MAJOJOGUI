@@ -362,9 +362,9 @@
     <Property Name="PERSONNEL_ID" Type="int" Nullable="true" />
     <Property Name="MODULE_NOM" Type="varchar" Nullable="true" MaxLength="60" />
     <Property Name="MODULE_TYPE" Type="varchar" Nullable="true" MaxLength="1" />
-    <Property Name="MODULE_MARGE_COMMERCIAL" Type="decimal" Nullable="true" Precision="18" Scale="0" />
-    <Property Name="MODULE_MARGE_ENTREPRISE" Type="decimal" Nullable="true" Precision="18" Scale="0" />
-    <Property Name="QUANTITE_PARENT" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="MODULE_MARGE_COMMERCIAL" Type="float" Nullable="false" />
+    <Property Name="MODULE_MARGE_ENTREPRISE" Type="float" Nullable="false" />
+    <Property Name="QUANTITE_PARENT" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="PAYER">
     <Key>
@@ -396,6 +396,7 @@
     <Property Name="GAMME_ID" Type="int" Nullable="false" />
     <Property Name="PRODUIT_NOM" Type="varchar" Nullable="true" MaxLength="90" />
     <Property Name="PRODUIT_DESCRIPTION" Type="varchar(max)" Nullable="true" />
+    <Property Name="MODELE_DE_GAMME_ID" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="TYPE_COMPOSANT">
     <Key>
@@ -441,8 +442,8 @@
       <PropertyRef Name="MODULE_ID" />
       <PropertyRef Name="COMPOSANT_ID" />
     </Key>
-    <Property Name="MODULE_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="COMPOSANT_ID" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MODULE_ID" Type="int" Nullable="false" />
+    <Property Name="COMPOSANT_ID" Type="int" Nullable="false" />
     <Property Name="QUANTITE_COUPE" Type="int" Nullable="true" />
   </EntityType>
 </Schema></edmx:StorageModels>
@@ -763,9 +764,9 @@
           <Property Name="PERSONNEL_ID" Type="Int32" Nullable="true" />
           <Property Name="MODULE_NOM" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="MODULE_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="MODULE_MARGE_COMMERCIAL" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="MODULE_MARGE_ENTREPRISE" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="QUANTITE_PARENT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MODULE_MARGE_COMMERCIAL" Type="Double" Nullable="false" />
+          <Property Name="MODULE_MARGE_ENTREPRISE" Type="Double" Nullable="false" />
+          <Property Name="QUANTITE_PARENT" Type="Int32" />
         </EntityType>
         <EntityType Name="PAYER">
           <Key>
@@ -797,6 +798,7 @@
           <Property Name="GAMME_ID" Type="Int32" Nullable="false" />
           <Property Name="PRODUIT_NOM" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
           <Property Name="PRODUIT_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MODELE_DE_GAMME_ID" Type="Int32" Nullable="true" />
         </EntityType>
         <EntityType Name="TYPE_COMPOSANT">
           <Key>
@@ -842,9 +844,9 @@
             <PropertyRef Name="MODULE_ID" />
             <PropertyRef Name="COMPOSANT_ID" />
           </Key>
-          <Property Name="MODULE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="COMPOSANT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="QUANTITE_COUPE" Type="Int32" />
+          <Property Name="MODULE_ID" Type="Int32" Nullable="false" />
+          <Property Name="COMPOSANT_ID" Type="Int32" Nullable="false" />
+          <Property Name="QUANTITE_COUPE" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="maderaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ACCEDER_APPLICATION" EntityType="Self.ACCEDER_APPLICATION" />
@@ -1257,6 +1259,7 @@
           <ScalarProperty Name="GAMME_ID" ColumnName="GAMME_ID" />
           <ScalarProperty Name="PRODUIT_NOM" ColumnName="PRODUIT_NOM" />
           <ScalarProperty Name="PRODUIT_DESCRIPTION" ColumnName="PRODUIT_DESCRIPTION" />
+          <ScalarProperty Name="MODELE_DE_GAMME_ID" ColumnName="MODELE_DE_GAMME_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

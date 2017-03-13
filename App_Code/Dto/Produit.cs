@@ -13,6 +13,7 @@ public class Produit
     private String description;
     private Devis devis;
     private Gamme gamme;
+    private ModeleDeGamme modeleDeGamme;
 
     public int Id
     {
@@ -76,6 +77,19 @@ public class Produit
         set
         {
             devis = value;
+        }
+    }
+
+    public ModeleDeGamme ModeleDeGamme
+    {
+        get
+        {
+            return modeleDeGamme;
+        }
+
+        set
+        {
+            modeleDeGamme = value;
         }
     }
 

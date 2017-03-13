@@ -10,10 +10,13 @@ public class ModeleGammeRepository
 {
     protected TypeModeleGammeRepository typeModeleGammeRepository;
     protected FichierRepository fichierRepository;
+    protected ModuleRepository moduleRepository;
+
     public ModeleGammeRepository()
     {
         typeModeleGammeRepository = new TypeModeleGammeRepository();
         fichierRepository = new FichierRepository();
+        moduleRepository = new ModuleRepository();
     }
 
     public List<ModeleDeGamme> GetByGamme(Gamme gamme)
@@ -34,6 +37,7 @@ public class ModeleGammeRepository
                 dto.Surface = item.MODELE_GAMME_SURFACE;
                 dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(item.TYPE_MODELE_GAMME_ID);
                 var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
+                dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
                 dtos.Add(dto);
             }
         }
@@ -51,5 +55,33 @@ public class ModeleGammeRepository
         entity.MODELE_GAMME_SURFACE = dto.Surface;
         entity.MODELE_GAMME_NOM = dto.Nom;
         entity.TYPE_MODELE_GAMME_ID = dto.TypeModeleGamme.Id;
+    }
+
+    public ModeleDeGamme GetByProduit(int id)
+    {
+        ModeleDeGamme dto = new ModeleDeGamme();
+        using (var db = new maderaEntities())
+        {
+            var query = from a in db.MODELE_DE_GAMME where a.MODELE_GAMME_ID.Equals(id) select a;
+
+            foreach (var item in query)
+            {
+                dto.Id = (int)item.MODELE_GAMME_ID;
+                dto.Nom = item.MODELE_GAMME_NOM;
+                dto.Description = item.MODELE_GAMME_DESCRIPTION;
+                dto.EstParDefaut = item.EST_PAR_DEFAUT;
+                dto.NbPieces = item.MODELE_GAMME_NB_PIECES;
+                dto.Surface = item.MODELE_GAMME_SURFACE;
+                dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(item.TYPE_MODELE_GAMME_ID);
+                var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
+                dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
+                //
+                // TODO: boucle infinie ?
+                //
+                dto.Modules = moduleRepository.GetCompositionByModeleGamme(dto);
+            }
+        }
+
+        return dto;
     }
 }

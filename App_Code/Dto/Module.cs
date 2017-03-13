@@ -11,8 +11,12 @@ public class Module
     private int id;
     private String nom;
     private String type;
-    private decimal margeCommercial;
-    private decimal margeEntreprise;
+    private double margeCommercial;
+    private double margeEntreprise;
+    private TypeModule typeModule;
+    private Module parent;
+    private int? quantiteParent;
+    private List<ComposantCoupePrincipe> composantsCoupePrincipe;
 
     public int Id
     {
@@ -53,7 +57,7 @@ public class Module
         }
     }
 
-    public decimal MargeCommercial
+    public double MargeCommercial
     {
         get
         {
@@ -66,7 +70,7 @@ public class Module
         }
     }
 
-    public decimal MargeEntreprise
+    public double MargeEntreprise
     {
         get
         {
@@ -76,6 +80,58 @@ public class Module
         set
         {
             margeEntreprise = value;
+        }
+    }
+
+    public TypeModule TypeModule
+    {
+        get
+        {
+            return typeModule;
+        }
+
+        set
+        {
+            typeModule = value;
+        }
+    }
+
+    public Module Parent
+    {
+        get
+        {
+            return parent;
+        }
+
+        set
+        {
+            parent = value;
+        }
+    }
+
+    public int? QuantiteParent
+    {
+        get
+        {
+            return quantiteParent;
+        }
+
+        set
+        {
+            quantiteParent = value;
+        }
+    }
+
+    public List<ComposantCoupePrincipe> ComposantsCoupePrincipe
+    {
+        get
+        {
+            return composantsCoupePrincipe;
+        }
+
+        set
+        {
+            composantsCoupePrincipe = value;
         }
     }
 

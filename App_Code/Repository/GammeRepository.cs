@@ -34,4 +34,19 @@ public class GammeRepository
 
         return gammes;
     }
+
+    public Gamme GetOne(int id)
+    {
+        Gamme dto = new Gamme();
+
+        using (var db = new maderaEntities())
+        {
+            var query = from a in db.GAMME where a.GAMME_ID.Equals(id) select a;
+            dto.Id = query.First().GAMME_ID;
+            dto.Nom = query.First().GAMME_NOM;
+            dto.Description = query.First().GAMME_DESCRIPTION;
+        }
+
+        return dto;
+    }
 }

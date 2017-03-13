@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/12/2017 19:55:05
--- Generated from EDMX file: C:\Users\DEVFOO\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
+-- Date Created: 03/13/2017 11:28:20
+-- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -445,9 +445,9 @@ CREATE TABLE [dbo].[MODULE] (
     [PERSONNEL_ID] int  NULL,
     [MODULE_NOM] varchar(60)  NULL,
     [MODULE_TYPE] varchar(1)  NULL,
-    [MODULE_MARGE_COMMERCIAL] decimal(18,0)  NULL,
-    [MODULE_MARGE_ENTREPRISE] decimal(18,0)  NULL,
-    [QUANTITE_PARENT] decimal(18,0)  NULL
+    [MODULE_MARGE_COMMERCIAL] float  NOT NULL,
+    [MODULE_MARGE_ENTREPRISE] float  NOT NULL,
+    [QUANTITE_PARENT] int  NULL
 );
 GO
 
@@ -476,7 +476,8 @@ CREATE TABLE [dbo].[PRODUIT] (
     [DEVIS_ID] int  NOT NULL,
     [GAMME_ID] int  NOT NULL,
     [PRODUIT_NOM] varchar(90)  NULL,
-    [PRODUIT_DESCRIPTION] varchar(max)  NULL
+    [PRODUIT_DESCRIPTION] varchar(max)  NULL,
+    [MODELE_DE_GAMME_ID] int  NULL
 );
 GO
 
@@ -521,9 +522,9 @@ GO
 
 -- Creating table 'UTILISER___COUPE_DE_PRINCIPE'
 CREATE TABLE [dbo].[UTILISER___COUPE_DE_PRINCIPE] (
-    [MODULE_ID] decimal(18,0)  NOT NULL,
-    [COMPOSANT_ID] decimal(18,0)  NOT NULL,
-    [QUANTITE_COUPE] int  NULL
+    [MODULE_ID] int  NOT NULL,
+    [COMPOSANT_ID] int  NOT NULL,
+    [QUANTITE_COUPE] int  NOT NULL
 );
 GO
 
