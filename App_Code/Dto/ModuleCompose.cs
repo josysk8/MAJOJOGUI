@@ -11,8 +11,8 @@ public class ModuleCompose
     private Module module;
     private String identification;
     private String section;
-    private int longueur;
-    private int hauteur;
+    private int? longueur;
+    private int? hauteur;
     private ModeleDeGamme modeleDeGamme;
 
     public ModuleCompose()
@@ -61,7 +61,7 @@ public class ModuleCompose
         }
     }
 
-    public int Longueur
+    public int? Longueur
     {
         get
         {
@@ -74,7 +74,7 @@ public class ModuleCompose
         }
     }
 
-    public int Hauteur
+    public int? Hauteur
     {
         get
         {
