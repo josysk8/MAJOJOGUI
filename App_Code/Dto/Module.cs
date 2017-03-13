@@ -122,6 +122,19 @@ public class Module
         }
     }
 
+    public List<Module> Enfants
+    {
+        get
+        {
+            return enfants;
+        }
+
+        set
+        {
+            enfants = value;
+        }
+    }
+
     public Module()
     {
         //

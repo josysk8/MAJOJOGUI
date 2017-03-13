@@ -46,6 +46,7 @@
         <EntityTypeShape EntityType="maderaModel.TYPE_MODELE_GAMME" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.TYPE_MODULE" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.UTILISER___COUPE_DE_PRINCIPE" Width="1.5" PointX="14.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="maderaModel.ASSOC_MODULE" Width="1.5" PointX="2.75" PointY="17.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

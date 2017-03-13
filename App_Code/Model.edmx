@@ -47,7 +47,7 @@
     <EntitySet Name="TYPE_MODELE_GAMME" EntityType="maderaModel.Store.TYPE_MODELE_GAMME" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TYPE_MODULE" EntityType="maderaModel.Store.TYPE_MODULE" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UTILISER___COUPE_DE_PRINCIPE" EntityType="maderaModel.Store.UTILISER___COUPE_DE_PRINCIPE" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ASSOC_MODULESet" EntityType="maderaModel.Store.ASSOC_MODULESet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ASSOC_MODULE" EntityType="maderaModel.Store.ASSOC_MODULE" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="ACCEDER_APPLICATION">
     <Key>
@@ -445,7 +445,7 @@
     <Property Name="COMPOSANT_ID" Type="int" Nullable="false" />
     <Property Name="QUANTITE_COUPE" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="ASSOC_MODULESet">
+  <EntityType Name="ASSOC_MODULE">
     <Key>
       <PropertyRef Name="MODULE_PARENT_ID" />
       <PropertyRef Name="MODULE_ENFANT_ID" />
@@ -1332,7 +1332,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="ASSOC_MODULE">
       <EntityTypeMapping TypeName="IsTypeOf(maderaModel.ASSOC_MODULE)">
-        <MappingFragment StoreEntitySet="ASSOC_MODULESet">
+        <MappingFragment StoreEntitySet="ASSOC_MODULE">
           <ScalarProperty Name="MODULE_PARENT_ID" ColumnName="MODULE_PARENT_ID" />
           <ScalarProperty Name="MODULE_ENFANT_ID" ColumnName="MODULE_ENFANT_ID" />
           <ScalarProperty Name="QUANTITE" ColumnName="QUANTITE" />

@@ -43,12 +43,12 @@ public class DevisRepository
         using (var db = new maderaEntities())
         {
             var query = from a in db.DEVIS where a.DEVIS_ID.Equals(id) select a;
-            
-            
 
             devis = new Devis(query.First().DEVIS_ID, query.First().DEVIS_ESTIMATION_PRIX, query.First().DEVIS_DATE, 
                                query.First().DEVIS_NOM_PROJET, query.First().DEVIS_REFERENCE, query.First().DEVIS_ETAT,
                                clientRepo.GetById(query.First().CLIENT_ID));
+
+            devis.Produits = produitRepository.GetByDevis(devis);
         }
         return devis;
     }
