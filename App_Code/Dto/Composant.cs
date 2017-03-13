@@ -10,9 +10,9 @@ public class Composant
 {
     private int id;
     private String nom;
-    private int stock;
-    private decimal valeurCaracteristique1;
-    private decimal valeurCaracteristique2;
+    private int? stock;
+    private decimal? valeurCaracteristique1;
+    private decimal? valeurCaracteristique2;
     private double valeurAjoutee;
 
     public int Id
@@ -41,7 +41,7 @@ public class Composant
         }
     }
 
-    public int Stock
+    public int? Stock
     {
         get
         {
@@ -54,7 +54,7 @@ public class Composant
         }
     }
 
-    public decimal ValeurCaracteristique1
+    public decimal? ValeurCaracteristique1
     {
         get
         {
@@ -67,7 +67,7 @@ public class Composant
         }
     }
 
-    public decimal ValeurCaracteristique2
+    public decimal? ValeurCaracteristique2
     {
         get
         {

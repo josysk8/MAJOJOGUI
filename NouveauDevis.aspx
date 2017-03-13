@@ -6,8 +6,9 @@
         <asp:TextBox ID="TxtNomProjet" runat="server"></asp:TextBox>
         <br />
         <asp:Label ID="LblClient" runat="server" Text="Nom du client"></asp:Label>
-        <asp:DropDownList ID="SelectClient" runat="server">
+        <asp:DropDownList ID="SelectClient" runat="server" DataSourceID="SelectClientDataSource" DataTextField="Name" DataValueField="Id">
         </asp:DropDownList>
+        <asp:ObjectDataSource ID="SelectClientDataSource" runat="server" SelectMethod="GetAll" TypeName="ClientRepository"></asp:ObjectDataSource>
         <br />
         <asp:HyperLink ID="LienNouveauClient" NavigateUrl="/nouveauClient" runat="server">Nouveau Client</asp:HyperLink>
         <br />

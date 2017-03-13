@@ -9,7 +9,7 @@ using System.Web;
 public class ModeleDeGamme
 {
     private int id;
-    private bool? estParDefaut;
+    private bool estParDefaut;
     private String nom;
     private String description;
     private Gamme gamme;
@@ -31,7 +31,7 @@ public class ModeleDeGamme
         }
     }
 
-    public bool? EstParDefaut
+    public bool EstParDefaut
     {
         get
         {

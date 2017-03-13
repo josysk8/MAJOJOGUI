@@ -14,6 +14,13 @@ public partial class ListeProduit : System.Web.UI.Page
         if (null != Session["currentDevis"])
         {
             Devis recordedDevis = (Devis)Session["currentDevis"];
+            LblNomProjet.Text = recordedDevis.NomProjet;
+            LblNomClient.Text = recordedDevis.Client.Name;
+            if (recordedDevis.EstimationPrix == null)
+            {
+                recordedDevis.EstimationPrix = 0;
+            }
+            LblPrix.Text = recordedDevis.EstimationPrix.ToString();
         }
 
         if (null != Session["panelContent"])
@@ -56,7 +63,7 @@ public partial class ListeProduit : System.Web.UI.Page
         Button button = (Button)sender;
 
         string idProduit = button.Parent.ID;
-   
+
         Produit produitEnvoy = new Produit();
         produitEnvoy.Id = int.Parse(idProduit);
         produitEnvoy.Nom = button.Text;

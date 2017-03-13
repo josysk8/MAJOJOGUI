@@ -27,8 +27,10 @@ public partial class NouveauClient : System.Web.UI.Page
         ContactClient contactNouveauClient = new ContactClient(TxtNomCLient.Text,TxtMatrimoniale.Text, TxtTelephoneClient.Text, TxtEmailClient.Text, TxtAdressseClient.Text, TxtAdresse2Client.Text,TxtCpClient.Text, TxtVilleClient.Text);
         Client nouveauClient = new Client();
         nouveauClient.ListeContactClient.Add(contactNouveauClient);
+        nouveauClient.Name = contactNouveauClient.Nom;
 
         ClientRepository clientRepository = new ClientRepository();
         clientRepository.Add(nouveauClient);
+        Response.Redirect("NouveauDevis.aspx");
     }
 }

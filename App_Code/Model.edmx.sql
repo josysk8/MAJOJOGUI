@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/12/2017 18:50:38
--- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
+-- Date Created: 03/12/2017 19:55:05
+-- Generated from EDMX file: C:\Users\DEVFOO\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -353,7 +353,7 @@ CREATE TABLE [dbo].[FICHIER] (
     [TYPE_FICHIER_ID] int  NOT NULL,
     [FICHIER_NOM] varchar(60)  NULL,
     [FICHIER_CHEMIN] varchar(255)  NULL,
-    [FICHIER_POIDS] int  NULL
+    [FICHIER_POIDS] bigint  NOT NULL
 );
 GO
 

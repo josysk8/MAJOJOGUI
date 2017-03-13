@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dea74ecfb0fe458e83cceacd27d10d3f" Name="Diagram1">
+      <Diagram DiagramId="dea74ecfb0fe458e83cceacd27d10d3f" Name="Diagram1" ZoomLevel="94">
         <EntityTypeShape EntityType="maderaModel.ACCEDER_APPLICATION" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.ACCEDER_APPLICATION2" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.ACCEDER_APPLICATION3" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
@@ -13,12 +13,12 @@
         <EntityTypeShape EntityType="maderaModel.CLIENT" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.COMMANDE" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.COMMERCIAL" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="maderaModel.COMPOSANT" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="maderaModel.COMPOSANT" Width="2.375" PointX="6.5" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.COMPOSANT_IMAGE" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.COMPTABLE" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.CONTACT_CLIENT" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.CONTACT_FOURNISSEUR" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="maderaModel.CONTENIR" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="maderaModel.CONTENIR" Width="1.5" PointX="9.125" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.DEVIS" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.EST_COUPE_DE_PRINCIPE" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.EST_DISPONIBLE" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
@@ -40,7 +40,7 @@
         <EntityTypeShape EntityType="maderaModel.PAYER" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.PEUT_APPLIQUER" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.PRODUIT" Width="1.5" PointX="4.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="maderaModel.TYPE_COMPOSANT" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="maderaModel.TYPE_COMPOSANT" Width="3" PointX="14.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.TYPE_FICHIER" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.TYPE_FINITION" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="maderaModel.TYPE_MODELE_GAMME" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />

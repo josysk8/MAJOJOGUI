@@ -26,6 +26,7 @@ public class ClientRepository
                 Client dto = new Client();
                 dto.Id = (int)item.CLIENT_ID;
                 dto.Reference = item.CLIENT_REFERENCE;
+                dto.Name = item.CLIENT_NAME;
                 dto.ListeContactClient = contactClientRepository.GetById(dto.Id);
                 clients.Add(dto);
             }
