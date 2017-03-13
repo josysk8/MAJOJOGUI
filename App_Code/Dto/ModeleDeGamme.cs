@@ -17,6 +17,7 @@ public class ModeleDeGamme
     private int? surface;
     private TypeModeleGamme typeModeleGamme;
     private Fichier image;
+    private List<ModuleCompose> modules;
 
     public int Id
     {
@@ -119,6 +120,32 @@ public class ModeleDeGamme
         set
         {
             typeModeleGamme = value;
+        }
+    }
+
+    public List<ModuleCompose> Modules
+    {
+        get
+        {
+            return modules;
+        }
+
+        set
+        {
+            modules = value;
+        }
+    }
+
+    public Fichier Image
+    {
+        get
+        {
+            return image;
+        }
+
+        set
+        {
+            image = value;
         }
     }
 
