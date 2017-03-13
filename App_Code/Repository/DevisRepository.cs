@@ -44,7 +44,7 @@ public class DevisRepository
         {
             var query = from a in db.DEVIS where a.DEVIS_ID.Equals(id) select a;
             
-            List<Produit> produits = produitRepository.
+            
 
             devis = new Devis(query.First().DEVIS_ID, query.First().DEVIS_ESTIMATION_PRIX, query.First().DEVIS_DATE, 
                                query.First().DEVIS_NOM_PROJET, query.First().DEVIS_REFERENCE, query.First().DEVIS_ETAT,
