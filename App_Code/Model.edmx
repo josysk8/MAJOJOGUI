@@ -297,7 +297,7 @@
       <PropertyRef Name="GAMME_ID" />
     </Key>
     <Property Name="GAMME_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="GAMME_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="GAMME_NOM" Type="varchar" Nullable="true" MaxLength="70" />
     <Property Name="GAMME_DESCRIPTION" Type="varchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="LIER_FINITION">
@@ -411,7 +411,7 @@
       <PropertyRef Name="TYPE_FICHIER_ID" />
     </Key>
     <Property Name="TYPE_FICHIER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TYPE_FICHIER_NOM" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="TYPE_FICHIER_NOM" Type="varchar" Nullable="true" MaxLength="50" />
   </EntityType>
   <EntityType Name="TYPE_FINITION">
     <Key>
@@ -820,7 +820,7 @@
             <PropertyRef Name="TYPE_FICHIER_ID" />
           </Key>
           <Property Name="TYPE_FICHIER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TYPE_FICHIER_NOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_FICHIER_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TYPE_FINITION">
           <Key>
