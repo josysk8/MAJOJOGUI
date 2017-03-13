@@ -15,6 +15,7 @@ public class Devis
     private String reference;
     private short? etat;
     private Client client;
+    private List<Produit> produits;
 
     #region accesseur
     public int Id
@@ -107,6 +108,19 @@ public class Devis
             client = value;
         }
     }
+
+    public List<Produit> Produits
+    {
+        get
+        {
+            return produits;
+        }
+
+        set
+        {
+            produits = value;
+        }
+    }
     #endregion
     #region constructeur
     public Devis()
@@ -120,6 +134,7 @@ public class Devis
     {
         this.NomProjet = nomProjet;
         this.Client = SelectedClient;
+        this.Produits = new List<Produit>();
     }
     #endregion
 
@@ -132,6 +147,7 @@ public class Devis
         this.reference = reference;
         this.etat = etat;
         this.client = client;
+        this.Produits = new List<Produit>();
     }
    
 }
