@@ -9,6 +9,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 {
     GammeRepository gammeRepository = new GammeRepository();
     ModeleGammeRepository modelGammeRepository = new ModeleGammeRepository();
+    FinitionRepository finitionRepository = new FinitionRepository();
     Devis recordedDevis;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,6 +22,11 @@ public partial class ConfigurerProduit : System.Web.UI.Page
             if (null != Session["selectedGamme"])
             {
                 produitSelectionne.Gamme = (Gamme)Session["selectedGamme"];
+            }
+
+            if (null != Session["selectedModeleGamme"])
+            {
+                produitSelectionne.ModeleDeGamme = (ModeleDeGamme)Session["selectedModeleGamme"];
             }
 
             if (!IsPostBack)
@@ -38,6 +44,10 @@ public partial class ConfigurerProduit : System.Web.UI.Page
                 if ((String)Session["downPanelId"] == "panelModelDeGamme" && Session["selectedGamme"] != null)
                 {
                     refreshModelGammePanel(produitSelectionne.Gamme);
+                }
+                if ((String)Session["downPanelId"] == "panelFinition" && Session["selectedModeleGamme"] != null)
+                {
+                    refreshFinitionPanel(produitSelectionne.ModeleDeGamme);
                 }
             }
         }
@@ -65,6 +75,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         ModeleDeGamme foundModeleGamme = modelGammeRepository.GetOne(int.Parse(BtnSelectionModeleGamme.ID));
         Session["selectedModeleGamme"] = foundModeleGamme;
         Session["downPanelId"] = "panelFinition";
+        refreshFinitionPanel(foundModeleGamme);
     }
 
     private void refreshGammePanel()
@@ -91,5 +102,29 @@ public partial class ConfigurerProduit : System.Web.UI.Page
             myButtonModelGamme.Click += new EventHandler(this.BtnSelectionModeleGamme_Click);
             downPanel.Controls.Add(myButtonModelGamme);
         }
+    }
+
+    private void refreshFinitionPanel(ModeleDeGamme selectedModeleDeGamme)
+    {
+        downPanel.Controls.Clear();
+        //Toit
+        Label labelToit = new Label();
+        labelToit.Text = "Toit";
+        
+        Label labelExterieur = new Label();
+        labelExterieur.Text = "Extérieur";
+        DropDownList selectExterieur = new DropDownList();
+        //TODO : 
+        selectExterieur.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme);
+        selectExterieur.DataTextField = "Nom";
+        selectExterieur.DataValueField = "Id";
+        selectExterieur.DataBind();
+
+        downPanel.Controls.Add(labelToit);
+        downPanel.Controls.Add(labelExterieur);
+        downPanel.Controls.Add(selectExterieur);
+        //Murs Exterieurs
+        //Mur intérieurs
+        //Plancher
     }
 }

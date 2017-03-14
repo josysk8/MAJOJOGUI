@@ -7,9 +7,9 @@
         <br />
         <asp:Button ID="BtnGamme" runat="server" Text="Gamme" OnClick="BtnGamme_Click" />
         <asp:Button ID="BtnModeleGamme" runat="server" Text="Modèle de gamme" />
-        <asp:Button ID="BtnCoupePrincipe" runat="server" Text="Coupe de principe" />
-        <asp:Button ID="BtnModule" runat="server" Text="Modules" />
         <asp:Button ID="BtnFinition" runat="server" Text="Finitions" />
+        <asp:Button ID="BtnModule" runat="server" Text="Modules" />
+        
     </asp:Panel>
     <asp:Panel ID="downPanel" ScrollBars = "Horizontal" style="overflow:scroll;display:flex" runat="server" Width="500px"></asp:Panel>
 </asp:Content>
