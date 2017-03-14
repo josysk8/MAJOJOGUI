@@ -8,8 +8,8 @@ delete from dbo.COMPOSANT;
 delete from dbo.FOURNISSEUR;
 delete from dbo.MODELE_GAMME_IMAGE;
 delete from dbo.FICHIER;
-
-
+delete from dbo.EST_COUPE_DE_PRINCIPE;
+delete from dbo.MODULE;
 
 
 insert into dbo.GAMME (GAMME_NOM, GAMME_DESCRIPTION) values ('Premium', 'Pour les plus riches.');
@@ -26,6 +26,8 @@ insert into dbo.TYPE_MODELE_GAMME (TYPE_MODELE_GAMME_NOM) values ('F1');
 insert into dbo.TYPE_MODELE_GAMME (TYPE_MODELE_GAMME_NOM) values ('F2');
 insert into dbo.TYPE_MODELE_GAMME (TYPE_MODELE_GAMME_NOM) values ('F3');
 insert into dbo.TYPE_MODELE_GAMME (TYPE_MODELE_GAMME_NOM) values ('F4');
+
+
 
 
 insert into dbo.MODELE_DE_GAMME (GAMME_ID, TYPE_MODELE_GAMME_ID, EST_PAR_DEFAUT, MODELE_GAMME_NOM, MODELE_GAMME_DESCRIPTION, MODELE_GAMME_NB_PIECES, MODELE_GAMME_SURFACE) values
@@ -56,6 +58,9 @@ insert into dbo.MODELE_GAMME_IMAGE (MODELE_GAMME_ID, FICHIER_ID) values
 	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'    ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
 	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium' ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'));
 
+	
+	
+	
 	
 	
 insert into dbo.TYPE_MODULE (TYPE_MODULE_NOM, TYPE_MODULE_UNITE_USAGE,TYPE_MODULE_CARACTERISTIQUE) values 
@@ -89,9 +94,25 @@ insert into dbo.COMPOSANT (TYPE_COMPOSANT, FOURNISSEUR_ID, COMPOSANT_NOM, COMPOS
 	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Eléments de montages'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Goujeon', 1500, 120, null, 0);
 
 
+	
+	
+insert into dbo.MODULE (TYPE_MODULE_ID, PERSONNEL_ID, MODULE_NOM, MODULE_TYPE, MODULE_MARGE_COMMERCIAL, MODULE_MARGE_ENTREPRISE) values 
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Murs extérieurs'), null, 'Mur ext 1', null, 5, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Murs extérieurs'), null, 'Mur ext 2', null, 7, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Cloisons intérieures'), null, 'Mur int 1', null, 5, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Plancher sur dalle'), null, 'Plancher dalle 1', null, 5, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Plancher porteur'), null, 'Plancher porteur 1', null, 5, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Fermes de charpente'), null, 'Ferme de Charpente 1', null, 5, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Couverture'), null, 'Couverture 1', null, 5, 10);
 
-
-
+insert into dbo.EST_COUPE_DE_PRINCIPE (FICHIER_ID, MODULE_ID) values 
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 1')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 2')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 1')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 1')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'));
 
 
 

@@ -64,7 +64,8 @@ public class ModeleGammeRepository
             dto.Surface = query.First().MODELE_GAMME_SURFACE;
             dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(query.First().TYPE_MODELE_GAMME_ID);
             var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
-            dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
+            if (image.Count() != 0)
+                dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
         }
 
         return dto;
@@ -99,7 +100,8 @@ public class ModeleGammeRepository
                 dto.Surface = item.MODELE_GAMME_SURFACE;
                 dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(item.TYPE_MODELE_GAMME_ID);
                 var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
-                dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
+                if (image.Count() != 0)
+                    dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
                 //
                 // TODO: boucle infinie ?
                 //
