@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/13/2017 15:34:33
--- Generated from EDMX file: C:\Users\orion\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
+-- Date Created: 03/14/2017 10:26:06
+-- Generated from EDMX file: C:\Users\DEVFOO\Documents\Visual Studio 2015\websites\MAJOJOGUI\App_Code\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -380,7 +380,8 @@ GO
 CREATE TABLE [dbo].[FOURNISSEUR] (
     [FOURNISSEUR_ID] int IDENTITY(1,1) NOT NULL,
     [FOURNISSEUR_SIRET] char(14)  NULL,
-    [FOURNISSEUR_SIREN] char(9)  NULL
+    [FOURNISSEUR_SIREN] char(9)  NULL,
+    [FOURNISSEUR_NOM] nvarchar(250)  NOT NULL
 );
 GO
 

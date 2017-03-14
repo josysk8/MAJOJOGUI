@@ -221,6 +221,7 @@ public partial class FOURNISSEUR
     public int FOURNISSEUR_ID { get; set; }
     public string FOURNISSEUR_SIRET { get; set; }
     public string FOURNISSEUR_SIREN { get; set; }
+    public string FOURNISSEUR_NOM { get; set; }
 }
 
 public partial class GAMME

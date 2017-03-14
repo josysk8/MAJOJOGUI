@@ -11,8 +11,9 @@ public class Fournisseur
     private int id;
     private String siret;
     private String siren;
+    private String nom;
 
-    protected int Id
+    public int Id
     {
         get
         {
@@ -25,7 +26,7 @@ public class Fournisseur
         }
     }
 
-    protected string Siret
+    public string Siret
     {
         get
         {
@@ -38,7 +39,7 @@ public class Fournisseur
         }
     }
 
-    protected string Siren
+    public string Siren
     {
         get
         {
@@ -48,6 +49,19 @@ public class Fournisseur
         set
         {
             siren = value;
+        }
+    }
+
+    public string Nom
+    {
+        get
+        {
+            return nom;
+        }
+
+        set
+        {
+            nom = value;
         }
     }
 

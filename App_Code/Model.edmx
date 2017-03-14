@@ -291,6 +291,7 @@
     <Property Name="FOURNISSEUR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FOURNISSEUR_SIRET" Type="char" Nullable="true" MaxLength="14" />
     <Property Name="FOURNISSEUR_SIREN" Type="char" Nullable="true" MaxLength="9" />
+    <Property Name="FOURNISSEUR_NOM" Type="nvarchar" Nullable="false" MaxLength="250" />
   </EntityType>
   <EntityType Name="GAMME">
     <Key>
@@ -700,6 +701,7 @@
           <Property Name="FOURNISSEUR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FOURNISSEUR_SIRET" Type="String" MaxLength="14" FixedLength="true" Unicode="false" />
           <Property Name="FOURNISSEUR_SIREN" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="FOURNISSEUR_NOM" Type="String" Nullable="false" MaxLength="250" />
         </EntityType>
         <EntityType Name="GAMME">
           <Key>
@@ -1166,6 +1168,7 @@
           <ScalarProperty Name="FOURNISSEUR_ID" ColumnName="FOURNISSEUR_ID" />
           <ScalarProperty Name="FOURNISSEUR_SIRET" ColumnName="FOURNISSEUR_SIRET" />
           <ScalarProperty Name="FOURNISSEUR_SIREN" ColumnName="FOURNISSEUR_SIREN" />
+          <ScalarProperty Name="FOURNISSEUR_NOM" ColumnName="FOURNISSEUR_NOM" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
