@@ -12,7 +12,8 @@ delete from dbo.EST_COUPE_DE_PRINCIPE;
 delete from dbo.MODULE;
 delete from dbo.TYPE_FINITION;
 delete from dbo.FINITION;
-
+delete from dbo.FAIRE_PARTIE;
+delete from dbo.LIER_FINITION;
 
 
 insert into dbo.GAMME (GAMME_NOM, GAMME_DESCRIPTION) values ('Premium', 'Pour les plus riches.');
