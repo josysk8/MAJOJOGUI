@@ -32,7 +32,8 @@ public class FinitionRepository
                 finition.Description = query.First().FINITION_DESCRIPTION;
                 finition.TypeFinition = typeFinitionRepository.GetOne(query.First().TYPE_FINITION_ID);
                 var fichier = from a in db.FINITION_IMAGE where a.FINITION_ID.Equals(finition.Id) select a;
-                finition.Image = fichierRepository.GetOne(fichier.First().FICHIER_ID);
+                if (fichier.Count() > 0)
+                    finition.Image = fichierRepository.GetOne(fichier.First().FICHIER_ID);
                 dtos.Add(finition);
             }
         }
