@@ -23,6 +23,11 @@ public partial class ConfigurerProduit : System.Web.UI.Page
                 produitSelectionne.Gamme = (Gamme)Session["selectedGamme"];
             }
 
+            if (!IsPostBack)
+            {
+                Session["downPanelId"] = null;
+            }
+
             if (null != Session["downPanelId"])
             {
                 if ((String)Session["downPanelId"] == "panelGamme")
@@ -30,7 +35,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
                     refreshGammePanel();
                 }
 
-                if ((String)Session["downPanelId"] == "panelModelDeGamme")
+                if ((String)Session["downPanelId"] == "panelModelDeGamme" && Session["selectedGamme"] != null)
                 {
                     refreshModelGammePanel(produitSelectionne.Gamme);
                 }
@@ -41,6 +46,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     protected void BtnGamme_Click(object sender, EventArgs e)
     {
         Session["downPanelId"] = "panelGamme";
+        Session["selectedGamme"] = null;
         refreshGammePanel();
     }
 
@@ -50,6 +56,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         Gamme foundGamme = gammeRepository.GetOne(int.Parse(BtnSelectionGamme.ID));
         Session["selectedGamme"] = foundGamme;
         Session["downPanelId"] = "panelModelDeGamme";
+        refreshModelGammePanel(foundGamme);
     }
 
     protected void BtnSelectionModeleGamme_Click(object sender, EventArgs e)
@@ -62,6 +69,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
     private void refreshGammePanel()
     {
+        downPanel.Controls.Clear();
         foreach (Gamme gamme in gammeRepository.getAll())
         {
             Button myButtonGamme = new Button();
@@ -74,6 +82,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
     private void refreshModelGammePanel(Gamme selectedGamme)
     {
+        downPanel.Controls.Clear();
         foreach (ModeleDeGamme modeleDeGamme in modelGammeRepository.GetByGamme(selectedGamme))
         {
             Button myButtonModelGamme = new Button();

@@ -29,7 +29,7 @@ public class ModeleGammeRepository
             foreach (var item in query)
             {
                 ModeleDeGamme dto = new ModeleDeGamme();
-                dto.Id = (int) item.MODELE_GAMME_ID;
+                dto.Id = (int)item.MODELE_GAMME_ID;
                 dto.Nom = item.MODELE_GAMME_NOM;
                 dto.Description = item.MODELE_GAMME_DESCRIPTION;
                 dto.EstParDefaut = item.EST_PAR_DEFAUT;
@@ -37,7 +37,11 @@ public class ModeleGammeRepository
                 dto.Surface = item.MODELE_GAMME_SURFACE;
                 dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(item.TYPE_MODELE_GAMME_ID);
                 var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
-                dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
+                if (image.Count() != 0)
+                {
+                    //TODO : Plante quand il n'y a pas d'image
+                    dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
+                }
                 dtos.Add(dto);
             }
         }
