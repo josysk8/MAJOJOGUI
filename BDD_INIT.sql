@@ -2,14 +2,24 @@ delete from dbo.GAMME;
 delete from dbo.TYPE_MODELE_GAMME;
 delete from dbo.MODELE_DE_GAMME;
 delete from dbo.TYPE_MODULE;
+delete from dbo.TYPE_FICHIER;
 delete from dbo.TYPE_COMPOSANT;
 delete from dbo.COMPOSANT;
 delete from dbo.FOURNISSEUR;
+delete from dbo.MODELE_GAMME_IMAGE;
+delete from dbo.FICHIER;
+
+
 
 
 insert into dbo.GAMME (GAMME_NOM, GAMME_DESCRIPTION) values ('Premium', 'Pour les plus riches.');
 insert into dbo.GAMME (GAMME_NOM, GAMME_DESCRIPTION) values ('Medium', 'Pour les plus medium.');
 insert into dbo.GAMME (GAMME_NOM, GAMME_DESCRIPTION) values ('Eco', 'Pour les plus pauvres.');
+
+insert into dbo.TYPE_FICHIER (TYPE_FICHIER_NOM) values ('Image');
+
+insert into dbo.FICHIER (TYPE_FICHIER_ID, FICHIER_NOM, FICHIER_CHEMIN, FICHIER_POIDS) values 
+	((select TYPE_FICHIER_ID from dbo.TYPE_FICHIER where TYPE_FICHIER_NOM like 'Image'), 'Image bidon', '/path/name', 15);
 
 
 insert into dbo.TYPE_MODELE_GAMME (TYPE_MODELE_GAMME_NOM) values ('F1');
@@ -32,7 +42,22 @@ insert into dbo.MODELE_DE_GAMME (GAMME_ID, TYPE_MODELE_GAMME_ID, EST_PAR_DEFAUT,
 	((select GAMME_ID from GAMME where GAMME_NOM like 'Premium'), (select TYPE_MODELE_GAMME_ID from TYPE_MODELE_GAMME where TYPE_MODELE_GAMME_NOM='F3'), 0, 'Maison grande Premium 2', 'Grande maison', 3, 75),
 	((select GAMME_ID from GAMME where GAMME_NOM like 'Premium'), (select TYPE_MODELE_GAMME_ID from TYPE_MODELE_GAMME where TYPE_MODELE_GAMME_NOM='F4'), 0, 'Très grande maison Premium', 'Grande maison', 4, 85);
 
+insert into dbo.MODELE_GAMME_IMAGE (MODELE_GAMME_ID, FICHIER_ID) values
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'                 ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'          ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'              ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'       ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'             ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'       ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'             ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'      ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'     ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'    ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'    ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon')),
+	((select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium' ), (select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'));
 
+	
+	
 insert into dbo.TYPE_MODULE (TYPE_MODULE_NOM, TYPE_MODULE_UNITE_USAGE,TYPE_MODULE_CARACTERISTIQUE) values 
 	('Murs extérieurs', 'm', 'Hauteur-Longueur'),
 	('Cloisons intérieures', 'm', 'Hauteur-Longueur'),
@@ -58,6 +83,7 @@ insert into dbo.COMPOSANT (TYPE_COMPOSANT, FOURNISSEUR_ID, COMPOSANT_NOM, COMPOS
 	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Lisse basse', 150, 120, null, 0),
 	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Lisse haute', 150, 120, null, 0),
 	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Entretoise', 150, 120, null, 0),
+	
 	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Eléments de montages'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Sabot métallique', 1000, 120, null, 0),
 	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Eléments de montages'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Boulon', 1200, 120, null, 0),
 	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Eléments de montages'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Goujeon', 1500, 120, null, 0);
