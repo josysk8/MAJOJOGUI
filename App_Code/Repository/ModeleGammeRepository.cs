@@ -24,7 +24,7 @@ public class ModeleGammeRepository
         List<ModeleDeGamme> dtos = new List<ModeleDeGamme>();
         using (var db = new maderaEntities())
         {
-            var query = from a in db.MODELE_DE_GAMME where a.MODELE_GAMME_ID.Equals(gamme.Id) select a;
+            var query = from a in db.MODELE_DE_GAMME where a.GAMME_ID.Equals(gamme.Id) select a;
 
             foreach (var item in query)
             {
@@ -82,12 +82,12 @@ public class ModeleGammeRepository
         entity.TYPE_MODELE_GAMME_ID = dto.TypeModeleGamme.Id;
     }
 
-    public ModeleDeGamme GetByProduit(int id)
+    public ModeleDeGamme GetByProduit(Produit prod)
     {
         ModeleDeGamme dto = new ModeleDeGamme();
         using (var db = new maderaEntities())
         {
-            var query = from a in db.MODELE_DE_GAMME where a.MODELE_GAMME_ID.Equals(id) select a;
+            var query = from a in db.MODELE_DE_GAMME where a.MODELE_GAMME_ID.Equals(prod.Id) select a;
 
             foreach (var item in query)
             {
