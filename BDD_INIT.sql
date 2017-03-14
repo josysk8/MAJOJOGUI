@@ -10,6 +10,9 @@ delete from dbo.MODELE_GAMME_IMAGE;
 delete from dbo.FICHIER;
 delete from dbo.EST_COUPE_DE_PRINCIPE;
 delete from dbo.MODULE;
+delete from dbo.TYPE_FINITION;
+delete from dbo.FINITION;
+
 
 
 insert into dbo.GAMME (GAMME_NOM, GAMME_DESCRIPTION) values ('Premium', 'Pour les plus riches.');
@@ -115,14 +118,150 @@ insert into dbo.EST_COUPE_DE_PRINCIPE (FICHIER_ID, MODULE_ID) values
 	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'));
 
 
+	
+	
+insert into dbo.TYPE_FINITION (TYPE_FINITION_NOM) values
+	('Finition intérieure'),
+	('Finition extérieure'),
+	('Isolation'),
+	('Plancher'),
+	('Couverture'),
+	('Qualité des huisseries');
+	
+insert into dbo.FINITION (TYPE_FINITION_ID, FINITION_NOM, FINITION_DESCRIPTION) values
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Isolation'), 'Laine de verre', 'Fibres naturelles'),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Isolation'), 'Chanvre', 'Fibres naturelles'),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Isolation'), 'Laine minérale', 'Fibres naturelles'),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Finition extérieure'), 'Bois', ''),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Finition extérieure'), 'Crépis', ''),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Finition intérieure'), 'Peinture', ''),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Finition intérieure'), 'Papier peint', ''),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Plancher'), 'Parquet', ''),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Plancher'), 'Carrelage', ''),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Couverture'), 'Tuile', ''),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Couverture'), 'Ardoise', ''),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Qualité des huisseries'), 'Huisserie en or', ''),
+	((select TYPE_FINITION_ID from dbo.TYPE_FINITION where TYPE_FINITION_NOM like 'Qualité des huisseries'), 'Huisserie en platre', '');
+	
+
+insert into dbo.FAIRE_PARTIE (GAMME_ID, FINITION_ID) values
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'      )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Chanvre'             )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine minérale'      )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Bois'                )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'              )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'            )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Papier peint'        )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'             )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Carrelage'           )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'               )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Ardoise'             )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'     )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en platre' ));
+insert into dbo.FAIRE_PARTIE (GAMME_ID, FINITION_ID) values
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'      )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine minérale'      )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Bois'                )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'            )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Papier peint'        )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'             )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'               )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'     )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en platre' ));
+insert into dbo.FAIRE_PARTIE (GAMME_ID, FINITION_ID) values
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'      )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Bois'                )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Papier peint'        )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'             )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'               )),
+	((select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco'), (select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en platre' ));
 
 
-
-
-
-
-
-
-
-
-
+insert into dbo.LIER_FINITION (FINITION_ID, MODELE_GAMME_ID) values
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'                )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'         )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'             )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'     )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'    )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Laine de verre'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'));
+ insert into dbo.LIER_FINITION (FINITION_ID, MODELE_GAMME_ID) values
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'                )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'         )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'             )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'     )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'    )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Crépis'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'));
+ insert into dbo.LIER_FINITION (FINITION_ID, MODELE_GAMME_ID) values
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'                )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'         )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'             )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'     )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'    )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Peinture'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'));
+ insert into dbo.LIER_FINITION (FINITION_ID, MODELE_GAMME_ID) values
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'                )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'         )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'             )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'     )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'    )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Parquet'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'));
+ insert into dbo.LIER_FINITION (FINITION_ID, MODELE_GAMME_ID) values
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'                )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'         )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'             )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'     )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'    )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Tuile'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'));
+ insert into dbo.LIER_FINITION (FINITION_ID, MODELE_GAMME_ID) values
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'                )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'         )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'             )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'      )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'            )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'     )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'    )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'   )),
+	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'));
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
