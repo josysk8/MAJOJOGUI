@@ -46,7 +46,7 @@ public class ProduitRepository
                 dto.Nom = item.PRODUIT_NOM;
                 dto.Description = item.PRODUIT_DESCRIPTION;
                 dto.Gamme = gammeRepository.GetOne(item.GAMME_ID);
-                dto.ModeleDeGamme = modeleGammeRepository.GetByProduit(dto.Id);
+                dto.ModeleDeGamme = modeleGammeRepository.GetOne((int) item.MODELE_DE_GAMME_ID);
                 dtos.Add(dto);
             }
         }
