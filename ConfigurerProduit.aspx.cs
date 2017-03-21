@@ -111,20 +111,16 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
         //Couverture
         Label labelToit = new Label();
-        labelToit.Text = "Toit";
-
-        Label labelExterieur = new Label();
-        labelExterieur.Text = "Extérieur";
-        DropDownList selectExterieur = new DropDownList();
+        labelToit.Text = "Couverture";
+        DropDownList selectToit = new DropDownList();
         //TODO : 
-        selectExterieur.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
-        selectExterieur.DataTextField = "Nom";
-        selectExterieur.DataValueField = "Id";
-        selectExterieur.DataBind();
+        selectToit.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
+        selectToit.DataTextField = "Nom";
+        selectToit.DataValueField = "Id";
+        selectToit.DataBind();
 
         downPanel.Controls.Add(labelToit);
-        downPanel.Controls.Add(labelExterieur);
-        downPanel.Controls.Add(selectExterieur);
+        downPanel.Controls.Add(selectToit);
         //Finition intérieure
         //Finition extérieure
         //Isolation
