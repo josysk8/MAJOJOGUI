@@ -107,15 +107,17 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     private void refreshFinitionPanel(ModeleDeGamme selectedModeleDeGamme)
     {
         downPanel.Controls.Clear();
-        //Toit
+
+
+        //Couverture
         Label labelToit = new Label();
         labelToit.Text = "Toit";
-        
+
         Label labelExterieur = new Label();
         labelExterieur.Text = "Extérieur";
         DropDownList selectExterieur = new DropDownList();
         //TODO : 
-        selectExterieur.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme);
+        selectExterieur.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
         selectExterieur.DataTextField = "Nom";
         selectExterieur.DataValueField = "Id";
         selectExterieur.DataBind();
@@ -123,8 +125,10 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         downPanel.Controls.Add(labelToit);
         downPanel.Controls.Add(labelExterieur);
         downPanel.Controls.Add(selectExterieur);
-        //Murs Exterieurs
-        //Mur intérieurs
+        //Finition intérieure
+        //Finition extérieure
+        //Isolation
         //Plancher
+        //Qualité des huisseries
     }
 }
