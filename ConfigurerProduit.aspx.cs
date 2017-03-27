@@ -29,6 +29,11 @@ public partial class ConfigurerProduit : System.Web.UI.Page
                 produitSelectionne.ModeleDeGamme = (ModeleDeGamme)Session["selectedModeleGamme"];
             }
 
+            if (null != Session["selectedFinition"])
+            {
+
+            }
+
             if (!IsPostBack)
             {
                 Session["downPanelId"] = null;
@@ -78,6 +83,11 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         refreshFinitionPanel(foundModeleGamme);
     }
 
+    private void BtnConfigurerProduit_Click(object sender, EventArgs e)
+    {
+        Session["downPanelId"] = "panelModule";
+    }
+
     private void refreshGammePanel()
     {
         downPanel.Controls.Clear();
@@ -113,7 +123,6 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         Label labelToit = new Label();
         labelToit.Text = "Couverture";
         DropDownList selectToit = new DropDownList();
-        //TODO : 
         selectToit.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
         selectToit.DataTextField = "Nom";
         selectToit.DataValueField = "Id";
@@ -121,10 +130,71 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
         downPanel.Controls.Add(labelToit);
         downPanel.Controls.Add(selectToit);
+
         //Finition intérieure
+        Label labelFinitionInterieure = new Label();
+        labelFinitionInterieure.Text = "Finition Intérieure";
+        DropDownList selectFinitionInterieure = new DropDownList();
+        selectFinitionInterieure.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Finition intérieure");
+        selectFinitionInterieure.DataTextField = "Nom";
+        selectFinitionInterieure.DataValueField = "Id";
+        selectFinitionInterieure.DataBind();
+
+        downPanel.Controls.Add(labelFinitionInterieure);
+        downPanel.Controls.Add(selectFinitionInterieure);
+
         //Finition extérieure
+        Label labelFinitionExterieure = new Label();
+        labelFinitionExterieure.Text = "Finition extérieure";
+        DropDownList selectFinitionExterieure = new DropDownList();
+        selectFinitionExterieure.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Finition extérieure");
+        selectFinitionExterieure.DataTextField = "Nom";
+        selectFinitionExterieure.DataValueField = "Id";
+        selectFinitionExterieure.DataBind();
+
+        downPanel.Controls.Add(labelFinitionExterieure);
+        downPanel.Controls.Add(selectFinitionExterieure);
+
         //Isolation
+        Label labelIsolation = new Label();
+        labelIsolation.Text = "Finition extérieure";
+        DropDownList selectIsolation = new DropDownList();
+        selectIsolation.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Isolation");
+        selectIsolation.DataTextField = "Nom";
+        selectIsolation.DataValueField = "Id";
+        selectIsolation.DataBind();
+
+        downPanel.Controls.Add(labelIsolation);
+        downPanel.Controls.Add(selectIsolation);
+
         //Plancher
+        Label labelPlancher = new Label();
+        labelPlancher.Text = "Finition extérieure";
+        DropDownList selectPlancher = new DropDownList();
+        selectPlancher.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Plancher");
+        selectPlancher.DataTextField = "Nom";
+        selectPlancher.DataValueField = "Id";
+        selectPlancher.DataBind();
+
+        downPanel.Controls.Add(labelPlancher);
+        downPanel.Controls.Add(selectPlancher);
+
         //Qualité des huisseries
+        Label labelHuisseries = new Label();
+        labelHuisseries.Text = "Finition extérieure";
+        DropDownList selectHuisseries = new DropDownList();
+        selectHuisseries.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Qualité des huisseries");
+        selectHuisseries.DataTextField = "Nom";
+        selectHuisseries.DataValueField = "Id";
+        selectHuisseries.DataBind();
+
+        downPanel.Controls.Add(labelHuisseries);
+        downPanel.Controls.Add(selectHuisseries);
+
+        Button validationFinitionButton = new Button();
+        validationFinitionButton.Text = "Valider";
+        validationFinitionButton.Click += new EventHandler(this.BtnConfigurerProduit_Click);
+
+        downPanel.Controls.Add(validationFinitionButton);
     }
 }
