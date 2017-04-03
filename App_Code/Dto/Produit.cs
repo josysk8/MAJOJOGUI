@@ -94,11 +94,24 @@ public class Produit
         }
     }
 
+    public List<Finition> ListeFinition
+    {
+        get
+        {
+            return listeFinition;
+        }
+
+        set
+        {
+            listeFinition = value;
+        }
+    }
+
     public Produit()
     {
         //
         // TODO: Add constructor logic here
         //
-        listeFinition = new List<Finition>();
+        ListeFinition = new List<Finition>();
     }
 }
