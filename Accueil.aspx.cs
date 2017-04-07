@@ -19,12 +19,11 @@ public partial class Accueil : System.Web.UI.Page
 
     protected void btnBrouillonDevis_Click(object sender, EventArgs e)
     {
-        new TestEF();
     }
 
     protected void btnNouveauClientDevis_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("NouveauClient.aspx");
     }
 
     protected void btnEditFicheClientDevis_Click(object sender, EventArgs e)
