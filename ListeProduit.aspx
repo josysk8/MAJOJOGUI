@@ -23,14 +23,9 @@
             </div>
             <div class="form-group">
                 <div class="col-md-6 text-center">
-                    <asp:ImageButton ID="BtnClearProduit" CssClass="btn btn-danger" runat="server" OnClick="BtnClearProduit_Click" Text="Annuler" />
+                    <asp:Button ID="BtnClearProduit" CssClass="btn btn-danger" runat="server" OnClick="BtnClearProduit_Click" Text="Annuler" />
                 </div>
                 <div class="col-md-6 text-center">
-
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-12 text-center">
                     <asp:Button ID="ImgBtnNouveauProduit" CssClass="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="Ajouter un nouveau produit" />
                 </div>
             </div>

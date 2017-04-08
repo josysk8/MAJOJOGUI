@@ -85,7 +85,7 @@ public partial class ListeProduit : System.Web.UI.Page
         refreshProductPanel();
     }
 
-    protected void BtnClearProduit_Click(object sender, ImageClickEventArgs e)
+    protected void BtnClearProduit_Click(object sender, EventArgs e)
     {
         PnlListeProduit.Controls.Clear();
         produits.Clear();

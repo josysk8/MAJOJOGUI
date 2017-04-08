@@ -14,7 +14,7 @@
                         <li><asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Finitions" /></li>
                         <li><asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" Text="Modules" /></li>
                     </ul>
-                    <asp:Panel ID="downPanel" ScrollBars = "Horizontal" style="overflow:scroll;display:flex" runat="server" Width="500px"></asp:Panel>
+                    <asp:Panel ID="downPanel" ScrollBars = "Horizontal" style="overflow:scroll;" runat="server" Width="500px"></asp:Panel>
                 </div>
             </div>
             
