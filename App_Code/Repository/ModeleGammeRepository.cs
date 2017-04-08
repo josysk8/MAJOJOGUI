@@ -97,6 +97,22 @@ public class ModeleGammeRepository
         entity.MODELE_GAMME_SURFACE = dto.Surface;
         entity.MODELE_GAMME_NOM = dto.Nom;
         entity.TYPE_MODELE_GAMME_ID = dto.TypeModeleGamme.Id;
+
+        using (var db = new maderaEntities())
+        {
+            db.MODELE_DE_GAMME.Add(entity);
+            db.SaveChanges();
+
+            var queryModele = (from a in db.MODELE_DE_GAMME orderby db.MODELE_DE_GAMME descending).Single();
+            foreach (var item in dto.Finitions)
+            {
+                LIER_FINITION entityFin = new LIER_FINITION();
+                entityFin.FINITION_ID = item.Id;
+                entityFin.MODELE_GAMME_ID = queryModele.First().MODELE_GAMME_ID;
+                db.LIER_FINITION.Add(entityFin);
+                db.SaveChanges();
+            }
+        }
     }
 
     public ModeleDeGamme GetByProduit(Produit prod)
