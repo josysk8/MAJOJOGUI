@@ -11,12 +11,14 @@ public class ModeleGammeRepository
     protected TypeModeleGammeRepository typeModeleGammeRepository;
     protected FichierRepository fichierRepository;
     protected ModuleRepository moduleRepository;
+    protected FinitionRepository finitionRepository;
 
     public ModeleGammeRepository()
     {
         typeModeleGammeRepository = new TypeModeleGammeRepository();
         fichierRepository = new FichierRepository();
         moduleRepository = new ModuleRepository();
+        finitionRepository = new FinitionRepository();
     }
 
     public List<ModeleDeGamme> GetByGamme(Gamme gamme)
@@ -42,6 +44,13 @@ public class ModeleGammeRepository
                     //TODO : Plante quand il n'y a pas d'image
                     dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
                 }
+                var queryFinitions = from a in db.LIER_FINITION where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
+                List<Finition> finitions = new List<Finition>();
+                foreach (var itemFin in queryFinitions)
+                {
+                    finitions.Add(finitionRepository.getOne(itemFin.FINITION_ID));
+                }
+                dto.Finitions = finitions;
                 dtos.Add(dto);
             }
         }
@@ -66,6 +75,13 @@ public class ModeleGammeRepository
             var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
             if (image.Count() != 0)
                 dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
+            var queryFinitions = from a in db.LIER_FINITION where a.MODELE_GAMME_ID.Equals(id) select a;
+            List<Finition> finitions = new List<Finition>();
+            foreach (var item in queryFinitions)
+            {
+                finitions.Add(finitionRepository.getOne(item.FINITION_ID));
+            }
+            dto.Finitions = finitions;
         }
 
         return dto;
@@ -102,6 +118,13 @@ public class ModeleGammeRepository
                 var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
                 if (image.Count() != 0)
                     dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
+                var queryFinitions = from a in db.LIER_FINITION where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
+                List<Finition> finitions = new List<Finition>();
+                foreach (var itemFin in queryFinitions)
+                {
+                    finitions.Add(finitionRepository.getOne(itemFin.FINITION_ID));
+                }
+                dto.Finitions = finitions;
                 //
                 // TODO: boucle infinie ?
                 //

@@ -23,44 +23,57 @@
             </div>
             <div class="form-group">
                 <div class="col-md-6 text-center">
-                    <asp:ImageButton ID="BtnClearProduit" CssClass="btn btn-error" runat="server" OnClick="BtnClearProduit_Click" ImageUrl="~/Images/cancel-icon.png" Height="10px" Width="10px" />
+                    <asp:ImageButton ID="BtnClearProduit" CssClass="btn btn-danger" runat="server" OnClick="BtnClearProduit_Click" Text="Annuler" />
                 </div>
                 <div class="col-md-6 text-center">
 
                 </div>
             </div>
             <div class="form-group">
-                <asp:Label ID="LblAjouterNouveauProduitLabel" CssClass="control-label col-sm-5" runat="server" Text="Ajouter un nouveau produit"></asp:Label>
-                <div class="col-sm-7">
-                    <asp:ImageButton ID="ImgBtnNouveauProduit" CssClass="btn btn-primary" runat="server" ImageUrl="~/Images/add-icon.png" Height="10px" Width="10px" OnClick="ImgBtnNouveauProduit_Click" />
+                <div class="col-sm-12 text-center">
+                    <asp:Button ID="ImgBtnNouveauProduit" CssClass="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="Ajouter un nouveau produit" />
                 </div>
             </div>
         </div>
         
-        
-        
-        
-        
-        
-        
-        <asp:Panel ID="PnlListeProduit" runat="server" Height="176px">
-            <br />
-        </asp:Panel>
-            
-            
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Liste des produits
+                </div>
+                <div class="panel-body">
+                    <asp:Panel ID="PnlListeProduit" runat="server" >
+                    <br />
+                    </asp:Panel>
+                </div>
+            </div>
+        </div>       
     </div>
 
-    <asp:Panel ID="ModalPanel" runat="server" Width="500px">
-        <asp:Panel runat="server" ID="ModalContent" CssClass="Modal">
-            &nbsp;<asp:Label ID="LblModalNouveauProduitTitre" runat="server" Text="Nouveau Produit"></asp:Label>
-            <br />
-            <asp:Label ID="LblModalNomProduitLabel" runat="server" Text="Nom du produit"></asp:Label>
-            <asp:TextBox ID="TxtModalNomProduit" runat="server"></asp:TextBox>
-            <br />
-            <asp:Button ID="BtnModalAnnuler" runat="server" Text="Annuler" />
-            <asp:Button ID="BtnModalConfirmer" runat="server" Text="Confirmer" OnClick="BtnModalConfirmer_Click" />
-        </asp:Panel>
-    </asp:Panel>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Nouveau produit</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <asp:Label ID="LblModalNomProduitLabel" CssClass="control-label col-sm-5" runat="server" Text="Nom du produit"></asp:Label>
+                        <div class="col-sm-7" >
+                            <asp:TextBox ID="TxtModalNomProduit" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6 text-center"> <asp:Button ID="BtnModalAnnuler" CssClass="btn btn-error" runat="server" Text="Annuler" /> </div>
+                        <div class="col-sm-6 text-center"> <asp:Button ID="BtnModalConfirmer" CssClass="btn btn-success" runat="server" Text="Confirmer" OnClick="BtnModalConfirmer_Click" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
 
     <ajaxToolkit:ModalPopupExtender ID="mpe" runat="server"
         TargetControlID="ImgBtnNouveauProduit" PopupControlID="ModalPanel"

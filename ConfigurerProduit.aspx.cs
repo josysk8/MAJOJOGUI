@@ -97,6 +97,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
             myButtonGamme.Text = gamme.Nom;
             myButtonGamme.ID = "" + gamme.Id;
             myButtonGamme.Click += new EventHandler(this.BtnSelectionGamme_Click);
+            myButtonGamme.CssClass = "btn btn-xs btn-primary";
             downPanel.Controls.Add(myButtonGamme);
         }
     }
@@ -106,10 +107,12 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         downPanel.Controls.Clear();
         foreach (ModeleDeGamme modeleDeGamme in modelGammeRepository.GetByGamme(selectedGamme))
         {
+            System.Diagnostics.Debug.WriteLine(modeleDeGamme.Id);
             Button myButtonModelGamme = new Button();
             myButtonModelGamme.Text = modeleDeGamme.Nom;
             myButtonModelGamme.ID = "" + modeleDeGamme.Id;
             myButtonModelGamme.Click += new EventHandler(this.BtnSelectionModeleGamme_Click);
+            myButtonModelGamme.CssClass = "btn btn-xs btn-primary";
             downPanel.Controls.Add(myButtonModelGamme);
         }
     }
