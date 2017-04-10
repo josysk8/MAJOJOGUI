@@ -125,9 +125,7 @@ public class Devis
     #region constructeur
     public Devis()
     {
-        //
-        // TODO: Add constructor logic here
-        //
+        this.Produits = new List<Produit>();
     }
 
     public Devis(string nomProjet, Client SelectedClient)

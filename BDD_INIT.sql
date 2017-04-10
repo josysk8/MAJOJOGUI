@@ -14,6 +14,7 @@ delete from dbo.TYPE_FINITION;
 delete from dbo.FINITION;
 delete from dbo.FAIRE_PARTIE;
 delete from dbo.LIER_FINITION;
+delete from dbo.EST_DISPONIBLE;
 
 
 insert into dbo.GAMME (GAMME_NOM, GAMME_DESCRIPTION) values ('Premium', 'Pour les plus riches.');
@@ -101,22 +102,52 @@ insert into dbo.COMPOSANT (TYPE_COMPOSANT, FOURNISSEUR_ID, COMPOSANT_NOM, COMPOS
 	
 	
 insert into dbo.MODULE (TYPE_MODULE_ID, PERSONNEL_ID, MODULE_NOM, MODULE_TYPE, MODULE_MARGE_COMMERCIAL, MODULE_MARGE_ENTREPRISE) values 
-	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Murs extérieurs'), null, 'Mur ext 1', null, 5, 10),
-	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Murs extérieurs'), null, 'Mur ext 2', null, 7, 10),
-	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Cloisons intérieures'), null, 'Mur int 1', null, 5, 10),
-	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Plancher sur dalle'), null, 'Plancher dalle 1', null, 5, 10),
-	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Plancher porteur'), null, 'Plancher porteur 1', null, 5, 10),
-	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Fermes de charpente'), null, 'Ferme de Charpente 1', null, 5, 10),
-	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Couverture'), null, 'Couverture 1', null, 5, 10);
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Murs extérieurs'), null, 		'Mur ext 1', null, 5, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Murs extérieurs'), null, 		'Mur ext 2', null, 7, 20),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Murs extérieurs'), null, 		'Mur ext 3', null, 6, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Murs extérieurs'), null, 		'Mur ext 4', null, 7, 20),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Cloisons intérieures'), null, 	'Mur int 1', null, 5, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Cloisons intérieures'), null, 	'Mur int 2', null, 6, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Cloisons intérieures'), null, 	'Mur int 3', null, 8, 30),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Cloisons intérieures'), null, 	'Mur int 4', null, 7, 20),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Plancher sur dalle'), null, 	'Plancher dalle 1', null, 6, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Plancher sur dalle'), null, 	'Plancher dalle 2', null, 6, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Plancher sur dalle'), null, 	'Plancher dalle 3', null, 6, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Plancher porteur'), null, 		'Plancher porteur 1', null, 5, 30),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Plancher porteur'), null, 		'Plancher porteur 2', null, 5, 30),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Plancher porteur'), null, 		'Plancher porteur 3', null, 5, 30),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Fermes de charpente'), null, 	'Ferme de Charpente 1', null, 5, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Fermes de charpente'), null, 	'Ferme de Charpente 2', null, 7, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Fermes de charpente'), null, 	'Ferme de Charpente 3', null, 9, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Fermes de charpente'), null, 	'Ferme de Charpente 4', null, 5, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Couverture'), null, 			'Couverture 1', null, 8, 10),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Couverture'), null, 			'Couverture 2', null, 6, 15),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Couverture'), null, 			'Couverture 3', null, 8, 25),
+	((select TYPE_MODULE_ID from dbo.TYPE_MODULE where TYPE_MODULE_NOM like 'Couverture'), null, 			'Couverture 4', null, 6, 10);
 
 insert into dbo.EST_COUPE_DE_PRINCIPE (FICHIER_ID, MODULE_ID) values 
 	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 1')),
 	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 2')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 3')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 4')),
 	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 1')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 2')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 3')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 4')),
 	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 2')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 3')),
 	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 3')),
 	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 1')),
-	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'));
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 2')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 3')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 4')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 2')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3')),
+	((select FICHIER_ID from dbo.FICHIER where FICHIER_NOM like 'Image bidon'), (select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 4'));
 
 
 	
@@ -257,8 +288,58 @@ insert into dbo.LIER_FINITION (FINITION_ID, MODELE_GAMME_ID) values
 	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'   )),
 	((select FINITION_ID from dbo.FINITION where FINITION_NOM like 'Huisserie en or'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'));
  
- 
- 
+ insert into dbo.EST_DISPONIBLE (MODULE_ID, GAMME_ID) values
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 1'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 2'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 3'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 4'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 1'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 2'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 3'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 4'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'    ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 2'    ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 3'    ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1'  ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'  ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 3'  ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 1'), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 2'), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 3'), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 4'), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 2'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 4'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Premium'));
+  insert into dbo.EST_DISPONIBLE (MODULE_ID, GAMME_ID) values
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 1'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 2'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 3'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 1'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 2'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 3'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'    ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 2'    ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1'  ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'  ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 1'), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 2'), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 3'), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 2'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Medium'));
+ insert into dbo.EST_DISPONIBLE (MODULE_ID, GAMME_ID) values
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 1'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 2'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 1'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 2'           ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'    ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1'  ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 1'), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 2'), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco')),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 2'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco'));
+	
  
  
  
