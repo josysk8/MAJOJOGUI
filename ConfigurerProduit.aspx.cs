@@ -31,12 +31,12 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
             if (null != Session["selectedFinition"])
             {
-                Session["selectToitId"];
-                Session["selectFinitionInterieureId"];
-                Session["selectFinitionExterieureId"];
-                Session["selectIsolationId"];
-                Session["selectPlancherId"];
-                Session["selectHuisseriesId"];
+                //Session["selectToitId"];
+                //Session["selectFinitionInterieureId"];
+               // Session["selectFinitionExterieureId"];
+               // Session["selectIsolationId"];
+               // Session["selectPlancherId"];
+               // Session["selectHuisseriesId"];
                 //produitSelectionne.ListeFinition.Add()
             }
 
@@ -122,7 +122,10 @@ public partial class ConfigurerProduit : System.Web.UI.Page
             myButtonGamme.Text = gamme.Nom;
             myButtonGamme.ID = "" + gamme.Id;
             myButtonGamme.Click += new EventHandler(this.BtnSelectionGamme_Click);
-            downPanel.Controls.Add(myButtonGamme);
+            myButtonGamme.CssClass = "btn btn-xs btn-primary";
+            Panel pan = new Panel();
+            pan.Controls.Add(myButtonGamme);
+            downPanel.Controls.Add(pan);
         }
     }
 
@@ -131,11 +134,15 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         downPanel.Controls.Clear();
         foreach (ModeleDeGamme modeleDeGamme in modelGammeRepository.GetByGamme(selectedGamme))
         {
+            System.Diagnostics.Debug.WriteLine(modeleDeGamme.Id);
             Button myButtonModelGamme = new Button();
             myButtonModelGamme.Text = modeleDeGamme.Nom;
             myButtonModelGamme.ID = "" + modeleDeGamme.Id;
             myButtonModelGamme.Click += new EventHandler(this.BtnSelectionModeleGamme_Click);
-            downPanel.Controls.Add(myButtonModelGamme);
+            myButtonModelGamme.CssClass = "btn btn-xs btn-primary";
+            Panel pan = new Panel();
+            pan.Controls.Add(myButtonModelGamme);
+            downPanel.Controls.Add(pan);
         }
     }
 
@@ -143,86 +150,120 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     {
         downPanel.Controls.Clear();
 
+        //TODO : get finition by gamme
+
         //Couverture
         Label labelToit = new Label();
         labelToit.Text = "Couverture";
+        labelToit.CssClass = "control-label col-sm-4";
         DropDownList selectToit = new DropDownList();
+        //selectToit.DataSource = finitionRepository. FindAll(i => i.TypeFinition.Nom == "Couverture");
         selectToit.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
         selectToit.DataTextField = "Nom";
         selectToit.DataValueField = "Id";
         selectToit.DataBind();
         selectToit.ID = "selectToit";
+        selectToit.CssClass = "form-control";
+        Panel pan = new Panel();
+        pan.CssClass = "form-group";
 
-        downPanel.Controls.Add(labelToit);
-        downPanel.Controls.Add(selectToit);
+        pan.Controls.Add(labelToit);
+        pan.Controls.Add(selectToit);
+        downPanel.Controls.Add(pan);
 
         //Finition intérieure
         Label labelFinitionInterieure = new Label();
         labelFinitionInterieure.Text = "Finition Intérieure";
+        labelFinitionInterieure.CssClass = "control-label col-sm-4";
         DropDownList selectFinitionInterieure = new DropDownList();
         selectFinitionInterieure.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Finition intérieure");
         selectFinitionInterieure.DataTextField = "Nom";
         selectFinitionInterieure.DataValueField = "Id";
         selectFinitionInterieure.DataBind();
         selectFinitionInterieure.ID = "selectFinitionInterieure";
+        selectFinitionInterieure.CssClass = "form-control";
 
-        downPanel.Controls.Add(labelFinitionInterieure);
-        downPanel.Controls.Add(selectFinitionInterieure);
+        pan = new Panel();
+        pan.CssClass = "form-group";
+        pan.Controls.Add(labelFinitionInterieure);
+        pan.Controls.Add(selectFinitionInterieure);
+        downPanel.Controls.Add(pan);
 
         //Finition extérieure
         Label labelFinitionExterieure = new Label();
         labelFinitionExterieure.Text = "Finition extérieure";
+        labelFinitionExterieure.CssClass = "control-label col-sm-4";
         DropDownList selectFinitionExterieure = new DropDownList();
         selectFinitionExterieure.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Finition extérieure");
         selectFinitionExterieure.DataTextField = "Nom";
         selectFinitionExterieure.DataValueField = "Id";
         selectFinitionExterieure.DataBind();
         selectFinitionExterieure.ID = "selectFinitionExterieure";
+        selectFinitionExterieure.CssClass = "form-control";
 
-        downPanel.Controls.Add(labelFinitionExterieure);
-        downPanel.Controls.Add(selectFinitionExterieure);
+        pan = new Panel();
+        pan.CssClass = "form-group";
+        pan.Controls.Add(labelFinitionExterieure);
+        pan.Controls.Add(selectFinitionExterieure);
+        downPanel.Controls.Add(pan);
 
         //Isolation
         Label labelIsolation = new Label();
-        labelIsolation.Text = "Finition extérieure";
+        labelIsolation.Text = "Isolation";
+        labelIsolation.CssClass = "control-label col-sm-4";
         DropDownList selectIsolation = new DropDownList();
         selectIsolation.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Isolation");
         selectIsolation.DataTextField = "Nom";
         selectIsolation.DataValueField = "Id";
         selectIsolation.DataBind();
         selectIsolation.ID = "selectIsolation";
+        selectIsolation.CssClass = "form-control";
 
-        downPanel.Controls.Add(labelIsolation);
-        downPanel.Controls.Add(selectIsolation);
+        pan = new Panel();
+        pan.CssClass = "form-group";
+        pan.Controls.Add(labelIsolation);
+        pan.Controls.Add(selectIsolation);
+        downPanel.Controls.Add(pan);
 
         //Plancher
         Label labelPlancher = new Label();
-        labelPlancher.Text = "Finition extérieure";
+        labelPlancher.Text = "Plancher";
+        labelPlancher.CssClass = "control-label col-sm-4";
         DropDownList selectPlancher = new DropDownList();
         selectPlancher.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Plancher");
         selectPlancher.DataTextField = "Nom";
         selectPlancher.DataValueField = "Id";
         selectPlancher.DataBind();
         selectPlancher.ID = "selectPlancher";
+        selectPlancher.CssClass = "form-control";
 
-        downPanel.Controls.Add(labelPlancher);
-        downPanel.Controls.Add(selectPlancher);
+        pan = new Panel();
+        pan.CssClass = "form-group";
+        pan.Controls.Add(labelPlancher);
+        pan.Controls.Add(selectPlancher);
+        downPanel.Controls.Add(pan);
 
         //Qualité des huisseries
         Label labelHuisseries = new Label();
-        labelHuisseries.Text = "Finition extérieure";
+        labelHuisseries.Text = "Huisseries";
+        labelHuisseries.CssClass = "control-label col-sm-4";
         DropDownList selectHuisseries = new DropDownList();
         selectHuisseries.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Qualité des huisseries");
         selectHuisseries.DataTextField = "Nom";
         selectHuisseries.DataValueField = "Id";
         selectHuisseries.DataBind();
         selectHuisseries.ID = "selectHuisseries";
+        selectHuisseries.CssClass = "form-control";
 
-        downPanel.Controls.Add(labelHuisseries);
-        downPanel.Controls.Add(selectHuisseries);
+        pan = new Panel();
+        pan.CssClass = "form-group";
+        pan.Controls.Add(labelHuisseries);
+        pan.Controls.Add(selectHuisseries);
+        downPanel.Controls.Add(pan);
 
         Button validationFinitionButton = new Button();
         validationFinitionButton.Text = "Valider";
+        validationFinitionButton.CssClass = "btn btn-success";
         validationFinitionButton.Click += new EventHandler(this.BtnConfigurerProduit_Click);
 
         downPanel.Controls.Add(validationFinitionButton);

@@ -40,4 +40,22 @@ public class FinitionRepository
 
         return dtos;
     }
+
+    public Finition getOne(int id)
+    {
+        Finition dto = new Finition();
+        using (var db = new maderaEntities())
+        {
+            var query = from a in db.FINITION where a.FINITION_ID.Equals(id) select a;
+            dto.Id = query.First().FINITION_ID;
+            dto.Nom = query.First().FINITION_NOM;
+            dto.Description = query.First().FINITION_DESCRIPTION;
+            dto.TypeFinition = typeFinitionRepository.GetOne(query.First().TYPE_FINITION_ID);
+            var fichier = from a in db.FINITION_IMAGE where a.FINITION_ID.Equals(dto.Id) select a;
+            if (fichier.Count() > 0)
+                dto.Image = fichierRepository.GetOne(fichier.First().FICHIER_ID);
+        }
+
+        return dto;
+    }
 }

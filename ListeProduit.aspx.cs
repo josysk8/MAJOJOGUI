@@ -42,6 +42,7 @@ public partial class ListeProduit : System.Web.UI.Page
 
         Button myEditButton = new Button();
         myEditButton.Text = TxtModalNomProduit.Text;
+        myEditButton.CssClass = "btn btn-sm btn-primary";
 
         ImageButton myDeleteButton = new ImageButton();
         myDeleteButton.ImageUrl = "Images/cancel-icon.png";
@@ -84,7 +85,7 @@ public partial class ListeProduit : System.Web.UI.Page
         refreshProductPanel();
     }
 
-    protected void BtnClearProduit_Click(object sender, ImageClickEventArgs e)
+    protected void BtnClearProduit_Click(object sender, EventArgs e)
     {
         PnlListeProduit.Controls.Clear();
         produits.Clear();

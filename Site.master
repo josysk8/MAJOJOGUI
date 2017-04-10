@@ -17,7 +17,7 @@
 
 </head>
 <body>
-    <form runat="server">
+    <form runat="server" class="form-horizontal">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--Pour plus d'informations sur les scripts de regroupement dans ScriptManager, consultez http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+        <div class="container-fluid body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

@@ -18,6 +18,7 @@ public class ModeleDeGamme
     private TypeModeleGamme typeModeleGamme;
     private Fichier image;
     private List<ModuleCompose> modules;
+    private List<Finition> finitions;
 
     public int Id
     {
@@ -146,6 +147,19 @@ public class ModeleDeGamme
         set
         {
             image = value;
+        }
+    }
+
+    public List<Finition> Finitions
+    {
+        get
+        {
+            return finitions;
+        }
+
+        set
+        {
+            finitions = value;
         }
     }
 
