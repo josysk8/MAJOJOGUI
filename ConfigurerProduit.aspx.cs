@@ -12,6 +12,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     ModeleGammeRepository modelGammeRepository = new ModeleGammeRepository();
     FinitionRepository finitionRepository = new FinitionRepository();
     Devis recordedDevis;
+    Produit produitSelectionne;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (null != Session["currentProduit"])
@@ -26,7 +27,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
             recordedDevis = (Devis)Session["currentDevis"];
             int idProduit = (int)Session["currentProduit"];
-            Produit produitSelectionne = recordedDevis.Produits.Find(i => i.Id == idProduit);
+            produitSelectionne = recordedDevis.Produits.Find(i => i.Id == idProduit);
             LblNomProduit.Text = produitSelectionne.Nom;
 
             if (null != Session["selectedGamme"])
@@ -138,10 +139,13 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
         Session["selectedFinition"] = "finitionSelected";
         Session["downPanelId"] = "panelModule";
-        // refreshModulePanel((Gamme)Session["selectedGamme"]);
+        refreshModulePanel((Gamme)Session["selectedGamme"]);
     }
     protected void BtnModalModule_Click(object sender, EventArgs e)
     {
+        int moduleSelectedId = int.Parse((String)ModalTypeModuleDropDownList.SelectedValue);
+        Module moduleSelected = moduleRepository.GetOne(moduleSelectedId);
+        produitSelectionne.ModeleDeGamme.Modules.Add(moduleSelected);
 
     }
 
@@ -319,11 +323,10 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         buttonModalPopup.PopupControlID = "ModalPanel";
         buttonModalPopup.OkControlID = "OKButton";
 
-        DropDownList dropDownModuleType = (DropDownList)FindControl("ModalTypeModuleDropDownList");
-        dropDownModuleType.DataSource = moduleRepository.(selectedModeleDeGamme).FindAll();
-        selectToit.DataTextField = "Nom";
-        selectToit.DataValueField = "Id";
-        selectToit.DataBind();
+        ModalTypeModuleDropDownList.DataSource = moduleRepository.GetByGamme(gammeSelectionne);
+        ModalTypeModuleDropDownList.DataTextField = "Nom";
+        ModalTypeModuleDropDownList.DataValueField = "Id";
+        ModalTypeModuleDropDownList.DataBind();
 
         Panel pan = new Panel();
         pan.CssClass = "form-group";

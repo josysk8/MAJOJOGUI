@@ -69,4 +69,9 @@ public partial class Recapitulatif : System.Web.UI.Page
         html.Append("</div>");
         PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
     }
+
+    protected void btnPdf_Click(object sender, EventArgs e)
+    {
+
+    }
 }
