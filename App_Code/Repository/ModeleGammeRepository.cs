@@ -91,7 +91,7 @@ public class ModeleGammeRepository
         return dto;
     }
 
-    public void Add(ModeleDeGamme dto)
+    public int Add(ModeleDeGamme dto)
     {
         MODELE_DE_GAMME entity = new MODELE_DE_GAMME();
         entity.GAMME_ID = dto.Gamme.Id;
@@ -118,6 +118,7 @@ public class ModeleGammeRepository
                 db.SaveChanges();
             }
         }
+        return entity.MODELE_GAMME_ID;
     }
 
     public ModeleDeGamme GetByProduit(Produit prod)

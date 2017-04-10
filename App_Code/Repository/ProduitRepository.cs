@@ -23,6 +23,12 @@ public class ProduitRepository
         entity.PRODUIT_DESCRIPTION = produit.Description;
         entity.DEVIS_ID = produit.Devis.Id;
         entity.GAMME_ID = produit.Gamme.Id;
+        if (produit.ModeleDeGamme.Id != 0)
+            entity.MODELE_DE_GAMME_ID = produit.ModeleDeGamme.Id;
+        else
+        {
+            entity.MODELE_DE_GAMME_ID = modeleGammeRepository.Add(produit.ModeleDeGamme);
+        }
         
         using (var db = new maderaEntities())
         {
