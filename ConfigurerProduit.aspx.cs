@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class ConfigurerProduit : System.Web.UI.Page
 {
+    ModuleRepository moduleRepository = new ModuleRepository();
     GammeRepository gammeRepository = new GammeRepository();
     ModeleGammeRepository modelGammeRepository = new ModeleGammeRepository();
     FinitionRepository finitionRepository = new FinitionRepository();
@@ -40,29 +41,29 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
             if (null != Session["selectedFinition"])
             {
-                int idFinitionToit = (int)Session["selectToitId"];
-                Finition fintionToit = finitionRepository.getOne(idFinitionToit);
-                produitSelectionne.ListeFinition.Add(fintionToit);
+                int idFinitionToit = int.Parse((String)Session["selectToitId"]);
+                Finition finitionToit = finitionRepository.getOne(idFinitionToit);
+                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionToit);
 
-                int idFinitionIntérieure = (int)Session["selectFinitionInterieureId"];
+                int idFinitionIntérieure = int.Parse((String)Session["selectFinitionInterieureId"]);
                 Finition finitionIntérieure = finitionRepository.getOne(idFinitionIntérieure);
-                produitSelectionne.ListeFinition.Add(finitionIntérieure);
+                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionIntérieure);
 
-                int idFinitionExterieur = (int)Session["selectFinitionExterieureId"];
+                int idFinitionExterieur = int.Parse((String)Session["selectFinitionExterieureId"]);
                 Finition finitionExterieur = finitionRepository.getOne(idFinitionExterieur);
-                produitSelectionne.ListeFinition.Add(finitionExterieur);
+                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionExterieur);
 
-                int idFinitionIsolation = (int)Session["selectIsolationId"];
+                int idFinitionIsolation = int.Parse((String)Session["selectIsolationId"]);
                 Finition finitionIsolation = finitionRepository.getOne(idFinitionIsolation);
-                produitSelectionne.ListeFinition.Add(finitionIsolation);
+                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionIsolation);
 
-                int idFinitionPlancher = (int)Session["selectPlancherId"];
+                int idFinitionPlancher = int.Parse((String)Session["selectPlancherId"]);
                 Finition finitionPlancher = finitionRepository.getOne(idFinitionPlancher);
-                produitSelectionne.ListeFinition.Add(finitionPlancher);
+                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionPlancher);
 
-                int idFinitionHuisserie = (int)Session["selectHuisseriesId"];
+                int idFinitionHuisserie = int.Parse((String)Session["selectHuisseriesId"]);
                 Finition finitionHuisserie = finitionRepository.getOne(idFinitionHuisserie);
-                produitSelectionne.ListeFinition.Add(finitionHuisserie);
+                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionHuisserie);
 
             }
 
@@ -114,7 +115,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         refreshFinitionPanel(foundModeleGamme);
     }
 
-    private void BtnConfigurerProduit_Click(object sender, EventArgs e)
+    protected void BtnConfigurerProduit_Click(object sender, EventArgs e)
     {
 
         DropDownList selectToit = (DropDownList)downPanel.FindControl("selectToit");
@@ -137,7 +138,11 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
         Session["selectedFinition"] = "finitionSelected";
         Session["downPanelId"] = "panelModule";
-        refreshModulePanel((Gamme)Session["selectedGamme"]);
+        // refreshModulePanel((Gamme)Session["selectedGamme"]);
+    }
+    protected void BtnModalModule_Click(object sender, EventArgs e)
+    {
+
     }
 
     private void refreshGammePanel()
@@ -184,16 +189,16 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         labelToit.Text = "Couverture";
         labelToit.CssClass = "control-label col-sm-4";
         DropDownList selectToit = new DropDownList();
-        selectToit.DataSource = finitionRepository.getByGamme(selectedModeleDeGamme.Gamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
-        //selectToit.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
+        //selectToit.DataSource = finitionRepository.getByGamme(selectedModeleDeGamme.Gamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
+        selectToit.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
         selectToit.DataTextField = "Nom";
         selectToit.DataValueField = "Id";
         selectToit.DataBind();
         selectToit.ID = "selectToit";
         selectToit.CssClass = "form-control";
+
         Panel pan = new Panel();
         pan.CssClass = "form-group";
-
         pan.Controls.Add(labelToit);
         pan.Controls.Add(selectToit);
         downPanel.Controls.Add(pan);
@@ -301,5 +306,31 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     private void refreshModulePanel(Gamme gammeSelectionne)
     {
         downPanel.Controls.Clear();
+
+        Button ajouterModuleButton = new Button();
+        ajouterModuleButton.ID = "ajouterModuleButton";
+        ajouterModuleButton.Text = "Ajouter un nouveau module";
+        ajouterModuleButton.Attributes["data-toggle"] = "modal";
+        ajouterModuleButton.Attributes["data-target"] = "#myModal";
+
+        AjaxControlToolkit.ModalPopupExtender buttonModalPopup = new AjaxControlToolkit.ModalPopupExtender();
+        buttonModalPopup.ID = "mpe";
+        buttonModalPopup.TargetControlID = ajouterModuleButton.ID;
+        buttonModalPopup.PopupControlID = "ModalPanel";
+        buttonModalPopup.OkControlID = "OKButton";
+
+        DropDownList dropDownModuleType = (DropDownList)FindControl("ModalTypeModuleDropDownList");
+        dropDownModuleType.DataSource = moduleRepository.(selectedModeleDeGamme).FindAll();
+        selectToit.DataTextField = "Nom";
+        selectToit.DataValueField = "Id";
+        selectToit.DataBind();
+
+        Panel pan = new Panel();
+        pan.CssClass = "form-group";
+
+        pan.Controls.Add(ajouterModuleButton);
+        pan.Controls.Add(buttonModalPopup);
+
+        downPanel.Controls.Add(pan);
     }
 }

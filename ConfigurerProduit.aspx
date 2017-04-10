@@ -20,4 +20,31 @@
             
         </div>
     </div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Nouveau module</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <asp:Label ID="LblModalNomModuleLabel" CssClass="control-label col-sm-5" runat="server" Text="Nom du module"></asp:Label>
+                        <div class="col-sm-7" >
+                            <asp:TextBox ID="TxtModalNomModule" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                       <asp:Label ID="LblModalTypeModuleLabel" CssClass="control-label col-sm-5" runat="server" Text="Type du module"></asp:Label>
+                        <div class="col-sm-7" >
+                            <asp:DropDownList ID="ModalTypeModuleDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6 text-center"> <asp:Button ID="BtnModalAnnuler" CssClass="btn btn-error" runat="server" Text="Annuler" /> </div>
+                        <div class="col-sm-6 text-center"> <asp:Button ID="BtnModalConfirmer" CssClass="btn btn-success" runat="server" Text="Confirmer" OnClick="BtnModalModule_Click" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
