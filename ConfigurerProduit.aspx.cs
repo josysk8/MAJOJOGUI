@@ -15,10 +15,19 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     {
         if (null != Session["currentProduit"])
         {
+            if (!IsPostBack)
+            {
+                Session["downPanelId"] = null;
+                Session["selectedGamme"] = null;
+                Session["selectedModeleGamme"] = null;
+                Session["selectedFinition"] = null;
+            }
+
             recordedDevis = (Devis)Session["currentDevis"];
             int idProduit = (int)Session["currentProduit"];
             Produit produitSelectionne = recordedDevis.Produits.Find(i => i.Id == idProduit);
             LblNomProduit.Text = produitSelectionne.Nom;
+
             if (null != Session["selectedGamme"])
             {
                 produitSelectionne.Gamme = (Gamme)Session["selectedGamme"];
@@ -31,18 +40,30 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
             if (null != Session["selectedFinition"])
             {
-                //Session["selectToitId"];
-                //Session["selectFinitionInterieureId"];
-               // Session["selectFinitionExterieureId"];
-               // Session["selectIsolationId"];
-               // Session["selectPlancherId"];
-               // Session["selectHuisseriesId"];
-                //produitSelectionne.ListeFinition.Add()
-            }
+                int idFinitionToit = (int)Session["selectToitId"];
+                Finition fintionToit = finitionRepository.getOne(idFinitionToit);
+                produitSelectionne.ListeFinition.Add(fintionToit);
 
-            if (!IsPostBack)
-            {
-                Session["downPanelId"] = null;
+                int idFinitionIntérieure = (int)Session["selectFinitionInterieureId"];
+                Finition finitionIntérieure = finitionRepository.getOne(idFinitionIntérieure);
+                produitSelectionne.ListeFinition.Add(finitionIntérieure);
+
+                int idFinitionExterieur = (int)Session["selectFinitionExterieureId"];
+                Finition finitionExterieur = finitionRepository.getOne(idFinitionExterieur);
+                produitSelectionne.ListeFinition.Add(finitionExterieur);
+
+                int idFinitionIsolation = (int)Session["selectIsolationId"];
+                Finition finitionIsolation = finitionRepository.getOne(idFinitionIsolation);
+                produitSelectionne.ListeFinition.Add(finitionIsolation);
+
+                int idFinitionPlancher = (int)Session["selectPlancherId"];
+                Finition finitionPlancher = finitionRepository.getOne(idFinitionPlancher);
+                produitSelectionne.ListeFinition.Add(finitionPlancher);
+
+                int idFinitionHuisserie = (int)Session["selectHuisseriesId"];
+                Finition finitionHuisserie = finitionRepository.getOne(idFinitionHuisserie);
+                produitSelectionne.ListeFinition.Add(finitionHuisserie);
+
             }
 
             if (null != Session["downPanelId"])
@@ -59,6 +80,10 @@ public partial class ConfigurerProduit : System.Web.UI.Page
                 if ((String)Session["downPanelId"] == "panelFinition" && Session["selectedModeleGamme"] != null)
                 {
                     refreshFinitionPanel(produitSelectionne.ModeleDeGamme);
+                }
+                if ((String)Session["downPanelId"] == "panelModule" && Session["selectedFinition"] != null)
+                {
+                    refreshModulePanel(produitSelectionne.Gamme);
                 }
             }
         }
@@ -110,7 +135,9 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         DropDownList selectHuisseries = (DropDownList)downPanel.FindControl("selectHuisseries");
         Session["selectHuisseriesId"] = selectHuisseries.SelectedValue;
 
+        Session["selectedFinition"] = "finitionSelected";
         Session["downPanelId"] = "panelModule";
+        refreshModulePanel((Gamme)Session["selectedGamme"]);
     }
 
     private void refreshGammePanel()
@@ -157,8 +184,8 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         labelToit.Text = "Couverture";
         labelToit.CssClass = "control-label col-sm-4";
         DropDownList selectToit = new DropDownList();
-        //selectToit.DataSource = finitionRepository. FindAll(i => i.TypeFinition.Nom == "Couverture");
-        selectToit.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
+        selectToit.DataSource = finitionRepository.getByGamme(selectedModeleDeGamme.Gamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
+        //selectToit.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
         selectToit.DataTextField = "Nom";
         selectToit.DataValueField = "Id";
         selectToit.DataBind();
@@ -261,11 +288,18 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         pan.Controls.Add(selectHuisseries);
         downPanel.Controls.Add(pan);
 
+
+
         Button validationFinitionButton = new Button();
         validationFinitionButton.Text = "Valider";
+        validationFinitionButton.ID = "validationButtonId";
         validationFinitionButton.CssClass = "btn btn-success";
         validationFinitionButton.Click += new EventHandler(this.BtnConfigurerProduit_Click);
 
         downPanel.Controls.Add(validationFinitionButton);
+    }
+    private void refreshModulePanel(Gamme gammeSelectionne)
+    {
+        downPanel.Controls.Clear();
     }
 }
