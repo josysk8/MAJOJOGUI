@@ -81,4 +81,21 @@ public class ModuleRepository
 
         return dto;
     }
+
+    public List<Module> GetByGamme(Gamme gamme)
+    {
+        List<Module> dtos = new List<Module>();
+
+        using (var db = new maderaEntities())
+        {
+            var query = from a in db.EST_DISPONIBLE where a.GAMME_ID.Equals(gamme.Id) select a;
+            foreach (var item in query)
+            {
+                Module module = GetOne(item.MODULE_ID);
+                dtos.Add(module);
+            }
+        }
+
+        return dtos;
+    }
 }

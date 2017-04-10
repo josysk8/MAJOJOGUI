@@ -12,6 +12,7 @@ public class ModeleGammeRepository
     protected FichierRepository fichierRepository;
     protected ModuleRepository moduleRepository;
     protected FinitionRepository finitionRepository;
+    protected GammeRepository gammeRepository;
 
     public ModeleGammeRepository()
     {
@@ -19,6 +20,7 @@ public class ModeleGammeRepository
         fichierRepository = new FichierRepository();
         moduleRepository = new ModuleRepository();
         finitionRepository = new FinitionRepository();
+        gammeRepository = new GammeRepository();
     }
 
     public List<ModeleDeGamme> GetByGamme(Gamme gamme)
@@ -38,6 +40,7 @@ public class ModeleGammeRepository
                 dto.NbPieces = item.MODELE_GAMME_NB_PIECES;
                 dto.Surface = item.MODELE_GAMME_SURFACE;
                 dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(item.TYPE_MODELE_GAMME_ID);
+                dto.Gamme = gammeRepository.GetOne(item.GAMME_ID);
                 var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
                 if (image.Count() != 0)
                 {
@@ -72,6 +75,7 @@ public class ModeleGammeRepository
             dto.NbPieces = query.First().MODELE_GAMME_NB_PIECES;
             dto.Surface = query.First().MODELE_GAMME_SURFACE;
             dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(query.First().TYPE_MODELE_GAMME_ID);
+            dto.Gamme = gammeRepository.GetOne(query.First().GAMME_ID);
             var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
             if (image.Count() != 0)
                 dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
@@ -87,7 +91,7 @@ public class ModeleGammeRepository
         return dto;
     }
 
-    public void Add(ModeleDeGamme dto)
+    public int Add(ModeleDeGamme dto)
     {
         MODELE_DE_GAMME entity = new MODELE_DE_GAMME();
         entity.GAMME_ID = dto.Gamme.Id;
@@ -97,22 +101,24 @@ public class ModeleGammeRepository
         entity.MODELE_GAMME_SURFACE = dto.Surface;
         entity.MODELE_GAMME_NOM = dto.Nom;
         entity.TYPE_MODELE_GAMME_ID = dto.TypeModeleGamme.Id;
+        entity.GAMME_ID = dto.Gamme.Id;
 
         using (var db = new maderaEntities())
         {
             db.MODELE_DE_GAMME.Add(entity);
             db.SaveChanges();
 
-            var queryModele = (from a in db.MODELE_DE_GAMME orderby db.MODELE_DE_GAMME descending).Single();
+            var queryModele = (from a in db.MODELE_DE_GAMME orderby db.MODELE_DE_GAMME descending select a).Single();
             foreach (var item in dto.Finitions)
             {
                 LIER_FINITION entityFin = new LIER_FINITION();
                 entityFin.FINITION_ID = item.Id;
-                entityFin.MODELE_GAMME_ID = queryModele.First().MODELE_GAMME_ID;
+                entityFin.MODELE_GAMME_ID = queryModele.MODELE_GAMME_ID;
                 db.LIER_FINITION.Add(entityFin);
                 db.SaveChanges();
             }
         }
+        return entity.MODELE_GAMME_ID;
     }
 
     public ModeleDeGamme GetByProduit(Produit prod)
@@ -131,6 +137,7 @@ public class ModeleGammeRepository
                 dto.NbPieces = item.MODELE_GAMME_NB_PIECES;
                 dto.Surface = item.MODELE_GAMME_SURFACE;
                 dto.TypeModeleGamme = typeModeleGammeRepository.GetOne(item.TYPE_MODELE_GAMME_ID);
+                dto.Gamme = gammeRepository.GetOne(item.GAMME_ID);
                 var image = from a in db.MODELE_GAMME_IMAGE where a.MODELE_GAMME_ID.Equals(dto.Id) select a;
                 if (image.Count() != 0)
                     dto.Image = fichierRepository.GetOne(image.First().FICHIER_ID);
