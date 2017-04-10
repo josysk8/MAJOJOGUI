@@ -41,6 +41,31 @@ public class FinitionRepository
         return dtos;
     }
 
+    public List<Finition> getByGamme(Gamme gamme)
+    {
+        List<Finition> dtos = new List<Finition>();
+
+        using (var db = new maderaEntities())
+        {
+            var lierFinition = from a in db.FAIRE_PARTIE where a.GAMME_ID.Equals(gamme.Id) select a;
+            foreach (var item in lierFinition)
+            {
+                var query = from a in db.FINITION where a.FINITION_ID.Equals(item.FINITION_ID) select a;
+                Finition finition = new Finition();
+                finition.Id = query.First().FINITION_ID;
+                finition.Nom = query.First().FINITION_NOM;
+                finition.Description = query.First().FINITION_DESCRIPTION;
+                finition.TypeFinition = typeFinitionRepository.GetOne(query.First().TYPE_FINITION_ID);
+                var fichier = from a in db.FINITION_IMAGE where a.FINITION_ID.Equals(finition.Id) select a;
+                if (fichier.Count() > 0)
+                    finition.Image = fichierRepository.GetOne(fichier.First().FICHIER_ID);
+                dtos.Add(finition);
+            }
+        }
+
+        return dtos;
+    }
+
     public Finition getOne(int id)
     {
         Finition dto = new Finition();
