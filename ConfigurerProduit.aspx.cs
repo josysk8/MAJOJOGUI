@@ -31,7 +31,13 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
             if (null != Session["selectedFinition"])
             {
-
+                Session["selectToitId"];
+                Session["selectFinitionInterieureId"];
+                Session["selectFinitionExterieureId"];
+                Session["selectIsolationId"];
+                Session["selectPlancherId"];
+                Session["selectHuisseriesId"];
+                //produitSelectionne.ListeFinition.Add()
             }
 
             if (!IsPostBack)
@@ -85,6 +91,25 @@ public partial class ConfigurerProduit : System.Web.UI.Page
 
     private void BtnConfigurerProduit_Click(object sender, EventArgs e)
     {
+
+        DropDownList selectToit = (DropDownList)downPanel.FindControl("selectToit");
+        Session["selectToitId"] = selectToit.SelectedValue;
+
+        DropDownList selectFinitionInterieure = (DropDownList)downPanel.FindControl("selectFinitionInterieure");
+        Session["selectFinitionInterieureId"] = selectFinitionInterieure.SelectedValue;
+
+        DropDownList selectFinitionExterieure = (DropDownList)downPanel.FindControl("selectFinitionExterieure");
+        Session["selectFinitionExterieureId"] = selectFinitionExterieure.SelectedValue;
+
+        DropDownList selectIsolation = (DropDownList)downPanel.FindControl("selectIsolation");
+        Session["selectIsolationId"] = selectIsolation.SelectedValue;
+
+        DropDownList selectPlancher = (DropDownList)downPanel.FindControl("selectPlancher");
+        Session["selectPlancherId"] = selectPlancher.SelectedValue;
+
+        DropDownList selectHuisseries = (DropDownList)downPanel.FindControl("selectHuisseries");
+        Session["selectHuisseriesId"] = selectHuisseries.SelectedValue;
+
         Session["downPanelId"] = "panelModule";
     }
 
@@ -118,7 +143,6 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     {
         downPanel.Controls.Clear();
 
-
         //Couverture
         Label labelToit = new Label();
         labelToit.Text = "Couverture";
@@ -127,6 +151,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         selectToit.DataTextField = "Nom";
         selectToit.DataValueField = "Id";
         selectToit.DataBind();
+        selectToit.ID = "selectToit";
 
         downPanel.Controls.Add(labelToit);
         downPanel.Controls.Add(selectToit);
@@ -139,6 +164,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         selectFinitionInterieure.DataTextField = "Nom";
         selectFinitionInterieure.DataValueField = "Id";
         selectFinitionInterieure.DataBind();
+        selectFinitionInterieure.ID = "selectFinitionInterieure";
 
         downPanel.Controls.Add(labelFinitionInterieure);
         downPanel.Controls.Add(selectFinitionInterieure);
@@ -151,6 +177,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         selectFinitionExterieure.DataTextField = "Nom";
         selectFinitionExterieure.DataValueField = "Id";
         selectFinitionExterieure.DataBind();
+        selectFinitionExterieure.ID = "selectFinitionExterieure";
 
         downPanel.Controls.Add(labelFinitionExterieure);
         downPanel.Controls.Add(selectFinitionExterieure);
@@ -163,6 +190,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         selectIsolation.DataTextField = "Nom";
         selectIsolation.DataValueField = "Id";
         selectIsolation.DataBind();
+        selectIsolation.ID = "selectIsolation";
 
         downPanel.Controls.Add(labelIsolation);
         downPanel.Controls.Add(selectIsolation);
@@ -175,6 +203,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         selectPlancher.DataTextField = "Nom";
         selectPlancher.DataValueField = "Id";
         selectPlancher.DataBind();
+        selectPlancher.ID = "selectPlancher";
 
         downPanel.Controls.Add(labelPlancher);
         downPanel.Controls.Add(selectPlancher);
@@ -187,6 +216,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         selectHuisseries.DataTextField = "Nom";
         selectHuisseries.DataValueField = "Id";
         selectHuisseries.DataBind();
+        selectHuisseries.ID = "selectHuisseries";
 
         downPanel.Controls.Add(labelHuisseries);
         downPanel.Controls.Add(selectHuisseries);
