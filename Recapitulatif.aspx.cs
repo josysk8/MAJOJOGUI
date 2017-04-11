@@ -79,8 +79,59 @@ public partial class Recapitulatif : System.Web.UI.Page
             Document pdfDoc = new Document(PageSize.A4, 25, 10, 25, 10);
             PdfWriter pdfWriter = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
             pdfDoc.Open();
-            Paragraph Text = new Paragraph("This is test file");
+            Paragraph Text = new Paragraph("Récapitulatif du Devis");
             pdfDoc.Add(Text);
+
+            Devis devis = (Devis)Session["currentDevis"];
+            //DEBUG
+            devis = new Devis();
+            devis.Client = new Client();
+            devis.Client.Name = "Clinet Jauques";
+            devis.Client.Reference = "094753";
+            devis.NomProjet = "nom";
+            Produit prod1 = new Produit();
+            prod1.Nom = "test";
+            Gamme gamme = new Gamme();
+            gamme.Nom = "gamme";
+            prod1.Gamme = gamme;
+            ModeleDeGamme modele = new ModeleDeGamme();
+            modele.Nom = "modele";
+            prod1.ModeleDeGamme = modele;
+            Finition fin1 = new Finition();
+            fin1.Nom = "fin";
+            TypeFinition type1 = new TypeFinition();
+            type1.Nom = "type 1";
+            fin1.TypeFinition = type1;
+            Finition fin2 = new Finition();
+            TypeFinition type2 = new TypeFinition();
+            type2.Nom = "type 2";
+            fin2.TypeFinition = type2;
+            prod1.ListeFinition.Add(fin1);
+            prod1.ListeFinition.Add(fin2);
+            devis.Produits.Add(prod1);
+            //DEBUG
+            Paragraph client = new Paragraph("Client : "+devis.Client.Name +"("+devis.Client.Reference+ ")\n\n\n");
+            pdfDoc.Add(client);
+            pdfDoc.Add(new Paragraph("Liste des produits : \n\n"));
+            Paragraph produits = new Paragraph();
+            foreach (var produit in devis.Produits)
+            {
+                Paragraph mainProduct = new Paragraph();
+                mainProduct.Add("Produit : " + produit.Nom+ "\n");
+                mainProduct.Add("-    Gamme : " + produit.Gamme.Nom+ "\n");
+                mainProduct.Add("-        Modèle de Gamme : " + produit.ModeleDeGamme.Nom+ "\n");
+                mainProduct.Add("-        Finitions : "+ "\n");
+                List finitions = new List();
+                foreach (var finition in produit.ListeFinition)
+                {
+                    finitions.Add("-            "+finition.TypeFinition.Nom + " : " + finition.Nom);
+                }
+                mainProduct.Add(finitions);
+                produits.Add(mainProduct);
+            }
+            pdfDoc.Add(produits);
+
+
             pdfWriter.CloseStream = false;
             pdfDoc.Close();
             Response.Buffer = true;
