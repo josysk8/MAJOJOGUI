@@ -165,8 +165,7 @@ public class ModeleDeGamme
 
     public ModeleDeGamme()
     {
-        //
-        // TODO: Add constructor logic here
-        //
+        modules = new List<ModuleCompose>();
+        finitions = new List<Finition>();
     }
 }
