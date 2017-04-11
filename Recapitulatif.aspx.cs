@@ -49,7 +49,7 @@ public partial class Recapitulatif : System.Web.UI.Page
                     html.Append("<h4>Modele de Gamme : " + produit.ModeleDeGamme.Nom + "</h4></div></div>");
                   html.Append("<div class='row'><div class='col-md-10 col-md-offset-2'>");
                     html.Append("<h4>Finitions : </h4>");
-                    foreach (var finition in produit.ListeFinition)
+                    foreach (var finition in produit.ModeleDeGamme.Finitions)
                     {
                         html.Append("<div class='row'><div class='col-md-12'>");
                         html.Append(finition.TypeFinition.Nom + " : " + finition.Nom);
