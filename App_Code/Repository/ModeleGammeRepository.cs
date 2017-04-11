@@ -109,7 +109,7 @@ public class ModeleGammeRepository
             db.MODELE_DE_GAMME.Add(entity);
             db.SaveChanges();
 
-            var queryModele = (from a in db.MODELE_DE_GAMME orderby db.MODELE_DE_GAMME descending select a).Single();
+            var queryModele = (from a in db.MODELE_DE_GAMME orderby a.MODELE_GAMME_ID descending select a).Single();
             foreach (var item in dto.Finitions)
             {
                 LIER_FINITION entityFin = new LIER_FINITION();
