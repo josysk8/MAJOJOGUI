@@ -26,17 +26,21 @@ public class DevisRepository
         DEVIS entity = new DEVIS();
         entity.CLIENT_ID = devis.Client.Id;
         entity.DEVIS_NOM_PROJET = devis.NomProjet;
-        entity.DEVIS_REFERENCE = new string(Enumerable.Repeat(chars, 10)
+        string reference = new string(Enumerable.Repeat(chars, 10)
           .Select(s => s[random.Next(s.Length)]).ToArray());
+        entity.DEVIS_REFERENCE = reference;
         entity.DEVIS_ETAT = 0;
         entity.DEVIS_DATE = DateTime.Now;
         using (var db = new maderaEntities())
         {
             db.DEVIS.Add(entity);
             db.SaveChanges();
+
+            var query = from a in db.DEVIS where a.DEVIS_REFERENCE.Equals(reference) select a;
+            int id = query.First().DEVIS_ID;
             foreach (var item in devis.Produits)
             {
-                produitRepository.Add(item);
+                produitRepository.Add(item, id);
             }
         }
     }

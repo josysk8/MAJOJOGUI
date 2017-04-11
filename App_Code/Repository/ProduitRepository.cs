@@ -16,12 +16,12 @@ public class ProduitRepository
         gammeRepository = new GammeRepository();
     }
     
-    public void Add(Produit produit)
+    public void Add(Produit produit, int devisId)
     {
         PRODUIT entity = new PRODUIT();
         entity.PRODUIT_NOM = produit.Nom;
         entity.PRODUIT_DESCRIPTION = produit.Description;
-        entity.DEVIS_ID = produit.Devis.Id;
+        entity.DEVIS_ID = devisId;
         entity.GAMME_ID = produit.Gamme.Id;
         if (produit.ModeleDeGamme.Id != 0)
             entity.MODELE_DE_GAMME_ID = produit.ModeleDeGamme.Id;
