@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class ListeProduit : System.Web.UI.Page
 {
-    Dictionary<string, Panel> produits = new Dictionary<string, Panel>();
+    DevisRepository repositoryDevis;
     Devis recordedDevis;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -22,11 +22,7 @@ public partial class ListeProduit : System.Web.UI.Page
             }
             LblPrix.Text = recordedDevis.EstimationPrix.ToString();
         }
-
-        if (null != Session["panelContent"])
-        {
-            refreshProductPanel();
-        }
+        refreshProductPanel();
     }
 
     protected void ImgBtnNouveauProduit_Click(object sender, ImageClickEventArgs e)
@@ -36,41 +32,19 @@ public partial class ListeProduit : System.Web.UI.Page
 
     protected void BtnModalConfirmer_Click(object sender, EventArgs e)
     {
-        Panel myPanel = new Panel();
-        String nextKey = "" + (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-        myPanel.ID = nextKey;
-
-        Button myEditButton = new Button();
-        myEditButton.Text = TxtModalNomProduit.Text;
-        myEditButton.CssClass = "btn btn-sm btn-primary";
-
-        ImageButton myDeleteButton = new ImageButton();
-        myDeleteButton.ImageUrl = "Images/cancel-icon.png";
-        myDeleteButton.Height = 10;
-        myDeleteButton.Width = 10;
-
-        myPanel.Controls.Add(myEditButton);
-        myPanel.Controls.Add(myDeleteButton);
-
-        produits.Add(nextKey, myPanel);
-        Session["panelContent"] = produits;
-        Session["currentDevis"] = recordedDevis;
-
+        Produit nouveauProduit = new Produit();
+        nouveauProduit.Nom = TxtModalNomProduit.Text;
+        nouveauProduit.Id = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+        recordedDevis.Produits.Add(nouveauProduit);
         refreshProductPanel();
     }
 
     protected void BtnConfigurerProduit_Click(object sender, EventArgs e)
     {
         Button button = (Button)sender;
+        int idProduit = int.Parse(button.ID.Substring(1));
 
-        string idProduit = button.Parent.ID;
-
-        Produit produitEnvoy = new Produit();
-        produitEnvoy.Id = int.Parse(idProduit);
-        produitEnvoy.Nom = button.Text;
-
-        recordedDevis.Produits.Add(produitEnvoy);
-        Session["currentProduit"] = produitEnvoy.Id;
+        Session["currentProduit"] = idProduit;
         Session["currentDevis"] = recordedDevis;
         Response.Redirect("ConfigurerProduit.aspx");
     }
@@ -78,40 +52,47 @@ public partial class ListeProduit : System.Web.UI.Page
     protected void ImgBtnDelete_Click(object sender, EventArgs e)
     {
         ImageButton button = (ImageButton)sender;
-
-        string idProduit = button.Parent.ID;
-        produits.Remove(idProduit);
-        Session["panelContent"] = produits;
+        int idProduit = int.Parse(button.ID.Substring(1));
+        recordedDevis.Produits = recordedDevis.Produits.Where(note => note.Id != idProduit).ToList();
         refreshProductPanel();
     }
 
     protected void BtnClearProduit_Click(object sender, EventArgs e)
     {
         PnlListeProduit.Controls.Clear();
-        produits.Clear();
-        Session["panelContent"] = null;
+        recordedDevis.Produits.Clear();
+    }
+
+    protected void BtnFinaliserDevis_Click(object sender, EventArgs e)
+    {
+        repositoryDevis = new DevisRepository();
+        repositoryDevis.Add(recordedDevis);
     }
 
     //fonction qui refresh le panel de produits
     private void refreshProductPanel()
     {
-        produits = (Dictionary<string, Panel>)Session["panelContent"];
         PnlListeProduit.Controls.Clear();
-        if (recordedDevis.Produits != null)
+        foreach (Produit produit in recordedDevis.Produits)
         {
-            recordedDevis.Produits.Clear();
-        }
-        foreach (KeyValuePair<string, Panel> produit in produits)
-        {
-            Button modifierButton = produit.Value.Controls.OfType<Button>().Last();
-            modifierButton.Click += new EventHandler(this.BtnConfigurerProduit_Click);
+            Panel myProduitPanel = new Panel();
 
-            ImageButton deleteButton = produit.Value.Controls.OfType<ImageButton>().Last();
+            Button modifierButton = new Button();
+            modifierButton.ID = "M" + produit.Id.ToString();
+            modifierButton.Text = produit.Nom;
+            modifierButton.CssClass = "btn btn-xs btn-primary";
+            modifierButton.Click += new EventHandler(this.BtnConfigurerProduit_Click);
+            myProduitPanel.Controls.Add(modifierButton);
+
+            ImageButton deleteButton = new ImageButton();
+            deleteButton.ID = "D" + produit.Id.ToString();
+            deleteButton.ImageUrl = "Images/cancel-icon.png";
+            deleteButton.Height = 10;
+            deleteButton.Width = 10;
             deleteButton.Click += new ImageClickEventHandler(this.ImgBtnDelete_Click);
-            PnlListeProduit.Controls.Add(produit.Value);
-            Produit produitToAdd = new Produit();
-            produitToAdd.Nom = modifierButton.Text;
-            recordedDevis.Produits.Add(produitToAdd);
+            myProduitPanel.Controls.Add(deleteButton);
+
+            PnlListeProduit.Controls.Add(myProduitPanel);
         }
     }
 }

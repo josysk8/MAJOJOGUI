@@ -162,6 +162,13 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     {
         ImageButton imageButton = (ImageButton)sender;
         produitSelectionne.ModeleDeGamme.Modules = produitSelectionne.ModeleDeGamme.Modules.Where(note => note.Identification != imageButton.ID).ToList();
+        refreshModulePanel(produitSelectionne.Gamme);
+    }
+
+    private void BtnConfirmProduct(object sender, EventArgs e)
+    {
+        Session["currentDevis"] = recordedDevis;
+        Response.Redirect("ListeProduit.aspx");
     }
 
     private void refreshGammePanel()
@@ -208,8 +215,8 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         labelToit.Text = "Couverture";
         labelToit.CssClass = "control-label col-sm-4";
         DropDownList selectToit = new DropDownList();
-        //selectToit.DataSource = finitionRepository.getByGamme(selectedModeleDeGamme.Gamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
-        selectToit.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
+        selectToit.DataSource = finitionRepository.getByGamme(selectedModeleDeGamme.Gamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
+        //selectToit.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Couverture");
         selectToit.DataTextField = "Nom";
         selectToit.DataValueField = "Id";
         selectToit.DataBind();
@@ -227,7 +234,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         labelFinitionInterieure.Text = "Finition Intérieure";
         labelFinitionInterieure.CssClass = "control-label col-sm-4";
         DropDownList selectFinitionInterieure = new DropDownList();
-        selectFinitionInterieure.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Finition intérieure");
+        selectFinitionInterieure.DataSource = finitionRepository.getByGamme(selectedModeleDeGamme.Gamme).FindAll(i => i.TypeFinition.Nom == "Finition intérieure");
         selectFinitionInterieure.DataTextField = "Nom";
         selectFinitionInterieure.DataValueField = "Id";
         selectFinitionInterieure.DataBind();
@@ -245,7 +252,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         labelFinitionExterieure.Text = "Finition extérieure";
         labelFinitionExterieure.CssClass = "control-label col-sm-4";
         DropDownList selectFinitionExterieure = new DropDownList();
-        selectFinitionExterieure.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Finition extérieure");
+        selectFinitionExterieure.DataSource = finitionRepository.getByGamme(selectedModeleDeGamme.Gamme).FindAll(i => i.TypeFinition.Nom == "Finition extérieure");
         selectFinitionExterieure.DataTextField = "Nom";
         selectFinitionExterieure.DataValueField = "Id";
         selectFinitionExterieure.DataBind();
@@ -263,7 +270,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         labelIsolation.Text = "Isolation";
         labelIsolation.CssClass = "control-label col-sm-4";
         DropDownList selectIsolation = new DropDownList();
-        selectIsolation.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Isolation");
+        selectIsolation.DataSource = finitionRepository.getByGamme(selectedModeleDeGamme.Gamme).FindAll(i => i.TypeFinition.Nom == "Isolation");
         selectIsolation.DataTextField = "Nom";
         selectIsolation.DataValueField = "Id";
         selectIsolation.DataBind();
@@ -281,7 +288,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         labelPlancher.Text = "Plancher";
         labelPlancher.CssClass = "control-label col-sm-4";
         DropDownList selectPlancher = new DropDownList();
-        selectPlancher.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Plancher");
+        selectPlancher.DataSource = finitionRepository.getByGamme(selectedModeleDeGamme.Gamme).FindAll(i => i.TypeFinition.Nom == "Plancher");
         selectPlancher.DataTextField = "Nom";
         selectPlancher.DataValueField = "Id";
         selectPlancher.DataBind();
@@ -299,7 +306,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         labelHuisseries.Text = "Huisseries";
         labelHuisseries.CssClass = "control-label col-sm-4";
         DropDownList selectHuisseries = new DropDownList();
-        selectHuisseries.DataSource = finitionRepository.getByModeleDeGamme(selectedModeleDeGamme).FindAll(i => i.TypeFinition.Nom == "Qualité des huisseries");
+        selectHuisseries.DataSource = finitionRepository.getByGamme(selectedModeleDeGamme.Gamme).FindAll(i => i.TypeFinition.Nom == "Qualité des huisseries");
         selectHuisseries.DataTextField = "Nom";
         selectHuisseries.DataValueField = "Id";
         selectHuisseries.DataBind();
@@ -363,15 +370,22 @@ public partial class ConfigurerProduit : System.Web.UI.Page
                 deleteButton.ID = module.Identification;
                 deleteButton.Click += new ImageClickEventHandler(this.ImgBtnDeleteModule_Click);
                 panelModule.Controls.Add(deleteButton);
-
                 downPanel.Controls.Add(panelModule);
             }
         }
 
+        Button confirmProduit = new Button();
+        confirmProduit.Text = "Terminer";
+        confirmProduit.CssClass = "btn btn-xs btn-primary";
+        confirmProduit.Click += new EventHandler(this.BtnConfirmProduct);
+
+
         Panel pan = new Panel();
         pan.Controls.Add(ajouterModuleButton);
         pan.Controls.Add(buttonModalPopup);
-
+        pan.Controls.Add(confirmProduit);
         downPanel.Controls.Add(pan);
     }
+
+   
 }

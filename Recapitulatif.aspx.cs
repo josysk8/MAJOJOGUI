@@ -34,10 +34,9 @@ public partial class Recapitulatif : System.Web.UI.Page
         TypeFinition type2 = new TypeFinition();
         type2.Nom = "type 2";
         fin2.TypeFinition = type2;
-        prod1.ListeFinition.Add(fin1);
-        prod1.ListeFinition.Add(fin2);
+        prod1.ModeleDeGamme.Finitions.Add(fin1);
+        prod1.ModeleDeGamme.Finitions.Add(fin2);
         devis.Produits.Add(prod1);
-
 
         foreach (var produit in devis.Produits)
         {
@@ -106,8 +105,8 @@ public partial class Recapitulatif : System.Web.UI.Page
             TypeFinition type2 = new TypeFinition();
             type2.Nom = "type 2";
             fin2.TypeFinition = type2;
-            prod1.ListeFinition.Add(fin1);
-            prod1.ListeFinition.Add(fin2);
+            prod1.ModeleDeGamme.Finitions.Add(fin1);
+            prod1.ModeleDeGamme.Finitions.Add(fin2);
             devis.Produits.Add(prod1);
             //DEBUG
             Paragraph client = new Paragraph("Client : "+devis.Client.Name +"("+devis.Client.Reference+ ")\n\n\n");
@@ -122,7 +121,7 @@ public partial class Recapitulatif : System.Web.UI.Page
                 mainProduct.Add("-        Modèle de Gamme : " + produit.ModeleDeGamme.Nom+ "\n");
                 mainProduct.Add("-        Finitions : "+ "\n");
                 List finitions = new List();
-                foreach (var finition in produit.ListeFinition)
+                foreach (var finition in produit.ModeleDeGamme.Finitions)
                 {
                     finitions.Add("-            "+finition.TypeFinition.Nom + " : " + finition.Nom);
                 }
