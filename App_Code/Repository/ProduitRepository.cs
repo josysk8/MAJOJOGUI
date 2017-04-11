@@ -14,6 +14,7 @@ public class ProduitRepository
     public ProduitRepository()
     {
         gammeRepository = new GammeRepository();
+        modeleGammeRepository = new ModeleGammeRepository();
     }
     
     public void Add(Produit produit, int devisId)
