@@ -86,6 +86,7 @@ public class ModeleGammeRepository
                 finitions.Add(finitionRepository.getOne(item.FINITION_ID));
             }
             dto.Finitions = finitions;
+            dto.Modules = moduleRepository.GetCompositionByIdModeleGamme(id);
         }
 
         return dto;

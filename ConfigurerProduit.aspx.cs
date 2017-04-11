@@ -13,6 +13,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     FinitionRepository finitionRepository = new FinitionRepository();
     Devis recordedDevis;
     Produit produitSelectionne;
+    int moduleSelectedId;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (null != Session["currentProduit"])
@@ -85,6 +86,10 @@ public partial class ConfigurerProduit : System.Web.UI.Page
                 }
                 if ((String)Session["downPanelId"] == "panelModule" && Session["selectedFinition"] != null)
                 {
+                    if (ModalTypeModuleDropDownList.SelectedValue != null)
+                    {
+                        moduleSelectedId = int.Parse(ModalTypeModuleDropDownList.SelectedValue.ToString());
+                    }
                     refreshModulePanel(produitSelectionne.Gamme);
                 }
             }
@@ -143,10 +148,20 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     }
     protected void BtnModalModule_Click(object sender, EventArgs e)
     {
-        int moduleSelectedId = int.Parse((String)ModalTypeModuleDropDownList.SelectedValue);
         Module moduleSelected = moduleRepository.GetOne(moduleSelectedId);
-        //produitSelectionne.ModeleDeGamme.Modules.Add(moduleSelected);
+        ModuleCompose moduleCompose = new ModuleCompose();
+        moduleSelected.Type = "0";
+        moduleCompose.Module = moduleSelected;
+        moduleCompose.Identification = TxtModalNomModule.Text;
+        moduleCompose.ModeleDeGamme = (ModeleDeGamme)Session["selectedModeleGamme"];
+        produitSelectionne.ModeleDeGamme.Modules.Add(moduleCompose);
+        refreshModulePanel(produitSelectionne.Gamme);
+    }
 
+    protected void ImgBtnDeleteModule_Click(object sender, EventArgs e)
+    {
+        ImageButton imageButton = (ImageButton)sender;
+        produitSelectionne.ModeleDeGamme.Modules = produitSelectionne.ModeleDeGamme.Modules.Where(note => note.Identification != imageButton.ID).ToList();
     }
 
     private void refreshGammePanel()
@@ -316,6 +331,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         ajouterModuleButton.Text = "Ajouter un nouveau module";
         ajouterModuleButton.Attributes["data-toggle"] = "modal";
         ajouterModuleButton.Attributes["data-target"] = "#myModal";
+        ajouterModuleButton.CssClass = "btn btn-xs btn-primary";
 
         AjaxControlToolkit.ModalPopupExtender buttonModalPopup = new AjaxControlToolkit.ModalPopupExtender();
         buttonModalPopup.ID = "mpe";
@@ -323,14 +339,36 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         buttonModalPopup.PopupControlID = "ModalPanel";
         buttonModalPopup.OkControlID = "OKButton";
 
+        
         ModalTypeModuleDropDownList.DataSource = moduleRepository.GetByGamme(gammeSelectionne);
         ModalTypeModuleDropDownList.DataTextField = "Nom";
         ModalTypeModuleDropDownList.DataValueField = "Id";
+        ModalTypeModuleDropDownList.EnableViewState = true;
         ModalTypeModuleDropDownList.DataBind();
 
-        Panel pan = new Panel();
-        pan.CssClass = "form-group";
+        foreach (ModuleCompose module in produitSelectionne.ModeleDeGamme.Modules)
+        {
+            if(module.Module.Type == "0")
+            {
+                Panel panelModule = new Panel();
 
+                Label newModuleLabel = new Label();
+                newModuleLabel.Text = module.Identification;
+                panelModule.Controls.Add(newModuleLabel);
+
+                ImageButton deleteButton = new ImageButton();
+                deleteButton.ImageUrl = "Images/cancel-icon.png";
+                deleteButton.Height = 10;
+                deleteButton.Width = 10;
+                deleteButton.ID = module.Identification;
+                deleteButton.Click += new ImageClickEventHandler(this.ImgBtnDeleteModule_Click);
+                panelModule.Controls.Add(deleteButton);
+
+                downPanel.Controls.Add(panelModule);
+            }
+        }
+
+        Panel pan = new Panel();
         pan.Controls.Add(ajouterModuleButton);
         pan.Controls.Add(buttonModalPopup);
 

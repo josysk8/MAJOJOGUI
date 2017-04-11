@@ -99,6 +99,7 @@ public class ModuleRepository
                 enfant.QuantiteCompositionParent = item.QUANTITE;
                 enfants.Add(enfant);
             }
+            dto.Enfants = enfants;
         }
 
         return dto;
