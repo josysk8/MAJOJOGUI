@@ -34,6 +34,10 @@ public class DevisRepository
         {
             db.DEVIS.Add(entity);
             db.SaveChanges();
+            foreach (var item in devis.Produits)
+            {
+                produitRepository.Add(item);
+            }
         }
     }
 
