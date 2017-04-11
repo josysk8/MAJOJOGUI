@@ -29,7 +29,7 @@ public class DevisRepository
         entity.DEVIS_REFERENCE = new string(Enumerable.Repeat(chars, 10)
           .Select(s => s[random.Next(s.Length)]).ToArray());
         entity.DEVIS_ETAT = 0;
-        entity.DEVIS_DATE = new DateTime();
+        entity.DEVIS_DATE = DateTime.Now;
         using (var db = new maderaEntities())
         {
             db.DEVIS.Add(entity);
