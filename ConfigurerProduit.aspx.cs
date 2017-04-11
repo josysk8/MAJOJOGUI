@@ -166,7 +166,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         refreshModulePanel(produitSelectionne.Gamme);
     }
 
-    private void BtnConfirmProduct(object sender, EventArgs e)
+    private void BtnConfirmProduct_Click(object sender, EventArgs e)
     {
         Session["currentDevis"] = recordedDevis;
         Response.Redirect("ListeProduit.aspx");
@@ -378,7 +378,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
         Button confirmProduit = new Button();
         confirmProduit.Text = "Terminer";
         confirmProduit.CssClass = "btn btn-xs btn-primary";
-        confirmProduit.Click += new EventHandler(this.BtnConfirmProduct);
+        confirmProduit.Click += new EventHandler(this.BtnConfirmProduct_Click);
 
 
         Panel pan = new Panel();
