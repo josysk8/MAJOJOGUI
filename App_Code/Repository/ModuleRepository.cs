@@ -56,6 +56,28 @@ public class ModuleRepository
         return dtos;
     }
 
+    public List<ModuleCompose> GetCompositionByIdModeleGamme(int id)
+    {
+        List<ModuleCompose> dtos = new List<ModuleCompose>();
+
+        using (var db = new maderaEntities())
+        {
+            var queryLierModule = from a in db.LIER_MODULE where a.MODELE_GAMME_ID.Equals(id) select a;
+            foreach (var item in queryLierModule)
+            {
+                ModuleCompose dto = new ModuleCompose();
+                dto.Section = item.SECTION;
+                dto.Module = GetOne(item.MODULE_ID);
+                dto.Hauteur = item.HAUTEUR;
+                dto.Longueur = item.LONGUEUR;
+                dto.Identification = item.IDENTIFICATION;
+                dtos.Add(dto);
+            }
+        }
+
+        return dtos;
+    }
+
     public Module GetOne(int id)
     {
         Module dto = new Module();
