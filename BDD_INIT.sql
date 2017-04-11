@@ -15,6 +15,8 @@ delete from dbo.FINITION;
 delete from dbo.FAIRE_PARTIE;
 delete from dbo.LIER_FINITION;
 delete from dbo.EST_DISPONIBLE;
+delete from dbo.LIER_MODULE;
+
 
 
 insert into dbo.GAMME (GAMME_NOM, GAMME_DESCRIPTION) values ('Premium', 'Pour les plus riches.');
@@ -340,10 +342,90 @@ insert into dbo.LIER_FINITION (FINITION_ID, MODELE_GAMME_ID) values
 	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco')),
 	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 2'        ), (select GAMME_ID from dbo.GAMME where GAMME_NOM like 'Eco'));
 	
- 
- 
- 
- 
- 
- 
- 
+ insert into dbo.LIER_MODULE (MODULE_ID, MODELE_GAMME_ID, IDENTIFICATION, SECTION, LONGUEUR, HAUTEUR) values
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 1'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 1'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 1'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Eco'), 'identification', 'section', 160, 45),
+	
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 2'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 2'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 2'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 2'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Eco'), 'identification', 'section', 160, 45);
+
+ insert into dbo.LIER_MODULE (MODULE_ID, MODELE_GAMME_ID, IDENTIFICATION, SECTION, LONGUEUR, HAUTEUR) values	
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 1'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 2'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 3'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 2'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Medium'), 'identification', 'section', 160, 45),
+	
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 3'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 1'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 2'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 2'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Medium'), 'identification', 'section', 160, 45),
+	
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 3'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 3'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 3'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne'), 'identification', 'section', 160, 45),
+	
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 3'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 3'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 2'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 3'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Grande maison Medium'), 'identification', 'section', 160, 45);
+	
+ insert into dbo.LIER_MODULE (MODULE_ID, MODELE_GAMME_ID, IDENTIFICATION, SECTION, LONGUEUR, HAUTEUR) values
+    ((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 1'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 3'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 2'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 1'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Studio Premium'), 'identification', 'section', 160, 45),
+	
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 2'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 1'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 2'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 2'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 2'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Petite maison Premium'), 'identification', 'section', 160, 45),
+	
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 2'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 3'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 3'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison moyenne Premium'), 'identification', 'section', 160, 45),
+	
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 3'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 4'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 4'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 4'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 1'), 'identification', 'section', 160, 45),
+	
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 4'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 4'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 3'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 3'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 3'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 4'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Maison grande Premium 2'), 'identification', 'section', 160, 45),
+	
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext 4'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int 3'           ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 3'    ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'  ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 4'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'), 'identification', 'section', 160, 45),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'), 'identification', 'section', 160, 45);
+	
