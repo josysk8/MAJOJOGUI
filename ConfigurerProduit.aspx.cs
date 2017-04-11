@@ -39,6 +39,7 @@ public partial class ConfigurerProduit : System.Web.UI.Page
             if (null != Session["selectedModeleGamme"])
             {
                 produitSelectionne.ModeleDeGamme = (ModeleDeGamme)Session["selectedModeleGamme"];
+                produitSelectionne.ModeleDeGamme.Id = 0;
             }
 
             if (null != Session["selectedFinition"])
