@@ -14,8 +14,7 @@ public class Produit
     private Devis devis;
     private Gamme gamme;
     private ModeleDeGamme modeleDeGamme;
-    private List<Finition> listeFinition;
-
+    
     public int Id
     {
         get
@@ -94,24 +93,11 @@ public class Produit
         }
     }
 
-    public List<Finition> ListeFinition
-    {
-        get
-        {
-            return listeFinition;
-        }
-
-        set
-        {
-            listeFinition = value;
-        }
-    }
-
+ 
     public Produit()
     {
         //
         // TODO: Add constructor logic here
         //
-        ListeFinition = new List<Finition>();
     }
 }
