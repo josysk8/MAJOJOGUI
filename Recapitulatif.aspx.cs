@@ -19,7 +19,7 @@ public partial class Recapitulatif : System.Web.UI.Page
         foreach (var produit in devis.Produits)
         {
             html.Append("<div class='row'>");
-              html.Append("<div class='col-md-9'>");
+              html.Append("<div class='col-md-10'>");
                 html.Append("<h4>Produit : " + produit.Nom+"</h4>");
                 html.Append("<div class='row'><div class='col-md-10'><div class='col-md-offset-2'>");
                   html.Append("<h4>Gamme : " + produit.Gamme.Nom+"</4>");
@@ -34,6 +34,17 @@ public partial class Recapitulatif : System.Web.UI.Page
                         html.Append("</div></div>");
                     }
                   html.Append("</div></div>");
+                  html.Append("<div class='row'><div class='col-md-10 col-md-offset-2'>");
+                    html.Append("<h4>Modules : </h4>");
+                    foreach (var module in produit.ModeleDeGamme.Modules)
+                    {
+                        html.Append("<div class='row'><div class='col-md-12'>");
+                        html.Append(module.Module.TypeModule.Nom + " : " + module.Module.Nom + "<br>");
+                html.Append("Hauteur : " + module.Hauteur + "<br/>");
+                html.Append("Largeur : " + module.Longueur + "<br/>");
+                html.Append("Identification : " + module.Identification+"<br/><br/>");
+                    }
+                  html.Append("</div></div>");
                 html.Append("</div></div>");
               html.Append("</div></div>");
             html.Append("</div></div>");
@@ -43,7 +54,7 @@ public partial class Recapitulatif : System.Web.UI.Page
         DevisService devisService = new DevisService();
         double total =(double) devisService.CalculateEstimatedPrice(devis);
 
-        html.Append("<div class='col-md-3'>");
+        html.Append("<div class='col-md-2'>");
         html.Append("<h3>Total : " + total+" Euros</h3>");
         html.Append("</div>");
         PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
