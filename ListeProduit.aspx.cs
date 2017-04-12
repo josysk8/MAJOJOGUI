@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 public partial class ListeProduit : System.Web.UI.Page
 {
     DevisRepository repositoryDevis;
+    DevisService serviceDevis = new DevisService();
     Devis recordedDevis;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -20,6 +21,8 @@ public partial class ListeProduit : System.Web.UI.Page
             {
                 recordedDevis.EstimationPrix = 0;
             }
+            recordedDevis.EstimationPrix = serviceDevis.CalculateEstimatedPrice(recordedDevis);
+
             LblPrix.Text = recordedDevis.EstimationPrix.ToString();
         }
         refreshProductPanel();
