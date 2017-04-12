@@ -16,6 +16,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <asp:Label ID="LblRemise" CssClass="control-label col-sm-5" runat="server" Text="Remise"></asp:Label>
+                <div class="col-sm-7">
+                    <asp:TextBox ID="TxtRemise" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+            </div>
+            <div class="form-group">
                 <asp:Label ID="LblPrixLabel" runat="server" CssClass="control-label col-sm-5" Text="Prix"></asp:Label>
                 <div class="col-sm-7">
                     <asp:Label ID="LblPrix" runat="server" CssClass="form-control" Text="prix"></asp:Label>
@@ -28,24 +34,24 @@
                 <div class="col-md-6 text-center">
                     <asp:Button ID="ImgBtnNouveauProduit" CssClass="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="Ajouter un nouveau produit" />
                 </div>
-                 <div class="col-md-3 text-center">
-                    <asp:Button ID="BtnFinaliserDevis"  CssClass="btn btn-primary" runat="server" OnClick="BtnFinaliserDevis_Click" Text="Enregistrer le devis" />
+                <div class="col-md-3 text-center">
+                    <asp:Button ID="BtnFinaliserDevis" CssClass="btn btn-primary" runat="server" OnClick="BtnFinaliserDevis_Click" Text="Enregistrer le devis" />
                 </div>
             </div>
         </div>
-        
+
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Liste des produits
                 </div>
                 <div class="panel-body">
-                    <asp:Panel ID="PnlListeProduit" runat="server" >
-                    <br />
+                    <asp:Panel ID="PnlListeProduit" runat="server">
+                        <br />
                     </asp:Panel>
                 </div>
             </div>
-        </div>       
+        </div>
     </div>
 
 
@@ -58,20 +64,23 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <asp:Label ID="LblModalNomProduitLabel" CssClass="control-label col-sm-5" runat="server" Text="Nom du produit"></asp:Label>
-                        <div class="col-sm-7" >
+                        <div class="col-sm-7">
                             <asp:TextBox ID="TxtModalNomProduit" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-6 text-center"> <asp:Button ID="BtnModalAnnuler" CssClass="btn btn-error" runat="server" Text="Annuler" /> </div>
-                        <div class="col-sm-6 text-center"> <asp:Button ID="BtnModalConfirmer" CssClass="btn btn-success" runat="server" Text="Confirmer" OnClick="BtnModalConfirmer_Click" /></div>
+                        <div class="col-sm-6 text-center">
+                            <asp:Button ID="BtnModalAnnuler" CssClass="btn btn-error" runat="server" Text="Annuler" />
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            <asp:Button ID="BtnModalConfirmer" CssClass="btn btn-success" runat="server" Text="Confirmer" OnClick="BtnModalConfirmer_Click" /></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    
+
 
     <ajaxToolkit:ModalPopupExtender ID="mpe" runat="server"
         TargetControlID="ImgBtnNouveauProduit" PopupControlID="ModalPanel"

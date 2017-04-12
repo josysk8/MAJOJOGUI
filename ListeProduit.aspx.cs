@@ -10,6 +10,7 @@ public partial class ListeProduit : System.Web.UI.Page
     DevisRepository repositoryDevis;
     DevisService serviceDevis = new DevisService();
     Devis recordedDevis;
+    decimal remise = 1;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (null != Session["currentDevis"])
@@ -21,7 +22,14 @@ public partial class ListeProduit : System.Web.UI.Page
             {
                 recordedDevis.EstimationPrix = 0;
             }
+
+            if (TxtRemise.Text != "")
+            {
+                remise = 1 - (decimal.Parse(TxtRemise.Text)/100);
+            }
+
             recordedDevis.EstimationPrix = serviceDevis.CalculateEstimatedPrice(recordedDevis);
+            recordedDevis.EstimationPrix = recordedDevis.EstimationPrix * remise;
 
             LblPrix.Text = recordedDevis.EstimationPrix.ToString();
         }
