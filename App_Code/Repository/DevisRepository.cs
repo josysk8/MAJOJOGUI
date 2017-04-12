@@ -11,6 +11,7 @@ public class DevisRepository
 
     private ClientRepository clientRepo;
     private ProduitRepository produitRepository;
+    private decimal? estimationPrixRepo;
 
     public DevisRepository()
     {
@@ -30,6 +31,7 @@ public class DevisRepository
           .Select(s => s[random.Next(s.Length)]).ToArray());
         entity.DEVIS_REFERENCE = reference;
         entity.DEVIS_ETAT = 0;
+        entity.DEVIS_ESTIMATION_PRIX = devis.EstimationPrix;
         entity.DEVIS_DATE = DateTime.Now;
         using (var db = new maderaEntities())
         {
