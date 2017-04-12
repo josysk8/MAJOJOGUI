@@ -23,10 +23,13 @@ public class DevisService
         foreach (var produit in devis.Produits)
         {
             // Get Modules
-            foreach (var moduleCompose in produit.ModeleDeGamme.Modules)
+            if (produit.ModeleDeGamme != null)
             {
-                Module module = moduleCompose.Module;
-                totalPrice += GetPriceOfModule(module);
+                foreach (var moduleCompose in produit.ModeleDeGamme.Modules)
+                {
+                    Module module = moduleCompose.Module;
+                    totalPrice += GetPriceOfModule(module);
+                }
             }
         }
 
