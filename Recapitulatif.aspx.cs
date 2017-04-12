@@ -44,7 +44,7 @@ public partial class Recapitulatif : System.Web.UI.Page
         double total =(double) devisService.CalculateEstimatedPrice(devis);
 
         html.Append("<div class='col-md-3'>");
-        html.Append("<h3>Total : " + total+"</h3>");
+        html.Append("<h3>Total : " + total+" Euros</h3>");
         html.Append("</div>");
         PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
     }
@@ -63,6 +63,7 @@ public partial class Recapitulatif : System.Web.UI.Page
             
             Paragraph client = new Paragraph("Client : "+devis.Client.Name +"("+devis.Client.Reference+ ")\n\n\n");
             pdfDoc.Add(client);
+            pdfDoc.Add(new Paragraph("Prix total : " + devis.EstimationPrix + " Euros\n\n\n"));
             pdfDoc.Add(new Paragraph("Liste des produits : \n\n"));
             Paragraph produits = new Paragraph();
             foreach (var produit in devis.Produits)
