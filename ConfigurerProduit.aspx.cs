@@ -42,34 +42,6 @@ public partial class ConfigurerProduit : System.Web.UI.Page
                 produitSelectionne.ModeleDeGamme.Id = 0;
             }
 
-            if (null != Session["selectedFinition"])
-            {
-                int idFinitionToit = int.Parse((String)Session["selectToitId"]);
-                Finition finitionToit = finitionRepository.getOne(idFinitionToit);
-                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionToit);
-
-                int idFinitionIntérieure = int.Parse((String)Session["selectFinitionInterieureId"]);
-                Finition finitionIntérieure = finitionRepository.getOne(idFinitionIntérieure);
-                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionIntérieure);
-
-                int idFinitionExterieur = int.Parse((String)Session["selectFinitionExterieureId"]);
-                Finition finitionExterieur = finitionRepository.getOne(idFinitionExterieur);
-                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionExterieur);
-
-                int idFinitionIsolation = int.Parse((String)Session["selectIsolationId"]);
-                Finition finitionIsolation = finitionRepository.getOne(idFinitionIsolation);
-                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionIsolation);
-
-                int idFinitionPlancher = int.Parse((String)Session["selectPlancherId"]);
-                Finition finitionPlancher = finitionRepository.getOne(idFinitionPlancher);
-                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionPlancher);
-
-                int idFinitionHuisserie = int.Parse((String)Session["selectHuisseriesId"]);
-                Finition finitionHuisserie = finitionRepository.getOne(idFinitionHuisserie);
-                produitSelectionne.ModeleDeGamme.Finitions.Add(finitionHuisserie);
-
-            }
-
             if (null != Session["downPanelId"])
             {
                 if ((String)Session["downPanelId"] == "panelGamme")
@@ -126,22 +98,34 @@ public partial class ConfigurerProduit : System.Web.UI.Page
     {
 
         DropDownList selectToit = (DropDownList)downPanel.FindControl("selectToit");
-        Session["selectToitId"] = selectToit.SelectedValue;
+        int idFinitionToit = int.Parse(selectToit.SelectedValue);
+        Finition finitionToit = finitionRepository.getOne(idFinitionToit);
+        produitSelectionne.ModeleDeGamme.Finitions.Add(finitionToit);
 
         DropDownList selectFinitionInterieure = (DropDownList)downPanel.FindControl("selectFinitionInterieure");
-        Session["selectFinitionInterieureId"] = selectFinitionInterieure.SelectedValue;
+        int idFinitionIntérieure = int.Parse(selectFinitionInterieure.SelectedValue);
+        Finition finitionIntérieure = finitionRepository.getOne(idFinitionIntérieure);
+        produitSelectionne.ModeleDeGamme.Finitions.Add(finitionIntérieure);
 
         DropDownList selectFinitionExterieure = (DropDownList)downPanel.FindControl("selectFinitionExterieure");
-        Session["selectFinitionExterieureId"] = selectFinitionExterieure.SelectedValue;
+        int idFinitionExterieur = int.Parse(selectFinitionExterieure.SelectedValue);
+        Finition finitionExterieur = finitionRepository.getOne(idFinitionExterieur);
+        produitSelectionne.ModeleDeGamme.Finitions.Add(finitionExterieur);
 
         DropDownList selectIsolation = (DropDownList)downPanel.FindControl("selectIsolation");
-        Session["selectIsolationId"] = selectIsolation.SelectedValue;
+        int idFinitionIsolation = int.Parse(selectIsolation.SelectedValue);
+        Finition finitionIsolation = finitionRepository.getOne(idFinitionIsolation);
+        produitSelectionne.ModeleDeGamme.Finitions.Add(finitionIsolation);
 
         DropDownList selectPlancher = (DropDownList)downPanel.FindControl("selectPlancher");
-        Session["selectPlancherId"] = selectPlancher.SelectedValue;
+        int idFinitionPlancher = int.Parse(selectPlancher.SelectedValue);
+        Finition finitionPlancher = finitionRepository.getOne(idFinitionPlancher);
+        produitSelectionne.ModeleDeGamme.Finitions.Add(finitionPlancher);
 
         DropDownList selectHuisseries = (DropDownList)downPanel.FindControl("selectHuisseries");
-        Session["selectHuisseriesId"] = selectHuisseries.SelectedValue;
+        int idFinitionHuisserie = int.Parse(selectHuisseries.SelectedValue);
+        Finition finitionHuisserie = finitionRepository.getOne(idFinitionHuisserie);
+        produitSelectionne.ModeleDeGamme.Finitions.Add(finitionHuisserie);
 
         Session["selectedFinition"] = "finitionSelected";
         Session["downPanelId"] = "panelModule";
