@@ -17,6 +17,7 @@ delete from dbo.LIER_FINITION;
 delete from dbo.EST_DISPONIBLE;
 delete from dbo.LIER_MODULE;
 delete from dbo.ASSOC_MODULE;
+delete from dbo.UTILISER___COUPE_DE_PRINCIPE;
 
 
 
@@ -92,10 +93,10 @@ insert into dbo.FOURNISSEUR (FOURNISSEUR_SIRET, FOURNISSEUR_SIREN, FOURNISSEUR_N
 
 
 insert into dbo.COMPOSANT (TYPE_COMPOSANT, FOURNISSEUR_ID, COMPOSANT_NOM, COMPOSANT_STOCK, COMPOSANT_VALEUR_CARACTERISTIQUE_1, COMPOSANT_VALEUR_CARACTERISTIQUE_2, VALEUR_AJOUTEE) values
-	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Montant vertical', 100, 120, null, 0),
-	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Lisse basse', 150, 120, null, 0),
-	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Lisse haute', 150, 120, null, 0),
-	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Entretoise', 150, 120, null, 0),
+	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 				'Montant vertical', 100, 120, null, 0),
+	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 				'Lisse basse', 150, 120, null, 0),
+	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 				'Lisse haute', 150, 120, null, 0),
+	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Lisses'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 				'Entretoise', 150, 120, null, 0),
 	
 	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Eléments de montages'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Sabot métallique', 1000, 120, null, 0),
 	((select TYPE_COMPOSANT1 from dbo.TYPE_COMPOSANT where TYPE_COMPOSANT_NOM like 'Eléments de montages'), (select FOURNISSEUR_ID from dbo.FOURNISSEUR where FOURNISSEUR_NOM like 'IKEA'), 'Boulon', 1200, 120, null, 0),
@@ -425,3 +426,115 @@ insert into dbo.FAIRE_PARTIE (GAMME_ID, FINITION_ID) values
 	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 4'), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'), 'Charpente 1' , 'section', 160, 45),
 	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3'        ), (select MODELE_GAMME_ID from dbo.MODELE_DE_GAMME where MODELE_GAMME_NOM like 'Très grande maison Premium'), 'Couverture 1', 'section', 160, 45);
 	
+	
+	
+	
+ insert into dbo.UTILISER___COUPE_DE_PRINCIPE (MODULE_ID, COMPOSANT_ID, QUANTITE_COUPE) values
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext nord' 			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext sud'  			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext est'  			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext ouest'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int avec porte'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int sans porte'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int ouvert'    		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 2'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 3'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 3'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 1'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 2'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 3'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 4'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 2'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 4'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Module extérieur petit'	), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Module extérieur moyen'	), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Module extérieur grand'	), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Cuisine américaine'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Cuisine classique'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Salle de bain'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Salle de bain x2'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Chambre'					), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Chambre x2'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Chambre x3'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 2);
+ insert into dbo.UTILISER___COUPE_DE_PRINCIPE (MODULE_ID, COMPOSANT_ID, QUANTITE_COUPE) values
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext nord' 			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext sud'  			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext est'  			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur ext ouest'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int avec porte'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int sans porte'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Mur int ouvert'    		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 1'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 2'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher dalle 3'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 1'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 2'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Plancher porteur 3'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 1'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 2'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 3'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Ferme de Charpente 4'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 1'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 2'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 3'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Couverture 4'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Module extérieur petit'	), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Module extérieur moyen'	), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Module extérieur grand'	), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Cuisine américaine'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Cuisine classique'		), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Salle de bain'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Salle de bain x2'			), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Chambre'					), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Chambre x2'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
+	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Chambre x3'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2);
+	
+	
+	
+	
+'Mur ext nord' 			
+'Mur ext sud'  			
+'Mur ext est'  			
+'Mur ext ouest'			
+'Mur int avec porte'	
+'Mur int sans porte'	
+'Mur int ouvert'    	
+'Plancher dalle 1'		
+'Plancher dalle 2'		
+'Plancher dalle 3'		
+'Plancher porteur 1'	
+'Plancher porteur 2'	
+'Plancher porteur 3'	
+'Ferme de Charpente 1'	
+'Ferme de Charpente 2'	
+'Ferme de Charpente 3'	
+'Ferme de Charpente 4'	
+'Couverture 1'			
+'Couverture 2'			
+'Couverture 3'			
+'Couverture 4'			
+'Module extérieur petit'
+'Module extérieur moyen'
+'Module extérieur grand'
+'Cuisine américaine'	
+'Cuisine classique'		
+'Salle de bain'			
+'Salle de bain x2'		
+'Chambre'				
+'Chambre x2'			
+'Chambre x3'			
+
+
+'Montant vertical'
+'Lisse basse'
+'Lisse haute'
+'Entretoise'
+
+'Sabot métallique'
+'Boulon'
+'Goujeon'
