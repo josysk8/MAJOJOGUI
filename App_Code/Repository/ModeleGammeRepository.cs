@@ -118,6 +118,19 @@ public class ModeleGammeRepository
                 db.LIER_FINITION.Add(entityFin);
                 db.SaveChanges();
             }
+            //var query = from a in db.MODELE_DE_GAMME;
+            foreach (var mod in dto.Modules)
+            {
+                LIER_MODULE entityFin2 = new LIER_MODULE();
+                entityFin2.HAUTEUR = mod.Hauteur;
+                entityFin2.IDENTIFICATION = mod.Identification;
+                entityFin2.LONGUEUR = mod.Longueur;
+                entityFin2.MODELE_GAMME_ID = queryModele.First().MODELE_GAMME_ID;
+                entityFin2.SECTION = mod.Section;
+                entityFin2.MODULE_ID = mod.Module.Id;
+                db.LIER_MODULE.Add(entityFin2);
+                db.SaveChanges();
+            }
         }
         return entity.MODELE_GAMME_ID;
     }
