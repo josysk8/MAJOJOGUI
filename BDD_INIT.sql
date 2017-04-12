@@ -18,6 +18,8 @@ delete from dbo.EST_DISPONIBLE;
 delete from dbo.LIER_MODULE;
 delete from dbo.ASSOC_MODULE;
 delete from dbo.UTILISER___COUPE_DE_PRINCIPE;
+delete from dbo.COMMANDE;
+delete from dbo.LIGNE_COMMANDE;
 
 
 
@@ -494,47 +496,23 @@ insert into dbo.FAIRE_PARTIE (GAMME_ID, FINITION_ID) values
 	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Chambre x2'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2),
 	((select MODULE_ID from dbo.MODULE where MODULE_NOM like 'Chambre x3'				), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 2);
 	
+  insert dbo.COMMANDE (COMMANDE_DATE, COMMANDE_STATUT) values
+	(GETDATE(), 1);
+	
+  insert dbo.LIGNE_COMMANDE (COMMANDE_ID, COMPOSANT_ID, FOURNISSEUR_ID, PRIX_ACHAT, QUANTITE_LIGNE_COMMANDE) values
+	((select COMMANDE_ID from dbo.COMMANDE where COMMANDE_STATUT like 1), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Montant vertical'), 0, 5, 2),
+	((select COMMANDE_ID from dbo.COMMANDE where COMMANDE_STATUT like 1), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Lisse basse'), 0, 5, 2),
+	((select COMMANDE_ID from dbo.COMMANDE where COMMANDE_STATUT like 1), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Lisse haute'), 0, 5, 2),
+	((select COMMANDE_ID from dbo.COMMANDE where COMMANDE_STATUT like 1), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Entretoise'), 0, 5, 2),
+	((select COMMANDE_ID from dbo.COMMANDE where COMMANDE_STATUT like 1), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Sabot métallique'), 0, 5, 2),
+	((select COMMANDE_ID from dbo.COMMANDE where COMMANDE_STATUT like 1), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Boulon'), 0, 5, 2),
+	((select COMMANDE_ID from dbo.COMMANDE where COMMANDE_STATUT like 1), (select COMPOSANT_ID from dbo.COMPOSANT where COMPOSANT_NOM like 'Goujeon'), 0, 5, 2);
 	
 	
 	
-'Mur ext nord' 			
-'Mur ext sud'  			
-'Mur ext est'  			
-'Mur ext ouest'			
-'Mur int avec porte'	
-'Mur int sans porte'	
-'Mur int ouvert'    	
-'Plancher dalle 1'		
-'Plancher dalle 2'		
-'Plancher dalle 3'		
-'Plancher porteur 1'	
-'Plancher porteur 2'	
-'Plancher porteur 3'	
-'Ferme de Charpente 1'	
-'Ferme de Charpente 2'	
-'Ferme de Charpente 3'	
-'Ferme de Charpente 4'	
-'Couverture 1'			
-'Couverture 2'			
-'Couverture 3'			
-'Couverture 4'			
-'Module extérieur petit'
-'Module extérieur moyen'
-'Module extérieur grand'
-'Cuisine américaine'	
-'Cuisine classique'		
-'Salle de bain'			
-'Salle de bain x2'		
-'Chambre'				
-'Chambre x2'			
-'Chambre x3'			
 
 
-'Montant vertical'
-'Lisse basse'
-'Lisse haute'
-'Entretoise'
 
-'Sabot métallique'
-'Boulon'
-'Goujeon'
+
+
+
