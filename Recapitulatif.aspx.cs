@@ -13,7 +13,7 @@ public partial class Recapitulatif : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         StringBuilder html = new StringBuilder();
-
+        DevisService devisService = new DevisService();
         Devis devis = (Devis) Session["currentDevis"];
 
         foreach (var produit in devis.Produits)
@@ -42,6 +42,7 @@ public partial class Recapitulatif : System.Web.UI.Page
                         html.Append(module.Module.TypeModule.Nom + " : " + module.Module.Nom + "<br>");
                 html.Append("Hauteur : " + module.Hauteur + "<br/>");
                 html.Append("Largeur : " + module.Longueur + "<br/>");
+                html.Append("Prix : " + devisService.GetPriceOfModule(module.Module) + " Euros<br/>");
                 html.Append("Identification : " + module.Identification+"<br/><br/>");
                     }
                   html.Append("</div></div>");
@@ -51,7 +52,7 @@ public partial class Recapitulatif : System.Web.UI.Page
         }
 
         //TARIF
-        DevisService devisService = new DevisService();
+        
         double total =(double) devisService.CalculateEstimatedPrice(devis);
 
         html.Append("<div class='col-md-2'>");
