@@ -15,28 +15,6 @@ public partial class Recapitulatif : System.Web.UI.Page
         StringBuilder html = new StringBuilder();
 
         Devis devis = (Devis) Session["currentDevis"];
-        devis = new Devis();
-        devis.NomProjet = "nom";
-        Produit prod1 = new Produit();
-        prod1.Nom = "test";
-        Gamme gamme = new Gamme();
-        gamme.Nom = "gamme";
-        prod1.Gamme = gamme;
-        ModeleDeGamme modele = new ModeleDeGamme();
-        modele.Nom = "modele";
-        prod1.ModeleDeGamme = modele;
-        Finition fin1 = new Finition();
-        fin1.Nom = "fin";
-        TypeFinition type1 = new TypeFinition();
-        type1.Nom = "type 1";
-        fin1.TypeFinition = type1;
-        Finition fin2 = new Finition();
-        TypeFinition type2 = new TypeFinition();
-        type2.Nom = "type 2";
-        fin2.TypeFinition = type2;
-        prod1.ModeleDeGamme.Finitions.Add(fin1);
-        prod1.ModeleDeGamme.Finitions.Add(fin2);
-        devis.Produits.Add(prod1);
 
         foreach (var produit in devis.Produits)
         {
@@ -82,33 +60,7 @@ public partial class Recapitulatif : System.Web.UI.Page
             pdfDoc.Add(Text);
 
             Devis devis = (Devis)Session["currentDevis"];
-            //DEBUG
-            devis = new Devis();
-            devis.Client = new Client();
-            devis.Client.Name = "Clinet Jauques";
-            devis.Client.Reference = "094753";
-            devis.NomProjet = "nom";
-            Produit prod1 = new Produit();
-            prod1.Nom = "test";
-            Gamme gamme = new Gamme();
-            gamme.Nom = "gamme";
-            prod1.Gamme = gamme;
-            ModeleDeGamme modele = new ModeleDeGamme();
-            modele.Nom = "modele";
-            prod1.ModeleDeGamme = modele;
-            Finition fin1 = new Finition();
-            fin1.Nom = "fin";
-            TypeFinition type1 = new TypeFinition();
-            type1.Nom = "type 1";
-            fin1.TypeFinition = type1;
-            Finition fin2 = new Finition();
-            TypeFinition type2 = new TypeFinition();
-            type2.Nom = "type 2";
-            fin2.TypeFinition = type2;
-            prod1.ModeleDeGamme.Finitions.Add(fin1);
-            prod1.ModeleDeGamme.Finitions.Add(fin2);
-            devis.Produits.Add(prod1);
-            //DEBUG
+            
             Paragraph client = new Paragraph("Client : "+devis.Client.Name +"("+devis.Client.Reference+ ")\n\n\n");
             pdfDoc.Add(client);
             pdfDoc.Add(new Paragraph("Liste des produits : \n\n"));
