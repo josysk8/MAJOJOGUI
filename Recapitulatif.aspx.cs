@@ -41,7 +41,7 @@ public partial class Recapitulatif : System.Web.UI.Page
                         html.Append("<div class='row'><div class='col-md-12'>");
                         html.Append(module.Module.TypeModule.Nom + " : " + module.Module.Nom + "<br>");
                 html.Append("Hauteur : " + module.Hauteur + "<br/>");
-                html.Append("Largeur : " + module.Longueur + "<br/>");
+                html.Append("Longueur : " + module.Longueur + "<br/>");
                 html.Append("Prix : " + devisService.GetPriceOfModule(module.Module) + " Euros<br/>");
                 html.Append("Identification : " + module.Identification+"<br/><br/>");
                     }
@@ -65,6 +65,7 @@ public partial class Recapitulatif : System.Web.UI.Page
     {
         try
         {
+            DevisService devisService = new DevisService();
             Document pdfDoc = new Document(PageSize.A4, 25, 10, 25, 10);
             PdfWriter pdfWriter = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
             pdfDoc.Open();
@@ -91,6 +92,19 @@ public partial class Recapitulatif : System.Web.UI.Page
                     finitions.Add("-            "+finition.TypeFinition.Nom + " : " + finition.Nom);
                 }
                 mainProduct.Add(finitions);
+                mainProduct.Add("-        Modules : \n");
+                List modules = new List();
+                foreach (var module in produit.ModeleDeGamme.Modules)
+                {
+                    Paragraph modPar = new Paragraph();
+                    modules.Add(module.Module.TypeModule.Nom + " : " + module.Module.Nom + "\n");
+                    modules.Add("Hauteur : " + module.Hauteur + "\n");
+                    modules.Add("Longueur : " + module.Longueur + "\n");
+                    modules.Add("Prix : " + devisService.GetPriceOfModule(module.Module) + "\n");
+                    modules.Add("Identification : " + module.Identification + "\n\n\n");
+                    
+                }
+                mainProduct.Add(modules);
                 produits.Add(mainProduct);
             }
             pdfDoc.Add(produits);
