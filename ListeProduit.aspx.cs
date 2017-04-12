@@ -67,6 +67,7 @@ public partial class ListeProduit : System.Web.UI.Page
     {
         repositoryDevis = new DevisRepository();
         repositoryDevis.Add(recordedDevis);
+        Response.Redirect("Recapitulatif.aspx");
     }
 
     //fonction qui refresh le panel de produits
